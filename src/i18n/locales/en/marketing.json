@@ -1,0 +1,403 @@
+{
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "caseStudies": "Case Studies",
+    "docs": "Docs",
+    "blog": "Blog",
+    "login": "Log in",
+    "startTrial": "Start Free Trial",
+    "languageEn": "EN",
+    "languageJa": "日本語"
+  },
+  "ui": {
+    "live": "Live",
+    "triggers": "Triggers",
+    "conditions": "Conditions",
+    "actions": "Actions",
+    "signal": "Signal"
+  },
+  "hero": {
+    "eyebrow": "AI-powered commerce OS",
+    "title": "Manage Every Marketplace. From One Operating System.",
+    "subtitle": "Unify listings, inventory, orders, pricing, and workflows across Amazon, Shopee, Rakuten, Shopify, Walmart, eBay, and 50+ marketplaces.",
+    "primaryCta": "Start Free Trial",
+    "secondaryCta": "Book Live Demo",
+    "secondaryNote": "No credit card required · 14-day free trial · Cancel anytime",
+    "reassurance": [
+      "Enterprise-grade security",
+      "Implementation in <30 days",
+      "Global compliance & audit trails"
+    ],
+    "statCard": {
+      "title": "Operational Readiness",
+      "metrics": [
+        {
+          "label": "Fulfillment SLA",
+          "value": "99.2%",
+          "change": "+0.5%"
+        },
+        {
+          "label": "Incidents auto-resolved",
+          "value": "842",
+          "change": "+18%"
+        },
+        {
+          "label": "Avg recovery time",
+          "value": "14 min",
+          "change": "-24%"
+        }
+      ]
+    }
+  },
+  "kpis": {
+    "marketplaces": {
+      "label": "Marketplaces",
+      "value": "50+",
+      "helper": "Connected channels"
+    },
+    "products": {
+      "label": "Products Managed",
+      "value": "1.2M+",
+      "helper": "Live SKUs under management"
+    },
+    "orders": {
+      "label": "Orders Processed",
+      "value": "1.7B+",
+      "helper": "Historical cross-channel orders"
+    },
+    "hours": {
+      "label": "Hours Saved",
+      "value": "80 hrs",
+      "helper": "Per operator per month"
+    }
+  },
+  "valueProps": {
+    "title": "One operating system. Dozens of enterprise value props.",
+    "subtitle": "AstraCommerce OS replaces brittle spreadsheets and point solutions with a cohesive control plane.",
+    "items": [
+      {
+        "label": "Unified Commerce OS",
+        "headline": "Single source of truth for listings, inventory, and pricing.",
+        "bullets": [
+          "Bi-directional sync across 50+ channels",
+          "Role-based permissions and approvals",
+          "Pre-built dashboards for operators and finance"
+        ]
+      },
+      {
+        "label": "Listing Intelligence",
+        "headline": "AI-driven enrichment for every SKU and locale.",
+        "bullets": [
+          "Localized titles, descriptions, and attributes",
+          "Duplicate detection and variation grouping",
+          "Attrition scoring with marketplace policies"
+        ]
+      },
+      {
+        "label": "Multi-warehouse routing",
+        "headline": "Orchestrate fulfillment with granular rules.",
+        "bullets": [
+          "Optimize by SLA, cost, and distance",
+          "Smart splits for hazmat and bulky items",
+          "Cross-border tax and duty calculators"
+        ]
+      },
+      {
+        "label": "Profit & Fee Engine",
+        "headline": "Transparent margin across every order.",
+        "bullets": [
+          "Marketplace fee simulation",
+          "Dynamic repricing with floor protection",
+          "Payout reconciliation with finance exports"
+        ]
+      },
+      {
+        "label": "Seller Protection",
+        "headline": "Proactive guardrails before penalties hit.",
+        "bullets": [
+          "Policy-aware listing checks",
+          "Dispute packs with auto-generated evidence",
+          "Escalation workflows with audit trails"
+        ]
+      },
+      {
+        "label": "Automation & AI",
+        "headline": "Every workflow, rebuilt for operators.",
+        "bullets": [
+          "Trigger-Condition-Action builder",
+          "LLM copilots for catalog ops",
+          "Full observability and rollback"
+        ]
+      }
+    ]
+  },
+  "commandCenter": {
+    "eyebrow": "Product Snapshot",
+    "title": "Command center for every marketplace signal.",
+    "body": "Stay ahead of buy-box changes, fee updates, and fulfillment incidents with a single pane of glass built for high-velocity marketplace teams.",
+    "bullets": [
+      "Prioritize alerts by GMV impact and SLA risk",
+      "Drill into channel, warehouse, and carrier data",
+      "Trigger automations or manual reviews instantly"
+    ],
+    "linkLabel": "Explore Command Center →"
+  },
+  "workflowGrid": {
+    "title": "Every workflow, rebuilt for operators.",
+    "subtitle": "Operational playbooks, approvals, and automation paths tailored to each function.",
+    "items": [
+      {
+        "title": "Unified Commerce OS",
+        "bullets": [
+          "Normalize catalog schemas across channels",
+          "Guardrails for PDP quality and policy fit",
+          "Multi-currency pricing and VAT handling"
+        ],
+        "linkLabel": "Learn more"
+      },
+      {
+        "title": "Listing Intelligence",
+        "bullets": [
+          "Auto-generate variants and bundles",
+          "Detect suppressions before they happen",
+          "Localized keyword research with AI"
+        ],
+        "linkLabel": "Learn more"
+      },
+      {
+        "title": "Multi-warehouse",
+        "bullets": [
+          "Dynamic routing by service level and stock",
+          "Automated ASN + PO workflows",
+          "Carrier performance benchmarking"
+        ],
+        "linkLabel": "Learn more"
+      },
+      {
+        "title": "Profit & Fee Engine",
+        "bullets": [
+          "Fee simulations for new listings",
+          "Reprice based on competition and cost",
+          "Margin guardrails with finance approvals"
+        ],
+        "linkLabel": "Learn more"
+      },
+      {
+        "title": "Seller Protection",
+        "bullets": [
+          "Dispute auto-drafting with evidence packs",
+          "Policy anomaly detection",
+          "Fraud and abuse scorecards"
+        ],
+        "linkLabel": "Learn more"
+      },
+      {
+        "title": "Automation Workflows",
+        "bullets": [
+          "Trigger-condition-action builder",
+          "Simulation mode with audit logs",
+          "Templates for marketplace playbooks"
+        ],
+        "linkLabel": "Learn more"
+      }
+    ]
+  },
+  "automation": {
+    "title": "Triggers. Conditions. Actions. Fully audited.",
+    "subtitle": "Design automations that respect margin, inventory, and compliance constraints with full observability.",
+    "workflows": [
+      {
+        "name": "Buy Box recovery",
+        "triggers": [
+          "Buy box lost",
+          "Competitor price delta > 3%"
+        ],
+        "conditions": [
+          "Margin > 12%",
+          "Inventory > 20 units"
+        ],
+        "actions": [
+          "Reprice to target share",
+          "Notify channel manager",
+          "Simulate finance impact"
+        ]
+      },
+      {
+        "name": "Review crisis handling",
+        "triggers": [
+          "Rating drops below 4.0",
+          "NPS alert from CS"
+        ],
+        "conditions": [
+          "SKU tagged as flagship",
+          "Return rate > baseline"
+        ],
+        "actions": [
+          "Pause ads on affected channels",
+          "Open quality investigation",
+          "Launch recovery campaign"
+        ]
+      },
+      {
+        "name": "Low stock automation",
+        "triggers": [
+          "Available qty < 15 days cover",
+          "Inbound PO delayed"
+        ],
+        "conditions": [
+          "Demand forecast rising",
+          "Safety stock not met"
+        ],
+        "actions": [
+          "Route orders to alt warehouse",
+          "Expedite replenishment PO",
+          "Update expected ship dates"
+        ]
+      },
+      {
+        "name": "Cross-channel expansion",
+        "triggers": [
+          "SKU wins regional buy box",
+          "Positive returns trend"
+        ],
+        "conditions": [
+          "Content readiness > 90%",
+          "Localized pricing approved"
+        ],
+        "actions": [
+          "Publish to new marketplaces",
+          "Add localized imagery",
+          "Open export compliance review"
+        ]
+      }
+    ]
+  },
+  "architecture": {
+    "title": "The enterprise-grade architecture underneath.",
+    "subtitle": "Secure, observable, and scalable by design—built for multi-brand, multi-region, multi-warehouse operations.",
+    "bullets": [
+      "Unified data layer with normalized schemas",
+      "Event-native automation engine with rollbacks",
+      "Open connectors, webhooks, and GraphQL APIs",
+      "Audit logging, RBAC, SSO, and field-level encryption"
+    ],
+    "panel": {
+      "title": "Unified Commerce Fabric",
+      "pills": [
+        "Purchase order generation",
+        "Fulfillment routing rules",
+        "Cross-border duty engine",
+        "Service health & observability"
+      ]
+    }
+  },
+  "integrations": {
+    "title": "50+ Global Marketplaces Connected",
+    "subtitle": "Certified connectors with monitored SLAs and proactive alerting.",
+    "items": [
+      "Amazon",
+      "Shopify",
+      "Shopee",
+      "Rakuten",
+      "Mercari",
+      "Yahoo! Shopping",
+      "Walmart",
+      "eBay",
+      "TikTok Shop",
+      "Lazada",
+      "Zalora",
+      "Noon",
+      "Joom",
+      "OTTO",
+      "Coupang"
+    ]
+  },
+  "testimonials": {
+    "title": "Loved by enterprise marketplace teams.",
+    "subtitle": "AstraCommerce OS powers high-volume operators in retail, CPG, and D2C.",
+    "items": [
+      {
+        "quote": "AstraCommerce gave us a single control plane for 18 marketplaces. Our operators finally see the same truth as finance.",
+        "name": "Melissa Chen",
+        "role": "VP, Marketplace Operations",
+        "company": "Northbridge Retail",
+        "rating": 5
+      },
+      {
+        "quote": "We recover the buy box 40% faster and our automation playbooks are fully auditable. It feels like an ops copilot.",
+        "name": "Jordan Patel",
+        "role": "Director of eCommerce",
+        "company": "Atlas Supply Co.",
+        "rating": 5
+      },
+      {
+        "quote": "Fulfillment issues surface before customers notice. The cross-warehouse routing logic alone paid for the rollout in weeks.",
+        "name": "Aya Nakamura",
+        "role": "Head of Digital Commerce",
+        "company": "Kaito Brands",
+        "rating": 5
+      }
+    ]
+  },
+  "finalCta": {
+    "title": "Ready to transform your business?",
+    "subtitle": "Stand up an AI-powered command center that unifies every marketplace workflow.",
+    "bullets": [
+      "14-day free trial with guided onboarding",
+      "SOC 2 Type II, SSO, and granular RBAC",
+      "Live success team dedicated to your launch"
+    ],
+    "primaryCta": "Start Free Trial",
+    "secondaryCta": "Book Live Demo",
+    "helper": "Most customers see ROI inside the first 30 days."
+  },
+  "footer": {
+    "product": {
+      "title": "Product",
+      "links": [
+        { "label": "Features", "href": "#" },
+        { "label": "Pricing", "href": "#" },
+        { "label": "Roadmap", "href": "#" },
+        { "label": "Security", "href": "#" }
+      ]
+    },
+    "solutions": {
+      "title": "Solutions",
+      "links": [
+        { "label": "Marketplaces", "href": "#" },
+        { "label": "Retailers", "href": "#" },
+        { "label": "Brands", "href": "#" },
+        { "label": "Logistics", "href": "#" }
+      ]
+    },
+    "resources": {
+      "title": "Resources",
+      "links": [
+        { "label": "Docs", "href": "#" },
+        { "label": "Blog", "href": "#" },
+        { "label": "Partners", "href": "#" },
+        { "label": "Status", "href": "#" }
+      ]
+    },
+    "company": {
+      "title": "Company",
+      "links": [
+        { "label": "About", "href": "#" },
+        { "label": "Careers", "href": "#" },
+        { "label": "Press", "href": "#" },
+        { "label": "Contact", "href": "#" }
+      ]
+    },
+    "legal": {
+      "title": "Legal",
+      "links": [
+        { "label": "Privacy", "href": "#" },
+        { "label": "Terms", "href": "#" },
+        { "label": "Data Processing", "href": "#" },
+        { "label": "Cookie Policy", "href": "#" }
+      ]
+    },
+    "copyright": "© 2025 AstraCommerce OS. All rights reserved."
+  }
+}

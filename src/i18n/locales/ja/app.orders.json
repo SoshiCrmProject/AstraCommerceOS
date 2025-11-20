@@ -1,0 +1,214 @@
+{
+  "title": "注文管理",
+  "subtitle": "全チャネルの注文を作成から配送まで一元監視。",
+  "filters": {
+    "search": "注文を検索",
+    "searchPlaceholder": "注文ID、外部ID、顧客名",
+    "channel": "チャネル",
+    "channelAll": "すべてのチャネル",
+    "status": "ステータス",
+    "statusAll": "すべてのステータス",
+    "fulfillmentMethod": "出荷方法",
+    "fulfillmentMethodAll": "すべての方法",
+    "dateRange": "期間",
+    "today": "本日",
+    "last7": "直近7日間",
+    "last30": "直近30日間",
+    "custom": "カスタム期間",
+    "slaBreached": "SLA危険/違反",
+    "returns": "返品・係争"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "楽天",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo!ショッピング",
+    "MERCARI": "メルカリ",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "statuses": {
+    "PENDING": "保留中",
+    "AWAITING_PAYMENT": "支払い待ち",
+    "PAID": "支払済",
+    "FULFILLING": "出荷準備中",
+    "SHIPPED": "発送済",
+    "DELIVERED": "配達完了",
+    "CANCELLED": "キャンセル",
+    "RETURN_REQUESTED": "返品リクエスト",
+    "RETURNED": "返品完了"
+  },
+  "fulfillmentMethods": {
+    "FBA": "FBA",
+    "FBM": "FBM",
+    "OWN_WAREHOUSE": "自社倉庫",
+    "3PL": "3PL"
+  },
+  "kpis": {
+    "ordersToday": "本日の注文",
+    "orders7d": "注文（7日間）",
+    "pendingFulfillment": "出荷待ち",
+    "shippedToday": "本日発送",
+    "delivered7d": "配達完了（7日間）",
+    "cancelled7d": "キャンセル（7日間）",
+    "onTimeSla": "期限内出荷率"
+  },
+  "sla": {
+    "onTime": "期限内",
+    "atRisk": "危険",
+    "breached": "違反"
+  },
+  "table": {
+    "orderId": "注文ID",
+    "externalId": "外部ID",
+    "channel": "チャネル",
+    "created": "作成日時",
+    "status": "ステータス",
+    "fulfillment": "出荷方法",
+    "customer": "顧客名",
+    "destination": "配送先",
+    "amount": "金額",
+    "sla": "SLA",
+    "items": "商品数",
+    "noOrders": "注文がありません",
+    "showing": "{{total}}件中 {{start}}-{{end}}件を表示"
+  },
+  "actions": {
+    "openFulfillmentWorkspace": "フルフィルメントワークスペースを開く",
+    "exportOrders": "注文をエクスポート（CSV）",
+    "viewOrder": "注文を表示",
+    "openInChannel": "チャネルで開く",
+    "markPriority": "優先としてマーク",
+    "assignBatch": "バッチに割当",
+    "bulkExport": "選択をエクスポート",
+    "refresh": "更新"
+  },
+  "channelBreakdown": {
+    "title": "チャネル別注文（7日間）",
+    "channel": "チャネル",
+    "orders": "注文数",
+    "revenue": "売上",
+    "lateRate": "遅延率"
+  },
+  "ai": {
+    "askCopilot": "Copilotに質問",
+    "atRiskQuestion": "本日最もリスクの高い注文は？",
+    "analyzing": "注文を分析中..."
+  },
+  "detail": {
+    "title": "注文詳細",
+    "orderInfo": "注文情報",
+    "items": "注文商品",
+    "shipping": "配送先住所",
+    "billing": "請求先住所",
+    "timeline": "注文タイムライン",
+    "fulfillment": "フルフィルメント",
+    "exceptions": "例外・問題",
+    "notes": "備考",
+    "externalId": "外部ID",
+    "createdAt": "作成日時",
+    "paymentStatus": "支払いステータス",
+    "totalAmount": "合計金額",
+    "currency": "通貨",
+    "itemsCount": "商品数",
+    "sku": "SKU",
+    "product": "商品",
+    "quantity": "数量",
+    "unitPrice": "単価",
+    "lineTotal": "小計",
+    "openProduct": "商品を開く",
+    "openInventory": "在庫を開く",
+    "warehouseName": "倉庫",
+    "carrier": "配送業者",
+    "trackingNumber": "追跡番号",
+    "copyTracking": "追跡番号をコピー",
+    "openTracking": "追跡を開く",
+    "createTicket": "サポートチケットを作成",
+    "viewInWorkspace": "フルフィルメントワークスペースで表示",
+    "markResolved": "解決済にする",
+    "addNote": "備考を追加"
+  },
+  "timeline": {
+    "CREATED": "注文作成",
+    "PAID": "支払い確認",
+    "FULFILLMENT_STARTED": "出荷準備開始",
+    "PICKED": "ピッキング完了",
+    "PACKED": "梱包完了",
+    "SHIPPED": "発送完了",
+    "OUT_FOR_DELIVERY": "配達中",
+    "DELIVERED": "配達完了",
+    "CANCELLED": "注文キャンセル",
+    "RETURN_REQUESTED": "返品リクエスト",
+    "RETURN_COMPLETED": "返品完了"
+  },
+  "fulfillmentWorkspace": {
+    "title": "フルフィルメントワークスペース",
+    "subtitle": "倉庫・配送業者全体で優先順位付け、バッチ処理、問題解決を実施。",
+    "jobs": "出荷ジョブ",
+    "exceptions": "例外・問題",
+    "jobStatus": {
+      "PENDING": "保留中",
+      "IN_PROGRESS": "処理中",
+      "COMPLETED": "完了",
+      "FAILED": "失敗"
+    },
+    "exceptionTypes": {
+      "LATE_SHIPMENT": "遅延出荷",
+      "ADDRESS_ISSUE": "住所問題",
+      "STOCKOUT": "在庫切れ",
+      "CARRIER_DELAY": "配送業者遅延",
+      "RETURN_DISPUTE": "返品係争"
+    },
+    "severity": {
+      "LOW": "低",
+      "MEDIUM": "中",
+      "HIGH": "高",
+      "CRITICAL": "緊急"
+    },
+    "filters": {
+      "jobStatus": "ジョブステータス",
+      "warehouse": "倉庫",
+      "exceptionsOnly": "例外がある注文のみ表示"
+    },
+    "actions": {
+      "markPacked": "梱包完了にする",
+      "markShipped": "発送完了にする",
+      "printPackingSlip": "出荷伝票を印刷",
+      "suggestBatches": "優先バッチを提案",
+      "viewJobDetail": "ジョブ詳細を表示"
+    },
+    "table": {
+      "jobId": "ジョブID",
+      "orderId": "注文ID",
+      "channel": "チャネル",
+      "method": "方法",
+      "warehouse": "倉庫",
+      "status": "ステータス",
+      "sla": "SLA",
+      "lastUpdated": "最終更新",
+      "carrier": "配送業者",
+      "tracking": "追跡番号",
+      "type": "種類",
+      "severity": "重要度",
+      "created": "作成日時",
+      "resolved": "ステータス",
+      "summary": "概要",
+      "noJobs": "出荷ジョブがありません",
+      "noExceptions": "例外がありません"
+    },
+    "ai": {
+      "suggestBatches": "AIがSLA期限、倉庫位置、注文金額に基づき最適なバッチを分析中...",
+      "topBatches": "推奨優先バッチ"
+    }
+  },
+  "empty": {
+    "noOrders": "注文がまだありません",
+    "noOrdersDescription": "顧客が注文を行うとここに表示されます。",
+    "noResults": "フィルター条件に一致する注文がありません",
+    "noResultsDescription": "検索条件やフィルターを調整してください。",
+    "noExceptions": "すべて正常です！",
+    "noExceptionsDescription": "現在、フルフィルメントの例外はありません。"
+  }
+}

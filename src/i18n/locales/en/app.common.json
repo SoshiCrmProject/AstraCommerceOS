@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "dashboard": "Command Center",
+    "channels": "Channels",
+    "products": "Products",
+    "listings": "Listings",
+    "inventory": "Inventory",
+    "orders": "Orders",
+    "pricing": "Pricing",
+    "automation": "Automations",
+    "ai": "AI Copilot",
+    "reviews": "Reviews",
+    "analytics": "Analytics",
+    "logs": "Logs",
+    "settings": "Settings",
+    "admin": "Admin Console"
+  },
+  "common": {
+    "welcome": "Welcome back, {{name}}",
+    "searchPlaceholder": "Search SKUs, orders, automations...",
+    "status": {
+      "operational": "Operational",
+      "degraded": "Degraded",
+      "action": "Action required"
+    },
+    "breadcrumbs": {
+      "home": "Home"
+    },
+    "buttons": {
+      "viewAll": "View all",
+      "addNew": "Add new",
+      "open": "Open",
+      "settings": "Settings"
+    }
+  },
+  "dashboard": {
+    "title": "Command Center",
+    "subtitle": "Unify marketplace health, automations, and fulfillment readiness in one view.",
+    "kpis": {
+      "revenue": "Revenue (24h)",
+      "orders": "Orders (24h)",
+      "profit": "Net profit",
+      "atRiskSkus": "At-risk SKUs"
+    },
+    "sections": {
+      "systemHealth": "System health",
+      "alerts": "Alerts & insights",
+      "shortcuts": "Shortcuts"
+    },
+    "shortcuts": {
+      "copilot": "Ask Copilot why revenue dipped this week",
+      "inventory": "Review low-stock SKUs",
+      "automation": "Tune automations"
+    }
+  },
+  "channels": {
+    "title": "Channels",
+    "subtitle": "Manage every marketplace connector and monitor sync health.",
+    "table": {
+      "channel": "Channel",
+      "region": "Region",
+      "status": "Status",
+      "revenue": "Revenue (24h)",
+      "orders": "Orders (24h)",
+      "lastSync": "Last sync"
+    }
+  },
+  "products": {
+    "title": "Products",
+    "subtitle": "Central catalog across marketplaces.",
+    "table": {
+      "sku": "SKU",
+      "title": "Title",
+      "channel": "Channel",
+      "status": "Status",
+      "inventory": "Inventory"
+    }
+  },
+  "listings": {
+    "title": "Listings",
+    "subtitle": "Channel-specific listing details and quality signals.",
+    "table": {
+      "sku": "SKU",
+      "title": "Title",
+      "channel": "Channel",
+      "status": "Status"
+    }
+  },
+  "inventory": {
+    "title": "Inventory",
+    "subtitle": "Multi-warehouse stock, safety buffers, and routing hints.",
+    "table": {
+      "location": "Location",
+      "available": "Available",
+      "status": "Status"
+    }
+  },
+  "orders": {
+    "title": "Orders",
+    "subtitle": "Unified order inbox with SLA awareness.",
+    "table": {
+      "order": "Order",
+      "channel": "Channel",
+      "amount": "Amount",
+      "status": "Status",
+      "eta": "ETA"
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "subtitle": "Repricing profiles, simulations, and guardrails.",
+    "table": {
+      "profile": "Profile",
+      "channel": "Channel",
+      "floor": "Floor",
+      "ceiling": "Ceiling",
+      "status": "Status"
+    }
+  },
+  "automation": {
+    "title": "Automations",
+    "subtitle": "Trigger-condition-action rules with audit history.",
+    "table": {
+      "name": "Name",
+      "trigger": "Trigger",
+      "status": "Status",
+      "impact": "Impact",
+      "lastRun": "Last run"
+    }
+  },
+  "ai": {
+    "title": "AI Copilot",
+    "subtitle": "Ask AstraCommerce Copilot to analyze issues or draft content."
+  },
+  "reviews": {
+    "title": "Reviews",
+    "subtitle": "Aggregated reviews, sentiment, and response workflows.",
+    "table": {
+      "title": "Title",
+      "channel": "Channel",
+      "rating": "Rating",
+      "sentiment": "Sentiment"
+    }
+  },
+  "analytics": {
+    "title": "Analytics",
+    "subtitle": "Performance, margin, risk, and automation impact."
+  },
+  "logs": {
+    "title": "Logs",
+    "subtitle": "Sync, automation, and connector logs."
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Workspaces, notifications, brand, and credentials."
+  },
+  "admin": {
+    "title": "Admin Console",
+    "subtitle": "Plans, usage, user management, and system status."
+  }
+}

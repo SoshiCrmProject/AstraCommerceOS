@@ -1,0 +1,255 @@
+{
+  "title": "チャネル",
+  "subtitle": "すべてのマーケットプレイスを1か所で接続・監視・最適化します。",
+  "actions": {
+    "add": "チャネルを追加",
+    "healthCheck": "ヘルスチェックを実行",
+    "syncNow": "今すぐ同期",
+    "syncAll": "全て同期",
+    "testConnection": "接続テスト",
+    "openSettings": "設定を開く",
+    "openChannel": "チャネルを開く",
+    "editSettings": "設定を編集",
+    "pauseSync": "同期を一時停止",
+    "disconnect": "チャネルを切断",
+    "viewLogs": "ログを見る",
+    "runFullSync": "フル同期を実行",
+    "runKindSync": "同期を実行",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "apply": "適用"
+  },
+  "filters": {
+    "status": "ステータス",
+    "type": "タイプ",
+    "region": "リージョン",
+    "all": "すべて",
+    "reset": "フィルタをリセット",
+    "healthy": "稼働中",
+    "degraded": "一部低下",
+    "disconnected": "接続なし"
+  },
+  "statuses": {
+    "healthy": "稼働中",
+    "degraded": "一部低下",
+    "disconnected": "接続なし"
+  },
+  "common": {
+    "searchPlaceholder": "チャネル・タグ・リージョンを検索",
+    "actionsLabel": "アクション",
+    "saving": "保存中…",
+    "testing": "テスト中…",
+    "saved": "保存しました",
+    "noRisk": "リスクは検出されていません。",
+    "legendRevenue": "売上",
+    "legendOrders": "注文",
+    "connectedToast": "接続済み",
+    "low": "低",
+    "oos": "在庫切れ",
+    "enabled": "有効",
+    "disabled": "無効"
+  },
+  "board": {
+    "title": "チャネルボード",
+    "metrics": {
+      "revenue7d": "売上（7日）",
+      "orders7d": "注文（7日）",
+      "margin": "粗利率",
+      "buyBox": "カート獲得率"
+    },
+    "health": {
+      "lastSync": "最終同期",
+      "nextSync": "次回同期",
+      "success30d": "成功率（30日）",
+      "uptime30d": "稼働率（30日）"
+    },
+    "badges": {
+      "new": "新規"
+    }
+  },
+  "tabs": {
+    "overview": "概要",
+    "listings": "リスティング",
+    "orders": "注文",
+    "pricing": "価格と手数料",
+    "health": "ヘルスとログ",
+    "settings": "設定"
+  },
+  "wizard": {
+    "title": "チャネルを追加",
+    "subtitle": "適切な権限と同期ポリシーで新しいコネクタを構成します。",
+    "steps": {
+      "type": {
+        "title": "マーケットプレイスを選択",
+        "description": "マーケットプレイス・リージョン・アカウント種別を選択します。"
+      },
+      "settings": {
+        "title": "同期設定",
+        "description": "同期対象と頻度を決めます。"
+      },
+      "credentials": {
+        "title": "認証情報",
+        "description": "APIキーや接続情報を入力します。"
+      },
+      "review": {
+        "title": "確認",
+        "description": "接続前に内容を確認します。"
+      }
+    },
+    "marketplaces": {
+      "AMAZON": { "label": "Amazon", "desc": "Seller/Vendor Central (SP-API)" },
+      "SHOPIFY": { "label": "Shopify", "desc": "管理画面API（読み書き）" },
+      "SHOPEE": { "label": "Shopee", "desc": "ShopeeオープンプラットフォームAPI" },
+      "RAKUTEN": { "label": "Rakuten", "desc": "楽天市場API" },
+      "EBAY": { "label": "eBay", "desc": "eBay販売API" },
+      "WALMART": { "label": "Walmart", "desc": "WalmartマーケットプレイスAPI" },
+      "YAHOO_SHOPPING": { "label": "Yahoo! Shopping", "desc": "Yahoo!ショッピングAPI" },
+      "MERCARI": { "label": "Mercari", "desc": "メルカリセラーAPI" },
+      "TIKTOK_SHOP": { "label": "TikTok Shop", "desc": "TikTok ShopセラーAPI" }
+    },
+    "region": "リージョン",
+    "accountType": "アカウント種別",
+    "accountId": "アカウント / ストアID",
+    "apiKey": "APIキー / クライアントID",
+    "apiSecret": "APIシークレット / クライアントシークレット",
+    "redirectUrl": "リダイレクトURL",
+    "syncSchedule": "同期頻度",
+    "syncProducts": "商品同期",
+    "syncInventory": "在庫同期",
+    "syncOrders": "注文同期",
+    "syncPricing": "価格同期",
+    "syncReviews": "レビュー同期",
+    "frequency": {
+      "15m": "15分ごと",
+      "hourly": "毎時",
+      "daily": "毎日"
+    },
+    "placeholders": {
+      "apiKey": "クライアントキーを貼り付け",
+      "apiSecret": "クライアントシークレットを貼り付け",
+      "redirectUrl": "https://app.astracommerce.com/callback",
+      "accountId": "店舗 / マーチャントID"
+    },
+    "validation": {
+      "required": "必須項目です。",
+      "credentials": "次に進む前に認証情報を入力してください。",
+      "policy": "マーケットプレイスポリシーへの同意が必要です。"
+    },
+    "error": "チャネルの作成に失敗しました。",
+    "next": "次へ",
+    "back": "戻る",
+    "connect": "チャネルを接続",
+    "review": "接続内容",
+    "policy": "マーケットプレイスポリシーを確認しました。"
+  },
+  "detail": {
+    "header": {
+      "region": "リージョン",
+      "account": "アカウントID",
+      "connected": "接続日",
+      "status": "ステータス"
+    },
+    "overview": {
+      "title": "オペレーション概要",
+      "chartTitle": "売上と注文（直近10日）",
+      "topSkus": "このチャネルの人気SKU",
+      "health": "主要なヘルスメトリクス",
+      "lastError": "最後のエラー",
+      "nextSync": "次回同期",
+      "aov": "平均受注単価"
+    },
+    "kpis": {
+      "revenue7d": "売上（7日）",
+      "revenue30d": "売上（30日）",
+      "orders7d": "注文（7日）",
+      "orders30d": "注文（30日）",
+      "profit7d": "利益（7日）",
+      "profit30d": "利益（30日）"
+    },
+    "listings": {
+      "title": "リスティング",
+      "filters": {
+        "status": "ステータス",
+        "price": "価格",
+        "stock": "在庫"
+      },
+      "columns": {
+        "sku": "SKU",
+        "product": "商品",
+        "status": "ステータス",
+        "price": "価格",
+        "stock": "在庫",
+        "orders7d": "注文（7日）",
+        "buyBox": "カート獲得率"
+      },
+      "empty": "該当するリスティングがありません。"
+    },
+    "orders": {
+      "title": "注文",
+      "filters": {
+        "status": "ステータス",
+        "dateRange": "期間"
+      },
+      "columns": {
+        "id": "注文ID",
+        "orderedAt": "注文日時",
+        "status": "ステータス",
+        "amount": "金額",
+        "fulfillment": "出荷方法",
+        "sla": "SLA"
+      }
+    },
+    "pricing": {
+      "title": "価格と手数料",
+      "summary": "このチャネルにおける売上・手数料・マージンを表示します。",
+      "columns": {
+        "sku": "SKU",
+        "price": "現在の価格",
+        "fee": "推定手数料率",
+        "margin": "推定マージン率"
+      },
+      "actions": {
+        "adjust": "価格を調整"
+      },
+      "suggestions": "自動価格改定の提案"
+    },
+    "health": {
+      "connection": "接続ヘルス",
+      "latency": "APIレイテンシ",
+      "uptime": "稼働率（30日）",
+      "success": "同期成功率（30日）",
+      "pending": "保留ジョブ",
+      "incidents": "インシデント（24h）",
+      "logs": "同期ログ",
+      "filters": {
+        "kind": "種類",
+        "status": "ステータス",
+        "date": "期間"
+      },
+      "columns": {
+        "kind": "種類",
+        "status": "ステータス",
+        "started": "開始",
+        "duration": "時間",
+        "items": "件数",
+        "message": "メッセージ"
+      }
+    },
+    "settings": {
+      "title": "チャネル設定",
+      "description": "同期対象と頻度をコントロールします。",
+      "syncPreferences": "同期設定",
+      "notifications": "通知",
+      "notifyOnFailure": "失敗時に通知",
+      "cadence": "同期間隔（分）",
+      "danger": "危険エリア",
+      "pause": "全同期を一時停止",
+      "disconnect": "チャネルを切断"
+    }
+  },
+  "empty": {
+    "title": "まだチャネルがありません。",
+    "description": "Amazon、Shopify、Shopee、Rakuten、Walmart、eBay、Yahoo!ショッピング、Mercari、TikTok Shopなどと接続できます。",
+    "cta": "最初のチャネルを追加"
+  }
+}

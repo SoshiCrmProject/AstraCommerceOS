@@ -1,0 +1,319 @@
+{
+  "pricing": {
+    "title": "Pricing that scales with every marketplace",
+    "subtitle": "Predictable plans with enterprise controls, SOC 2, and priority response SLAs.",
+    "plans": [
+      {
+        "name": "Growth",
+        "price": "$1,490/mo",
+        "cta": "Start free trial",
+        "description": "Built for teams launching across 5–10 marketplaces.",
+        "features": [
+          "Up to 10 channels connected",
+          "Automation builder with 50 workflows",
+          "AI listing enrichment for 5k SKUs",
+          "Role-based access",
+          "Email + chat support"
+        ]
+      },
+      {
+        "name": "Scale",
+        "price": "$3,800/mo",
+        "cta": "Talk to sales",
+        "description": "For multi-warehouse, multi-region brands pushing GMV.",
+        "features": [
+          "Unlimited channels",
+          "Unlimited workflows + rollback",
+          "AI copilots for catalog & ops",
+          "Advanced routing + fee engine",
+          "Priority support with TAM"
+        ]
+      },
+      {
+        "name": "Enterprise",
+        "price": "Custom",
+        "cta": "Book enterprise demo",
+        "description": "Security, procurement, and deep customization included.",
+        "features": [
+          "Private cloud / region pinning",
+          "SAML/SCIM, SOC 2 Type II, DPA",
+          "Custom connectors & sandboxes",
+          "24/7 response SLAs",
+          "Dedicated solutions team"
+        ]
+      }
+    ],
+    "faqs": [
+      {
+        "q": "Can we start in one region and expand later?",
+        "a": "Yes. Plans are designed to add regions and channels without contract renegotiation."
+      },
+      {
+        "q": "Do you support our custom ERP or WMS?",
+        "a": "We provide open APIs, webhooks, and can build certified connectors during onboarding."
+      },
+      {
+        "q": "Is onboarding assisted?",
+        "a": "Every plan includes guided onboarding, workspace setup, and workflow templates."
+      }
+    ],
+    "ctaTitle": "Need a custom rollout plan?",
+    "ctaSubtitle": "We align with your IT, security, finance, and operations milestones."
+  },
+  "caseStudies": {
+    "title": "Case studies",
+    "subtitle": "How operators shrink their time-to-fix from hours to minutes.",
+    "cards": [
+      {
+        "company": "Northbridge Retail",
+        "headline": "18 marketplaces unified in 30 days.",
+        "result": "Buy box recovery time dropped by 41%",
+        "summary": "Migrated from spreadsheets and legacy OMS to AstraCommerce OS with guarded automations.",
+        "linkLabel": "Read story"
+      },
+      {
+        "company": "Atlas Supply Co.",
+        "headline": "OpEx down, margins up.",
+        "result": "Reduced fee leakage by $2.4M annually",
+        "summary": "Profit engine + fee simulation stopped underpriced SKUs before they hit production.",
+        "linkLabel": "Read story"
+      },
+      {
+        "company": "Kaito Brands",
+        "headline": "Fulfillment resilience by design.",
+        "result": "99.6% on-time fulfillment across 7 warehouses",
+        "summary": "Dynamic routing and automation handled carrier slippage without manual intervention.",
+        "linkLabel": "Read story"
+      }
+    ]
+  },
+  "why": {
+    "title": "Why AstraCommerce OS",
+    "subtitle": "Built for multi-region operators who need speed, governance, and observability.",
+    "pillars": [
+      {
+        "title": "Unified data fabric",
+        "points": [
+          "Normalized schemas across listings, orders, inventory, pricing",
+          "Real-time sync with replay & audit",
+          "BI-ready exports and lake integration"
+        ]
+      },
+      {
+        "title": "Automation with safeguards",
+        "points": [
+          "Trigger-Condition-Action with simulations",
+          "Per-action approvals and RBAC",
+          "Full audit logs and rollbacks"
+        ]
+      },
+      {
+        "title": "Enterprise guardrails",
+        "points": [
+          "SOC 2 Type II, SSO, SCIM",
+          "Field-level encryption and PII lanes",
+          "Dedicated environments and SLAs"
+        ]
+      }
+    ]
+  },
+  "product": {
+    "title": "Product overview",
+    "subtitle": "From listing intelligence to fulfillment routing—one OS to run them all.",
+    "sections": [
+      {
+        "title": "Command center",
+        "body": "Cross-channel signals with health, revenue, and SLA risk in one view.",
+        "bullets": [
+          "Channel scorecards and alerting",
+          "Multi-warehouse visibility",
+          "Finance-ready fee transparency"
+        ]
+      },
+      {
+        "title": "Automation engine",
+        "body": "Trigger-condition-action builder with approvals and simulations.",
+        "bullets": [
+          "Prebuilt playbooks",
+          "Rollback + audit for every run",
+          "LLM copilots for operators"
+        ]
+      },
+      {
+        "title": "Connectors and APIs",
+        "body": "Certified connectors with monitored SLAs and open GraphQL.",
+        "bullets": [
+          "Webhooks and event streams",
+          "Custom connector kits",
+          "Sandbox + staging environments"
+        ]
+      }
+    ]
+  },
+  "docs": {
+    "title": "Documentation",
+    "subtitle": "Guides, references, and playbooks to ship faster.",
+    "categories": [
+      {
+        "title": "Getting started",
+        "links": [
+          { "label": "Workspace setup", "href": "/getting-started" },
+          { "label": "Channel connections", "href": "/getting-started#channels" },
+          { "label": "Roles & approvals", "href": "/getting-started#rbac" }
+        ]
+      },
+      {
+        "title": "APIs",
+        "links": [
+          { "label": "API reference", "href": "/api-reference" },
+          { "label": "Webhook events", "href": "/webhooks" },
+          { "label": "SDK setup", "href": "/sdk-setup" }
+        ]
+      },
+      {
+        "title": "Data & AI",
+        "links": [
+          { "label": "Data model", "href": "/data-model" },
+          { "label": "AI Copilot guide", "href": "/ai-copilot" }
+        ]
+      }
+    ]
+  },
+  "blog": {
+    "title": "AstraCommerce OS Blog",
+    "subtitle": "Operational playbooks, platform updates, and marketplace intelligence.",
+    "posts": [
+      {
+        "slug": "automation-buy-box",
+        "title": "How to automate Buy Box recovery with governance",
+        "excerpt": "A 5-step automation blueprint that pairs repricing with audit-ready approvals.",
+        "readTime": "6 min",
+        "date": "2025-02-03"
+      },
+      {
+        "slug": "fee-engine",
+        "title": "The hidden cost model behind marketplaces",
+        "excerpt": "Modeling fees, taxes, and returns risk before listings go live.",
+        "readTime": "7 min",
+        "date": "2025-01-18"
+      },
+      {
+        "slug": "multi-warehouse",
+        "title": "Designing resilient multi-warehouse routing",
+        "excerpt": "Patterns for SLA-aware routing with carrier benchmarks.",
+        "readTime": "8 min",
+        "date": "2025-01-05"
+      }
+    ],
+    "article": {
+      "author": "AstraCommerce OS Team",
+      "readTime": "7 min read",
+      "updated": "Updated"
+    }
+  },
+  "support": {
+    "gettingStarted": {
+      "title": "Getting started",
+      "sections": [
+        {
+          "title": "Create your workspace",
+          "items": [
+            "Invite your core team and set roles",
+            "Configure SSO/SCIM if required",
+            "Select primary region and data residency"
+          ]
+        },
+        {
+          "title": "Connect channels",
+          "items": [
+            "Add Amazon, Shopify, and top marketplaces first",
+            "Enable read-only sync to validate data mapping",
+            "Turn on write-backs after QA"
+          ]
+        },
+        {
+          "title": "Publish guardrails",
+          "items": [
+            "Set approval flows for pricing and listings",
+            "Add alerting for SLA/fee anomalies",
+            "Simulate first automations before go-live"
+          ]
+        }
+      ]
+    },
+    "apiReference": {
+      "title": "API reference",
+      "body": "REST + GraphQL endpoints for listings, inventory, orders, and automations. All requests require workspace-scoped tokens and support idempotency keys."
+    },
+    "sdkSetup": {
+      "title": "SDK setup",
+      "body": "Install the SDK, configure keys, and use the typed clients for Node/TypeScript. Includes helpers for webhooks, retries, and pagination."
+    },
+    "webhooks": {
+      "title": "Webhooks",
+      "body": "Subscribe to events like listing.updated, order.created, automation.executed. Supports retries, HMAC signatures, and replay."
+    },
+    "dataModel": {
+      "title": "Data model",
+      "body": "Normalized entities for Products, Variants, Listings, Orders, Shipments, Fees, and Automations with lineage and audit fields."
+    },
+    "aiCopilot": {
+      "title": "AI Copilot guide",
+      "body": "Configure AI copilots for listing enrichment, summarizing disputes, and drafting recovery playbooks with approvals."
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "intro": "How we collect, use, and safeguard data across AstraCommerce OS.",
+      "sections": [
+        "We only process data to deliver and improve the service.",
+        "Data is encrypted in transit and at rest; access is audited.",
+        "Subprocessors and data residency options are documented in your DPA."
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "intro": "Binding terms for using AstraCommerce OS.",
+      "sections": [
+        "You retain ownership of your data; we provide the operating platform.",
+        "SLAs, support, and uptime targets are defined per plan.",
+        "Prohibited use includes abuse, fraud, and violating marketplace policies."
+      ]
+    },
+    "billing": {
+      "title": "Billing Agreement",
+      "intro": "How billing, renewals, and overages are handled.",
+      "sections": [
+        "Plans are billed monthly or annually in advance.",
+        "Overages for events, workflows, or connectors are invoiced monthly.",
+        "Non-payment may lead to service suspension with prior notice."
+      ]
+    },
+    "cookies": {
+      "title": "Cookie Policy",
+      "intro": "How cookies and similar technologies are used.",
+      "sections": [
+        "We use necessary cookies for authentication and security.",
+        "Analytics cookies help improve product experience.",
+        "You can manage preferences in your browser or workspace settings."
+      ]
+    }
+  },
+  "status": {
+    "title": "System status",
+    "subtitle": "Live health across API, connectors, and automation engine.",
+    "uptime": {
+      "api": "99.98% API uptime (30d)",
+      "connectors": "99.95% connectors uptime (30d)",
+      "automation": "99.96% automation execution (30d)"
+    },
+    "incidents": "No active incidents. Historical reports available in status RSS.",
+    "cta": "Subscribe to updates"
+  },
+  "maintenance": {
+    "title": "Scheduled maintenance",
+    "body": "AstraCommerce OS is undergoing planned maintenance. Operators remain connected; automations queue and replay after completion.",
+    "window": "Maintenance window: Sundays 02:00–03:00 UTC."
+  }
+}

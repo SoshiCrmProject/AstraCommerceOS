@@ -1,0 +1,164 @@
+{
+  "title": "Listings",
+  "subtitle": "Monitor and optimize every listing across all channels in one place.",
+  "filters": {
+    "search": "Search products, SKUs, listing IDs...",
+    "channel": "Channel",
+    "status": "Status",
+    "region": "Region",
+    "withErrors": "With errors",
+    "lowStock": "Low stock",
+    "recentlyChanged": "Recently changed",
+    "all": "All"
+  },
+  "table": {
+    "channel": "Channel",
+    "product": "Product",
+    "sku": "SKU",
+    "status": "Status",
+    "price": "Price",
+    "stock": "Stock",
+    "orders": "Orders (30d)",
+    "lastUpdated": "Last Updated",
+    "errors": "Errors"
+  },
+  "status": {
+    "ACTIVE": "Active",
+    "PAUSED": "Paused",
+    "OUT_OF_STOCK": "Out of Stock",
+    "PENDING": "Pending",
+    "ERROR": "Error",
+    "ARCHIVED": "Archived"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "Rakuten",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo! Shopping",
+    "MERCARI": "Mercari",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "actions": {
+    "bulkActions": "Bulk actions",
+    "createListing": "Create listing",
+    "changeStatus": "Change status",
+    "triggerResync": "Trigger resync",
+    "exportCsv": "Export CSV",
+    "edit": "Edit listing",
+    "resync": "Resync",
+    "viewProduct": "View product",
+    "savePublish": "Save & publish",
+    "preview": "Preview on marketplace",
+    "pauseListing": "Pause this listing",
+    "duplicateListing": "Duplicate listing",
+    "archiveListing": "Archive listing"
+  },
+  "bulk": {
+    "selected": "{{count}} listings selected",
+    "changeStatusTo": "Change status to {{status}}",
+    "resyncSelected": "Resync selected listings",
+    "exportSelected": "Export selected to CSV"
+  },
+  "detail": {
+    "tabs": {
+      "content": "Content",
+      "variations": "Variations",
+      "seo": "SEO & Keywords",
+      "compliance": "Compliance & Errors",
+      "history": "History"
+    },
+    "content": {
+      "title": "Title",
+      "subtitle": "Subtitle",
+      "bulletPoints": "Bullet Points",
+      "description": "Description",
+      "attributes": "Attributes",
+      "addBullet": "Add bullet point",
+      "addAttribute": "Add attribute",
+      "characterCount": "{{current}}/{{max}} characters",
+      "recommendedLength": "Recommended: under {{max}} characters"
+    },
+    "variations": {
+      "addVariation": "Add variation",
+      "editVariation": "Edit variation",
+      "variantCount": "{{count}} variants"
+    },
+    "seo": {
+      "searchTerms": "Search Terms",
+      "frontendKeywords": "Frontend Keywords",
+      "generateKeywords": "Generate keyword set"
+    },
+    "compliance": {
+      "eligibleForAds": "Eligible for ads",
+      "violations": "Violations: {{count}} pending",
+      "flags": "Flags: {{flags}}",
+      "categories": {
+        "CATEGORY": "Category",
+        "BRAND": "Brand",
+        "CONTENT": "Content",
+        "POLICY": "Policy",
+        "DUPLICATE": "Duplicate",
+        "TECHNICAL": "Technical"
+      },
+      "severity": {
+        "INFO": "Info",
+        "WARNING": "Warning",
+        "ERROR": "Error"
+      }
+    },
+    "history": {
+      "titleUpdated": "Title updated",
+      "bulletEdited": "Bullet point edited",
+      "priceChanged": "Price changed from {{from}} to {{to}}",
+      "statusChanged": "Status changed {{from}} → {{to}}"
+    }
+  },
+  "ai": {
+    "title": "AI Listing Assistant",
+    "modes": {
+      "generate": "Generate from scratch",
+      "improve": "Improve current listing",
+      "localizeToJa": "Localize to Japanese",
+      "localizeToEn": "Localize to English"
+    },
+    "tone": {
+      "professional": "Professional",
+      "friendly": "Friendly",
+      "premium": "Premium",
+      "technical": "Technical"
+    },
+    "actions": {
+      "generateDraft": "Generate draft",
+      "improveCurrent": "Improve current text",
+      "localizeToJa": "Localize to Japanese",
+      "localizeToEn": "Localize to English",
+      "applyAll": "Apply all",
+      "applyTitle": "Apply title only",
+      "applyBullets": "Apply bullets only"
+    },
+    "settings": {
+      "language": "Language",
+      "tone": "Tone",
+      "includeSeo": "Include SEO keywords"
+    }
+  },
+  "errors": {
+    "title": "Listing issues",
+    "summary": {
+      "errors": "{{count}} errors",
+      "warnings": "{{count}} warnings",
+      "lastOccurrence": "Last occurrence: {{date}}"
+    },
+    "viewDetail": "View in detail page",
+    "aiSuggestion": "AI suggests adjusting the title length and removing prohibited terms."
+  },
+  "empty": {
+    "noListings": "No listings found",
+    "noListingsDesc": "Try adjusting your filters or create your first listing.",
+    "noErrors": "No issues found",
+    "noErrorsDesc": "This listing is compliant with all marketplace requirements."
+  }
+}

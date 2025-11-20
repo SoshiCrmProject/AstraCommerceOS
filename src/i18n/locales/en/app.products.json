@@ -1,0 +1,240 @@
+{
+  "title": "Products",
+  "subtitle": "Catalog, performance, and research in a single view.",
+  "actions": {
+    "addProduct": "Add product",
+    "import": "Import from file",
+    "open": "Open",
+    "openPricing": "Go to Pricing",
+    "openInventory": "Go to Inventory",
+    "openChannels": "Open in Channels",
+    "askCopilot": "Ask Copilot about this product",
+    "openResearch": "Open AI analysis",
+    "openDetail": "Open product detail",
+    "exportCsv": "Export to CSV",
+    "goToListing": "Go to Amazon listing"
+  },
+  "labels": {
+    "products": "products",
+    "reserved": "reserved",
+    "reviews": "reviews",
+    "selectAll": "Select all products",
+    "show": "Show",
+    "hide": "Hide",
+    "noResearchNotes": "No research notes yet. Run AI analysis to populate insights.",
+    "perDay": "per day"
+  },
+  "filters": {
+    "searchPlaceholder": "Search SKU, name, brand",
+    "brand": "Brand",
+    "category": "Category",
+    "tags": "Tags",
+    "channel": "Channel",
+    "stock": "Stock status",
+    "stockOk": "OK",
+    "stockLow": "Low",
+    "stockOos": "Out of stock",
+    "sort": "Sort",
+    "sortOptions": {
+      "revenue7d": "Revenue (7d)",
+      "revenue30d": "Revenue (30d)",
+      "orders7d": "Orders (7d)",
+      "profit30d": "Profit (30d)",
+      "createdAt": "Created date"
+    },
+    "tagsOptions": {
+      "bestseller": "Bestseller",
+      "high_margin": "High margin",
+      "at_risk": "At risk",
+      "rising_star": "Rising star",
+      "priority": "Priority",
+      "new": "New"
+    },
+    "channelOptions": {
+      "all": "All channels",
+      "amazon": "Amazon",
+      "shopify": "Shopify",
+      "shopee": "Shopee",
+      "rakuten": "Rakuten",
+      "ebay": "eBay",
+      "walmart": "Walmart",
+      "yahoo": "Yahoo! Shopping",
+      "mercari": "Mercari",
+      "tiktok": "TikTok Shop"
+    }
+  },
+  "bulk": {
+    "label": "Bulk actions",
+    "selected": "{{count}} selected",
+    "tagPriority": "Tag as priority product",
+    "openPricing": "Open in Pricing",
+    "openInventory": "Open in Inventory",
+    "export": "Export to CSV"
+  },
+  "table": {
+    "product": "Product",
+    "revenue": "Revenue (7d)",
+    "orders": "Orders (7d)",
+    "profit": "Profit (30d)",
+    "stock": "Stock",
+    "ratings": "Ratings",
+    "research": "Research",
+    "actions": "Actions",
+    "avgPrice": "Avg selling price",
+    "badges": {
+      "highRoi": "High ROI",
+      "crowded": "Crowded",
+      "rising": "Rising star",
+      "needsAttention": "Needs attention"
+    }
+  },
+  "researchPanel": {
+    "title": "Research spotlight",
+    "bsr": "BSR rank",
+    "estSales": "Est. daily sales",
+    "competition": "Competition",
+    "levels": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "roi": "ROI",
+    "margin": "Margin",
+    "fees": "Fees",
+    "notes": "Notes",
+    "openAi": "Open AI analysis",
+    "openDetail": "Open product detail",
+    "goToListing": "Go to Amazon listing",
+    "empty": "Select a product to see research signals."
+  },
+  "aiHelper": {
+    "title": "Ask Copilot: Which SKUs should I focus on?",
+    "placeholder": "Describe what you want Copilot to analyze...",
+    "run": "Run prompt",
+    "loading": "Generating recommendations...",
+    "resultTitle": "Copilot recommendations",
+    "empty": "No recommendations yet.",
+    "presets": {
+      "highMargin": "Find high-margin but low-visibility products",
+      "stockRisk": "Find SKUs at risk of stockout",
+      "expand": "Find winners to expand to more channels"
+    }
+  },
+  "detail": {
+    "tags": {
+      "bestseller": "Bestseller",
+      "high_margin": "High margin",
+      "low_stock": "Low stock",
+      "new": "New",
+      "rising_star": "Rising star",
+      "at_risk": "At risk"
+    },
+    "summary": {
+      "revenue": "Revenue",
+      "orders": "Orders",
+      "profit": "Profit",
+      "asp": "Avg selling price",
+      "refund": "Refund rate",
+      "toggle7d": "7d",
+      "toggle30d": "30d"
+    },
+    "tabs": {
+      "overview": "Overview",
+      "inventory": "Inventory & Warehouses",
+      "channels": "Channels & Listings",
+      "reviews": "Reviews & Sentiment",
+      "research": "Research & Strategy",
+      "activity": "Activity & Logs"
+    },
+    "overview": {
+      "performance": "Performance trend",
+      "inventory": "Inventory snapshot",
+      "channels": "Channels overview",
+      "copilot": "Copilot summary",
+      "channelsLive": "{{count}} channels live"
+    },
+    "inventory": {
+      "title": "Inventory & Warehouses",
+      "table": {
+        "location": "Location",
+        "type": "Type",
+        "onHand": "On-hand",
+        "reserved": "Reserved",
+        "reorder": "Reorder point",
+        "status": "Status",
+        "actions": "Actions",
+        "openInventory": "Open in Inventory",
+        "createPo": "Create PO"
+      },
+      "types": {
+        "FBA": "FBA",
+        "FBM": "FBM",
+        "THIRD_PARTY": "3PL",
+        "OWN_WAREHOUSE": "Own warehouse"
+      },
+      "warnings": {
+        "belowReorder": "Below reorder point",
+        "oosRisk": "OOS risk in 3 days"
+      }
+    },
+    "channels": {
+      "title": "Channels & Listings",
+      "labels": {
+        "price": "Price",
+        "orders": "Orders (7d)",
+        "buyBox": "Buy Box share",
+        "status": "Status",
+        "attention": "Needs attention"
+      },
+      "statusLabels": {
+        "ACTIVE": "Active",
+        "PAUSED": "Paused",
+        "OUT_OF_STOCK": "Out of stock",
+        "PENDING": "Pending",
+        "ERROR": "Error"
+      },
+      "ctaListings": "Open listing"
+    },
+    "reviews": {
+      "title": "Reviews & Sentiment",
+      "avgRating": "Avg rating (30d)",
+      "positive": "Positive (30d)",
+      "negative": "Negative (30d)",
+      "keywords": "Top issue keywords",
+      "viewAll": "View all reviews in Reviews module",
+      "reply": "Generate reply for latest review"
+    },
+    "research": {
+      "title": "Research & Strategy",
+      "bsr": "BSR rank",
+      "estSales": "Est. daily sales",
+      "competition": "Competition",
+      "roi": "ROI %",
+      "margin": "Margin %",
+      "landedCost": "Landed cost",
+      "fees": "Fees estimate",
+      "notes": "Research notes",
+      "strategy": "AI strategy generator",
+      "prompts": {
+        "pricing": "Suggest a pricing strategy for this SKU",
+        "channels": "Suggest which channels to expand to next",
+        "risks": "Summarize main risks for this product"
+      },
+      "generate": "Generate"
+    },
+    "activity": {
+      "title": "Activity & Logs",
+      "timestamp": "Timestamp",
+      "type": "Type",
+      "source": "Source",
+      "description": "Description",
+      "types": {
+        "SYNC": "Sync",
+        "PRICE_CHANGE": "Price change",
+        "AUTOMATION": "Automation",
+        "REVIEW": "Review",
+        "LISTING": "Listing"
+      }
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@import "tailwindcss";
+@import "../styles/enterprise-design-system.css";
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+
+  --color-page: var(--bg-page);
+  --color-section: var(--bg-section);
+  --color-surface: var(--bg-surface);
+  --color-surface-muted: var(--bg-surface-muted);
+  --color-app: var(--bg-app);
+  --color-shell: var(--bg-shell);
+
+  --color-primary: var(--text-primary);
+  --color-secondary: var(--text-secondary);
+  --color-muted: var(--text-muted);
+
+  --color-default: var(--border-default);
+  --color-strong: var(--border-strong);
+
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-soft: var(--accent-primary-soft);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-success: var(--accent-success);
+  --color-warning: var(--accent-warning);
+  --color-danger: var(--accent-danger);
+
+  --shadow-sm: var(--shadow-elevation-sm);
+  --shadow-md: var(--shadow-elevation-md);
+  --shadow-lg: var(--shadow-elevation-lg);
+
+  --radius-card: var(--radius-card);
+  --radius-panel: var(--radius-panel);
+  --radius-pill: var(--radius-pill);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+.prose-muted {
+  color: var(--text-secondary);
+}
+
+.container-shell {
+  max-width: var(--max-width-content);
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container-shell {
+    padding-inline: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-shell {
+    padding-inline: 2rem;
+  }
+}
+
+.focus-ring {
+  outline: 2px solid color-mix(
+    in srgb,
+    var(--accent-primary) 70%,
+    var(--accent-secondary)
+  );
+  outline-offset: 2px;
+}
+
+.rounded-card {
+  border-radius: var(--radius-card);
+}
+
+.rounded-panel {
+  border-radius: var(--radius-panel);
+}
+
+.rounded-pill {
+  border-radius: var(--radius-pill);
+}
+
+.shadow-token-md {
+  box-shadow: var(--shadow-elevation-md);
+}
+
+.shadow-token-lg {
+  box-shadow: var(--shadow-elevation-lg);
+}
+
+.hover-shadow-soft:hover {
+  box-shadow: var(--shadow-elevation-md);
+}
+
+.hover-shadow-strong:hover {
+  box-shadow: var(--shadow-elevation-lg);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 150ms ease;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: white;
+  box-shadow: var(--shadow-elevation-md);
+}
+
+.btn-secondary {
+  border: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.btn-ghost {
+  color: var(--text-secondary);
+}
+
+.btn:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--accent-primary) 70%, var(--accent-secondary));
+  outline-offset: 2px;
+}

@@ -1,0 +1,56 @@
+{
+  "title": "コマンドセンター",
+  "subtitle": "マーケットプレイス運営をAIで統合する単一のコックピットです。",
+  "filters": {
+    "today": "本日",
+    "last7": "直近7日間",
+    "last30": "直近30日間",
+    "custom": "カスタム"
+  },
+  "kpis": {
+    "revenue24h": "売上（過去24時間）",
+    "revenue7d": "売上（過去7日間）",
+    "orders24h": "注文数（過去24時間）",
+    "avgOrderValue": "平均注文額",
+    "netProfit7d": "純利益（過去7日間）",
+    "buyBoxShare": "Buy Boxシェア",
+    "fulfillmentSla": "期限内出荷率"
+  },
+  "sections": {
+    "timeline": "売上・注文の推移",
+    "systemHealth": "システム状況とチャネル",
+    "alerts": "アラートとアクション",
+    "skuInsights": "SKUインサイト",
+    "automation": "自動化の概要",
+    "aiInsights": "AIインサイト",
+    "reviews": "レビューとセンチメント"
+  },
+  "actions": {
+    "refresh": "更新",
+    "openAutomation": "自動化を開く",
+    "openReviews": "レビューを見る",
+    "openAiCopilot": "Copilotに質問",
+    "viewAllAlerts": "すべてのアラートを見る"
+  },
+  "timeline": {
+    "toggleRevenue": "売上",
+    "toggleOrders": "注文",
+    "toggleProfit": "利益",
+    "channelAll": "全チャネル"
+  },
+  "alerts": {
+    "filterAll": "すべて",
+    "filterInventory": "在庫",
+    "filterPricing": "価格",
+    "filterReviews": "レビュー",
+    "filterAutomation": "自動化",
+    "filterOps": "運用",
+    "filterBilling": "課金"
+  },
+  "insights": {
+    "topSellers": "トップセラー",
+    "atRisk": "リスクSKU",
+    "lowMargin": "低マージン",
+    "risingStars": "成長株"
+  }
+}

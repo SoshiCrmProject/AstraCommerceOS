@@ -1,0 +1,255 @@
+{
+  "title": "Channels",
+  "subtitle": "Connect, monitor, and optimize all your marketplaces from one place.",
+  "actions": {
+    "add": "Add channel",
+    "healthCheck": "Run health check",
+    "syncNow": "Sync now",
+    "syncAll": "Sync all",
+    "testConnection": "Test connection",
+    "openSettings": "Open settings",
+    "openChannel": "Open channel",
+    "editSettings": "Edit settings",
+    "pauseSync": "Pause sync",
+    "disconnect": "Disconnect",
+    "viewLogs": "View logs",
+    "runFullSync": "Run full sync",
+    "runKindSync": "Run sync",
+    "save": "Save",
+    "cancel": "Cancel",
+    "apply": "Apply"
+  },
+  "filters": {
+    "status": "Status",
+    "type": "Type",
+    "region": "Region",
+    "all": "All",
+    "reset": "Reset filters",
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "disconnected": "Disconnected"
+  },
+  "statuses": {
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "disconnected": "Disconnected"
+  },
+  "common": {
+    "searchPlaceholder": "Search channels, tags, regions",
+    "actionsLabel": "Actions",
+    "saving": "Saving…",
+    "testing": "Testing…",
+    "saved": "Saved",
+    "noRisk": "No risk detected.",
+    "legendRevenue": "Revenue",
+    "legendOrders": "Orders",
+    "connectedToast": "connected",
+    "low": "Low",
+    "oos": "OOS",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "board": {
+    "title": "Channel board",
+    "metrics": {
+      "revenue7d": "Revenue (7d)",
+      "orders7d": "Orders (7d)",
+      "margin": "Margin",
+      "buyBox": "Buy Box share"
+    },
+    "health": {
+      "lastSync": "Last sync",
+      "nextSync": "Next sync",
+      "success30d": "Success (30d)",
+      "uptime30d": "Uptime (30d)"
+    },
+    "badges": {
+      "new": "New"
+    }
+  },
+  "tabs": {
+    "overview": "Overview",
+    "listings": "Listings",
+    "orders": "Orders",
+    "pricing": "Pricing & fees",
+    "health": "Health & logs",
+    "settings": "Settings"
+  },
+  "wizard": {
+    "title": "Add channel",
+    "subtitle": "Provision a new marketplace connector with the right scopes and sync policies.",
+    "steps": {
+      "type": {
+        "title": "Select marketplace",
+        "description": "Choose the marketplace, region, and account flavor."
+      },
+      "settings": {
+        "title": "Sync preferences",
+        "description": "Define what to sync and how frequently."
+      },
+      "credentials": {
+        "title": "Credentials",
+        "description": "Provide API keys or connection details."
+      },
+      "review": {
+        "title": "Review & confirm",
+        "description": "Validate details before connecting."
+      }
+    },
+    "marketplaces": {
+      "AMAZON": { "label": "Amazon", "desc": "Seller/Vendor Central via SP-API" },
+      "SHOPIFY": { "label": "Shopify", "desc": "Admin API with read/write scopes" },
+      "SHOPEE": { "label": "Shopee", "desc": "Shopee Open Platform API" },
+      "RAKUTEN": { "label": "Rakuten", "desc": "Rakuten marketplace API" },
+      "EBAY": { "label": "eBay", "desc": "eBay Sell APIs" },
+      "WALMART": { "label": "Walmart", "desc": "Walmart Marketplace APIs" },
+      "YAHOO_SHOPPING": { "label": "Yahoo! Shopping", "desc": "Yahoo! Shopping Japan" },
+      "MERCARI": { "label": "Mercari", "desc": "Mercari Seller APIs" },
+      "TIKTOK_SHOP": { "label": "TikTok Shop", "desc": "TikTok Shop seller APIs" }
+    },
+    "region": "Region",
+    "accountType": "Account type",
+    "accountId": "Account / store ID",
+    "apiKey": "API key / Client ID",
+    "apiSecret": "API secret / Client secret",
+    "redirectUrl": "Redirect URL",
+    "syncSchedule": "Sync cadence",
+    "syncProducts": "Products sync",
+    "syncInventory": "Inventory sync",
+    "syncOrders": "Orders sync",
+    "syncPricing": "Pricing sync",
+    "syncReviews": "Reviews sync",
+    "frequency": {
+      "15m": "Every 15 minutes",
+      "hourly": "Hourly",
+      "daily": "Daily"
+    },
+    "placeholders": {
+      "apiKey": "Paste your client key",
+      "apiSecret": "Paste your client secret",
+      "redirectUrl": "https://app.astracommerce.com/callback",
+      "accountId": "Store or merchant ID"
+    },
+    "validation": {
+      "required": "This field is required.",
+      "credentials": "Enter credentials before continuing.",
+      "policy": "You must accept marketplace policy."
+    },
+    "error": "Failed to create channel.",
+    "next": "Next",
+    "back": "Back",
+    "connect": "Connect channel",
+    "review": "Connection summary",
+    "policy": "I have reviewed the marketplace policy."
+  },
+  "detail": {
+    "header": {
+      "region": "Region",
+      "account": "Account ID",
+      "connected": "Connected",
+      "status": "Status"
+    },
+    "overview": {
+      "title": "Operational overview",
+      "chartTitle": "Revenue vs orders (last 10 days)",
+      "topSkus": "Top SKUs for this channel",
+      "health": "Key health metrics",
+      "lastError": "Last error",
+      "nextSync": "Next scheduled sync",
+      "aov": "Avg order value"
+    },
+    "kpis": {
+      "revenue7d": "Revenue (7d)",
+      "revenue30d": "Revenue (30d)",
+      "orders7d": "Orders (7d)",
+      "orders30d": "Orders (30d)",
+      "profit7d": "Profit (7d)",
+      "profit30d": "Profit (30d)"
+    },
+    "listings": {
+      "title": "Listings",
+      "filters": {
+        "status": "Status",
+        "price": "Price",
+        "stock": "Stock"
+      },
+      "columns": {
+        "sku": "SKU",
+        "product": "Product",
+        "status": "Status",
+        "price": "Price",
+        "stock": "Stock",
+        "orders7d": "Orders (7d)",
+        "buyBox": "Buy Box"
+      },
+      "empty": "No listings found for this filter."
+    },
+    "orders": {
+      "title": "Orders",
+      "filters": {
+        "status": "Status",
+        "dateRange": "Date range"
+      },
+      "columns": {
+        "id": "Order ID",
+        "orderedAt": "Ordered at",
+        "status": "Status",
+        "amount": "Total amount",
+        "fulfillment": "Fulfillment",
+        "sla": "SLA"
+      }
+    },
+    "pricing": {
+      "title": "Pricing & fees",
+      "summary": "Revenue vs fees and margin for this channel.",
+      "columns": {
+        "sku": "SKU",
+        "price": "Current price",
+        "fee": "Est. fee %",
+        "margin": "Est. margin %"
+      },
+      "actions": {
+        "adjust": "Adjust price"
+      },
+      "suggestions": "Repricing suggestions"
+    },
+    "health": {
+      "connection": "Connection health",
+      "latency": "API latency",
+      "uptime": "Uptime (30d)",
+      "success": "Sync success (30d)",
+      "pending": "Pending jobs",
+      "incidents": "Incidents (24h)",
+      "logs": "Sync logs",
+      "filters": {
+        "kind": "Kind",
+        "status": "Status",
+        "date": "Date range"
+      },
+      "columns": {
+        "kind": "Kind",
+        "status": "Status",
+        "started": "Started",
+        "duration": "Duration",
+        "items": "Items",
+        "message": "Message"
+      }
+    },
+    "settings": {
+      "title": "Channel settings",
+      "description": "Control what is synced and how aggressively.",
+      "syncPreferences": "Sync preferences",
+      "notifications": "Notifications",
+      "notifyOnFailure": "Notify me on failures",
+      "cadence": "Sync cadence (minutes)",
+      "danger": "Danger zone",
+      "pause": "Pause all syncs",
+      "disconnect": "Disconnect channel"
+    }
+  },
+  "empty": {
+    "title": "No channels connected yet.",
+    "description": "Connect Amazon, Shopify, Shopee, Rakuten, Walmart, eBay, Yahoo! Shopping, Mercari, TikTok Shop, and more.",
+    "cta": "Add your first channel"
+  }
+}

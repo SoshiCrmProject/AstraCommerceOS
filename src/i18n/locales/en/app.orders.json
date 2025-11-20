@@ -1,0 +1,214 @@
+{
+  "title": "Orders",
+  "subtitle": "Monitor every order from creation to delivery across all channels.",
+  "filters": {
+    "search": "Search orders",
+    "searchPlaceholder": "Order ID, external ID, or customer name",
+    "channel": "Channel",
+    "channelAll": "All channels",
+    "status": "Status",
+    "statusAll": "All statuses",
+    "fulfillmentMethod": "Fulfillment method",
+    "fulfillmentMethodAll": "All methods",
+    "dateRange": "Date range",
+    "today": "Today",
+    "last7": "Last 7 days",
+    "last30": "Last 30 days",
+    "custom": "Custom range",
+    "slaBreached": "SLA at risk / breached",
+    "returns": "Returns & disputes"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "Rakuten",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo! Shopping",
+    "MERCARI": "Mercari",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "statuses": {
+    "PENDING": "Pending",
+    "AWAITING_PAYMENT": "Awaiting payment",
+    "PAID": "Paid",
+    "FULFILLING": "Fulfilling",
+    "SHIPPED": "Shipped",
+    "DELIVERED": "Delivered",
+    "CANCELLED": "Cancelled",
+    "RETURN_REQUESTED": "Return requested",
+    "RETURNED": "Returned"
+  },
+  "fulfillmentMethods": {
+    "FBA": "FBA",
+    "FBM": "FBM",
+    "OWN_WAREHOUSE": "Own warehouse",
+    "3PL": "3PL"
+  },
+  "kpis": {
+    "ordersToday": "Orders today",
+    "orders7d": "Orders (7 days)",
+    "pendingFulfillment": "Pending fulfillment",
+    "shippedToday": "Shipped today",
+    "delivered7d": "Delivered (7 days)",
+    "cancelled7d": "Cancelled (7 days)",
+    "onTimeSla": "On-time SLA rate"
+  },
+  "sla": {
+    "onTime": "On time",
+    "atRisk": "At risk",
+    "breached": "Breached"
+  },
+  "table": {
+    "orderId": "Order ID",
+    "externalId": "External ID",
+    "channel": "Channel",
+    "created": "Created",
+    "status": "Status",
+    "fulfillment": "Fulfillment",
+    "customer": "Customer",
+    "destination": "Destination",
+    "amount": "Amount",
+    "sla": "SLA",
+    "items": "Items",
+    "noOrders": "No orders found",
+    "showing": "Showing {{start}}-{{end}} of {{total}} orders"
+  },
+  "actions": {
+    "openFulfillmentWorkspace": "Open fulfillment workspace",
+    "exportOrders": "Export orders (CSV)",
+    "viewOrder": "View order",
+    "openInChannel": "Open in channel",
+    "markPriority": "Mark as priority",
+    "assignBatch": "Assign to batch",
+    "bulkExport": "Export selected",
+    "refresh": "Refresh"
+  },
+  "channelBreakdown": {
+    "title": "Orders by channel (7 days)",
+    "channel": "Channel",
+    "orders": "Orders",
+    "revenue": "Revenue",
+    "lateRate": "Late rate"
+  },
+  "ai": {
+    "askCopilot": "Ask Copilot",
+    "atRiskQuestion": "Which orders are most at risk today?",
+    "analyzing": "Analyzing orders..."
+  },
+  "detail": {
+    "title": "Order details",
+    "orderInfo": "Order information",
+    "items": "Order items",
+    "shipping": "Shipping address",
+    "billing": "Billing address",
+    "timeline": "Order timeline",
+    "fulfillment": "Fulfillment",
+    "exceptions": "Exceptions & issues",
+    "notes": "Notes",
+    "externalId": "External ID",
+    "createdAt": "Created",
+    "paymentStatus": "Payment status",
+    "totalAmount": "Total amount",
+    "currency": "Currency",
+    "itemsCount": "Items",
+    "sku": "SKU",
+    "product": "Product",
+    "quantity": "Quantity",
+    "unitPrice": "Unit price",
+    "lineTotal": "Line total",
+    "openProduct": "Open product",
+    "openInventory": "Open inventory",
+    "warehouseName": "Warehouse",
+    "carrier": "Carrier",
+    "trackingNumber": "Tracking number",
+    "copyTracking": "Copy tracking",
+    "openTracking": "Open tracking",
+    "createTicket": "Create support ticket",
+    "viewInWorkspace": "View in fulfillment workspace",
+    "markResolved": "Mark as resolved",
+    "addNote": "Add note"
+  },
+  "timeline": {
+    "CREATED": "Order created",
+    "PAID": "Payment confirmed",
+    "FULFILLMENT_STARTED": "Fulfillment started",
+    "PICKED": "Items picked",
+    "PACKED": "Order packed",
+    "SHIPPED": "Order shipped",
+    "OUT_FOR_DELIVERY": "Out for delivery",
+    "DELIVERED": "Delivered",
+    "CANCELLED": "Order cancelled",
+    "RETURN_REQUESTED": "Return requested",
+    "RETURN_COMPLETED": "Return completed"
+  },
+  "fulfillmentWorkspace": {
+    "title": "Fulfillment workspace",
+    "subtitle": "Prioritize, batch, and resolve fulfillment across warehouses and carriers.",
+    "jobs": "Fulfillment jobs",
+    "exceptions": "Exceptions & issues",
+    "jobStatus": {
+      "PENDING": "Pending",
+      "IN_PROGRESS": "In progress",
+      "COMPLETED": "Completed",
+      "FAILED": "Failed"
+    },
+    "exceptionTypes": {
+      "LATE_SHIPMENT": "Late shipment",
+      "ADDRESS_ISSUE": "Address issue",
+      "STOCKOUT": "Stock out",
+      "CARRIER_DELAY": "Carrier delay",
+      "RETURN_DISPUTE": "Return dispute"
+    },
+    "severity": {
+      "LOW": "Low",
+      "MEDIUM": "Medium",
+      "HIGH": "High",
+      "CRITICAL": "Critical"
+    },
+    "filters": {
+      "jobStatus": "Job status",
+      "warehouse": "Warehouse",
+      "exceptionsOnly": "Show orders with exceptions only"
+    },
+    "actions": {
+      "markPacked": "Mark as packed",
+      "markShipped": "Mark as shipped",
+      "printPackingSlip": "Print packing slip",
+      "suggestBatches": "Suggest priority batches",
+      "viewJobDetail": "View job detail"
+    },
+    "table": {
+      "jobId": "Job ID",
+      "orderId": "Order ID",
+      "channel": "Channel",
+      "method": "Method",
+      "warehouse": "Warehouse",
+      "status": "Status",
+      "sla": "SLA",
+      "lastUpdated": "Last updated",
+      "carrier": "Carrier",
+      "tracking": "Tracking",
+      "type": "Type",
+      "severity": "Severity",
+      "created": "Created",
+      "resolved": "Status",
+      "summary": "Summary",
+      "noJobs": "No fulfillment jobs found",
+      "noExceptions": "No exceptions found"
+    },
+    "ai": {
+      "suggestBatches": "AI is analyzing orders to suggest optimal batches based on SLA deadlines, warehouse location, and order value...",
+      "topBatches": "Recommended priority batches"
+    }
+  },
+  "empty": {
+    "noOrders": "No orders yet",
+    "noOrdersDescription": "Orders will appear here once customers start placing them.",
+    "noResults": "No orders match your filters",
+    "noResultsDescription": "Try adjusting your search or filter criteria.",
+    "noExceptions": "All clear!",
+    "noExceptionsDescription": "No fulfillment exceptions at this time."
+  }
+}

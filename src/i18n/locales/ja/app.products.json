@@ -1,0 +1,240 @@
+{
+  "title": "プロダクト",
+  "subtitle": "カタログ・パフォーマンス・リサーチを一つのビューで把握。",
+  "actions": {
+    "addProduct": "商品を追加",
+    "import": "ファイルからインポート",
+    "open": "開く",
+    "openPricing": "プライシングを開く",
+    "openInventory": "在庫を開く",
+    "openChannels": "チャネルで開く",
+    "askCopilot": "この商品についてCopilotに聞く",
+    "openResearch": "AI分析を開く",
+    "openDetail": "商品詳細を開く",
+    "exportCsv": "CSVにエクスポート",
+    "goToListing": "Amazonリスティングへ"
+  },
+  "filters": {
+    "searchPlaceholder": "SKU・商品名・ブランドで検索",
+    "brand": "ブランド",
+    "category": "カテゴリ",
+    "tags": "タグ",
+    "channel": "チャネル",
+    "stock": "在庫ステータス",
+    "stockOk": "良好",
+    "stockLow": "少ない",
+    "stockOos": "欠品",
+    "sort": "並び順",
+    "sortOptions": {
+      "revenue7d": "売上 (7日)",
+      "revenue30d": "売上 (30日)",
+      "orders7d": "注文数 (7日)",
+      "profit30d": "利益 (30日)",
+      "createdAt": "作成日"
+    },
+    "tagsOptions": {
+      "bestseller": "ベストセラー",
+      "high_margin": "高マージン",
+      "at_risk": "要注意",
+      "rising_star": "伸びている",
+      "priority": "優先",
+      "new": "新商品"
+    },
+    "channelOptions": {
+      "all": "すべてのチャネル",
+      "amazon": "Amazon",
+      "shopify": "Shopify",
+      "shopee": "Shopee",
+      "rakuten": "楽天市場",
+      "ebay": "eBay",
+      "walmart": "Walmart",
+      "yahoo": "Yahoo!ショッピング",
+      "mercari": "メルカリ",
+      "tiktok": "TikTok Shop"
+    }
+  },
+  "labels": {
+    "products": "件のプロダクト",
+    "reserved": "確保",
+    "reviews": "件のレビュー",
+    "selectAll": "すべてのプロダクトを選択",
+    "show": "表示",
+    "hide": "非表示",
+    "noResearchNotes": "リサーチメモはまだありません。AI分析を実行してください。",
+    "perDay": "／日"
+  },
+  "bulk": {
+    "label": "一括操作",
+    "selected": "{{count}}件を選択",
+    "tagPriority": "優先商品としてタグ付け",
+    "openPricing": "プライシングを開く",
+    "openInventory": "在庫を開く",
+    "export": "CSVにエクスポート"
+  },
+  "table": {
+    "product": "商品",
+    "revenue": "売上 (7日)",
+    "orders": "注文数 (7日)",
+    "profit": "利益 (30日)",
+    "stock": "在庫",
+    "ratings": "評価",
+    "research": "リサーチ",
+    "actions": "アクション",
+    "avgPrice": "平均販売価格",
+    "badges": {
+      "highRoi": "高ROI",
+      "crowded": "競合過多",
+      "rising": "伸びている",
+      "needsAttention": "要対応"
+    }
+  },
+  "researchPanel": {
+    "title": "リサーチスポットライト",
+    "bsr": "BSRランク",
+    "estSales": "推定日販",
+    "competition": "競合度",
+    "levels": {
+      "low": "低",
+      "medium": "中",
+      "high": "高"
+    },
+    "roi": "ROI",
+    "margin": "マージン",
+    "fees": "手数料",
+    "notes": "メモ",
+    "openAi": "AI分析を開く",
+    "openDetail": "商品詳細を開く",
+    "goToListing": "Amazonリスティングへ",
+    "empty": "商品を選択するとリサーチ指標が表示されます。"
+  },
+  "aiHelper": {
+    "title": "Copilotに聞く: どのSKUに集中すべき？",
+    "placeholder": "Copilotに分析してほしい内容を入力...",
+    "run": "プロンプトを実行",
+    "loading": "レコメンデーションを生成中...",
+    "resultTitle": "Copilotの提案",
+    "empty": "まだ提案はありません。",
+    "presets": {
+      "highMargin": "高マージンだが露出が低い商品を探す",
+      "stockRisk": "欠品リスクのあるSKUを探す",
+      "expand": "他チャネルに拡大すべき勝ちSKUを探す"
+    }
+  },
+  "detail": {
+    "tags": {
+      "bestseller": "ベストセラー",
+      "high_margin": "高マージン",
+      "low_stock": "在庫少",
+      "new": "新商品",
+      "rising_star": "伸びている",
+      "at_risk": "要注意"
+    },
+    "summary": {
+      "revenue": "売上",
+      "orders": "注文数",
+      "profit": "利益",
+      "asp": "平均販売価格",
+      "refund": "返品率",
+      "toggle7d": "7日",
+      "toggle30d": "30日"
+    },
+    "tabs": {
+      "overview": "概要",
+      "inventory": "在庫・倉庫",
+      "channels": "チャネル・リスティング",
+      "reviews": "レビュー・感情",
+      "research": "リサーチ・戦略",
+      "activity": "アクティビティ・ログ"
+    },
+    "overview": {
+      "performance": "パフォーマンストレンド",
+      "inventory": "在庫スナップショット",
+      "channels": "チャネル概要",
+      "copilot": "Copilotサマリー",
+      "channelsLive": "稼働中: {{count}}チャネル"
+    },
+    "inventory": {
+      "title": "在庫・倉庫",
+      "table": {
+        "location": "拠点",
+        "type": "タイプ",
+        "onHand": "在庫",
+        "reserved": "確保",
+        "reorder": "発注点",
+        "status": "ステータス",
+        "actions": "操作",
+        "openInventory": "在庫で開く",
+        "createPo": "発注書を作成"
+      },
+      "types": {
+        "FBA": "FBA",
+        "FBM": "FBM（自社発送）",
+        "THIRD_PARTY": "3PL倉庫",
+        "OWN_WAREHOUSE": "自社倉庫"
+      },
+      "warnings": {
+        "belowReorder": "発注点を下回っています",
+        "oosRisk": "3日以内に欠品リスク"
+      }
+    },
+    "channels": {
+      "title": "チャネル・リスティング",
+      "labels": {
+        "price": "価格",
+        "orders": "注文 (7日)",
+        "buyBox": "カート取得率",
+        "status": "ステータス",
+        "attention": "要対応"
+      },
+      "statusLabels": {
+        "ACTIVE": "稼働中",
+        "PAUSED": "一時停止",
+        "OUT_OF_STOCK": "欠品",
+        "PENDING": "審査中",
+        "ERROR": "エラー"
+      },
+      "ctaListings": "リスティングを開く"
+    },
+    "reviews": {
+      "title": "レビュー・感情",
+      "avgRating": "平均評価 (30日)",
+      "positive": "ポジティブ (30日)",
+      "negative": "ネガティブ (30日)",
+      "keywords": "主要キーワード",
+      "viewAll": "レビュー画面で表示",
+      "reply": "最新レビューの返信案を生成"
+    },
+    "research": {
+      "title": "リサーチ・戦略",
+      "bsr": "BSRランク",
+      "estSales": "推定日販",
+      "competition": "競合度",
+      "roi": "ROI %",
+      "margin": "マージン %",
+      "landedCost": "原価 (着地)",
+      "fees": "手数料見込み",
+      "notes": "リサーチメモ",
+      "strategy": "AI戦略ジェネレーター",
+      "prompts": {
+        "pricing": "このSKUの価格戦略を提案して",
+        "channels": "次に拡大すべきチャネルを提案して",
+        "risks": "この商品の主なリスクをまとめて"
+      },
+      "generate": "生成する"
+    },
+    "activity": {
+      "title": "アクティビティ・ログ",
+      "timestamp": "日時",
+      "type": "タイプ",
+      "source": "ソース",
+      "description": "詳細",
+      "types": {
+        "SYNC": "同期",
+        "PRICE_CHANGE": "価格変更",
+        "AUTOMATION": "自動化",
+        "REVIEW": "レビュー",
+        "LISTING": "リスティング"
+      }
+    }
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "title": "出品管理",
+  "subtitle": "全チャネルの出品を一箇所で監視・最適化できます。",
+  "filters": {
+    "search": "商品、SKU、出品IDで検索...",
+    "channel": "チャネル",
+    "status": "ステータス",
+    "region": "地域",
+    "withErrors": "エラーあり",
+    "lowStock": "在庫少",
+    "recentlyChanged": "最近変更",
+    "all": "すべて"
+  },
+  "table": {
+    "channel": "チャネル",
+    "product": "商品",
+    "sku": "SKU",
+    "status": "ステータス",
+    "price": "価格",
+    "stock": "在庫",
+    "orders": "注文数（30日）",
+    "lastUpdated": "最終更新",
+    "errors": "エラー"
+  },
+  "status": {
+    "ACTIVE": "アクティブ",
+    "PAUSED": "一時停止",
+    "OUT_OF_STOCK": "在庫切れ",
+    "PENDING": "保留中",
+    "ERROR": "エラー",
+    "ARCHIVED": "アーカイブ"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "楽天",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo!ショッピング",
+    "MERCARI": "メルカリ",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "actions": {
+    "bulkActions": "一括操作",
+    "createListing": "出品作成",
+    "changeStatus": "ステータス変更",
+    "triggerResync": "再同期実行",
+    "exportCsv": "CSV出力",
+    "edit": "出品編集",
+    "resync": "再同期",
+    "viewProduct": "商品表示",
+    "savePublish": "保存・公開",
+    "preview": "マーケットプレイスでプレビュー",
+    "pauseListing": "この出品を一時停止",
+    "duplicateListing": "出品を複製",
+    "archiveListing": "出品をアーカイブ"
+  },
+  "bulk": {
+    "selected": "{{count}}件の出品を選択中",
+    "changeStatusTo": "ステータスを{{status}}に変更",
+    "resyncSelected": "選択した出品を再同期",
+    "exportSelected": "選択した出品をCSV出力"
+  },
+  "detail": {
+    "tabs": {
+      "content": "コンテンツ",
+      "variations": "バリエーション",
+      "seo": "SEO・キーワード",
+      "compliance": "コンプライアンス・エラー",
+      "history": "履歴"
+    },
+    "content": {
+      "title": "タイトル",
+      "subtitle": "サブタイトル",
+      "bulletPoints": "箇条書き",
+      "description": "商品説明",
+      "attributes": "属性",
+      "addBullet": "箇条書きを追加",
+      "addAttribute": "属性を追加",
+      "characterCount": "{{current}}/{{max}}文字",
+      "recommendedLength": "推奨：{{max}}文字以内"
+    },
+    "variations": {
+      "addVariation": "バリエーション追加",
+      "editVariation": "バリエーション編集",
+      "variantCount": "{{count}}バリエーション"
+    },
+    "seo": {
+      "searchTerms": "検索キーワード",
+      "frontendKeywords": "フロントエンドキーワード",
+      "generateKeywords": "キーワードセットを生成"
+    },
+    "compliance": {
+      "eligibleForAds": "広告掲載可能",
+      "violations": "違反：{{count}}件保留中",
+      "flags": "フラグ：{{flags}}",
+      "categories": {
+        "CATEGORY": "カテゴリ",
+        "BRAND": "ブランド",
+        "CONTENT": "コンテンツ",
+        "POLICY": "ポリシー",
+        "DUPLICATE": "重複",
+        "TECHNICAL": "技術的"
+      },
+      "severity": {
+        "INFO": "情報",
+        "WARNING": "警告",
+        "ERROR": "エラー"
+      }
+    },
+    "history": {
+      "titleUpdated": "タイトルを更新",
+      "bulletEdited": "箇条書きを編集",
+      "priceChanged": "価格を{{from}}から{{to}}に変更",
+      "statusChanged": "ステータスを{{from}} → {{to}}に変更"
+    }
+  },
+  "ai": {
+    "title": "AI出品アシスタント",
+    "modes": {
+      "generate": "ゼロから生成",
+      "improve": "現在の出品を改善",
+      "localizeToJa": "日本語にローカライズ",
+      "localizeToEn": "英語にローカライズ"
+    },
+    "tone": {
+      "professional": "プロフェッショナル",
+      "friendly": "フレンドリー",
+      "premium": "プレミアム",
+      "technical": "技術的"
+    },
+    "actions": {
+      "generateDraft": "下書きを生成",
+      "improveCurrent": "現在のテキストを改善",
+      "localizeToJa": "日本語にローカライズ",
+      "localizeToEn": "英語にローカライズ",
+      "applyAll": "すべて適用",
+      "applyTitle": "タイトルのみ適用",
+      "applyBullets": "箇条書きのみ適用"
+    },
+    "settings": {
+      "language": "言語",
+      "tone": "トーン",
+      "includeSeo": "SEOキーワードを含める"
+    }
+  },
+  "errors": {
+    "title": "出品の問題",
+    "summary": {
+      "errors": "エラー{{count}}件",
+      "warnings": "警告{{count}}件",
+      "lastOccurrence": "最終発生：{{date}}"
+    },
+    "viewDetail": "詳細ページで表示",
+    "aiSuggestion": "AIはタイトルの長さを調整し、禁止用語を削除することを提案しています。"
+  },
+  "empty": {
+    "noListings": "出品が見つかりません",
+    "noListingsDesc": "フィルターを調整するか、最初の出品を作成してください。",
+    "noErrors": "問題は見つかりませんでした",
+    "noErrorsDesc": "この出品はすべてのマーケットプレイス要件に準拠しています。"
+  }
+}

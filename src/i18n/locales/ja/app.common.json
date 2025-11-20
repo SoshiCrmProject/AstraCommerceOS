@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "dashboard": "コマンドセンター",
+    "channels": "チャネル",
+    "products": "商品",
+    "listings": "リスティング",
+    "inventory": "在庫",
+    "orders": "注文",
+    "pricing": "価格設定",
+    "automation": "自動化",
+    "ai": "AIコパイロット",
+    "reviews": "レビュー",
+    "analytics": "分析",
+    "logs": "ログ",
+    "settings": "設定",
+    "admin": "管理コンソール"
+  },
+  "common": {
+    "welcome": "{{name}}さん、おかえりなさい",
+    "searchPlaceholder": "SKU・注文・自動化を検索...",
+    "status": {
+      "operational": "稼働中",
+      "degraded": "一部低下",
+      "action": "対応が必要です"
+    },
+    "breadcrumbs": {
+      "home": "ホーム"
+    },
+    "buttons": {
+      "viewAll": "すべて表示",
+      "addNew": "新規追加",
+      "open": "開く",
+      "settings": "設定"
+    }
+  },
+  "dashboard": {
+    "title": "コマンドセンター",
+    "subtitle": "マーケットプレイスの健全性、自動化、フルフィルメント準備を1つのビューで確認します。",
+    "kpis": {
+      "revenue": "売上（直近24時間）",
+      "orders": "注文数（直近24時間）",
+      "profit": "純利益",
+      "atRiskSkus": "リスクのあるSKU"
+    },
+    "sections": {
+      "systemHealth": "システム状況",
+      "alerts": "アラートとインサイト",
+      "shortcuts": "ショートカット"
+    },
+    "shortcuts": {
+      "copilot": "今週の売上減少理由をCopilotに質問",
+      "inventory": "在庫不足SKUを確認",
+      "automation": "自動化を調整"
+    }
+  },
+  "channels": {
+    "title": "チャネル",
+    "subtitle": "各マーケットプレイスの接続と同期状況を管理します。",
+    "table": {
+      "channel": "チャネル",
+      "region": "リージョン",
+      "status": "ステータス",
+      "revenue": "売上（24時間）",
+      "orders": "注文数（24時間）",
+      "lastSync": "最終同期"
+    }
+  },
+  "products": {
+    "title": "商品",
+    "subtitle": "マーケットプレイス横断の中央カタログ。",
+    "table": {
+      "sku": "SKU",
+      "title": "タイトル",
+      "channel": "チャネル",
+      "status": "ステータス",
+      "inventory": "在庫数"
+    }
+  },
+  "listings": {
+    "title": "リスティング",
+    "subtitle": "チャネル固有のリスティング詳細と品質シグナルを管理します。",
+    "table": {
+      "sku": "SKU",
+      "title": "タイトル",
+      "channel": "チャネル",
+      "status": "ステータス"
+    }
+  },
+  "inventory": {
+    "title": "在庫",
+    "subtitle": "複数倉庫の在庫、セーフティストック、ルーティングヒント。",
+    "table": {
+      "location": "拠点",
+      "available": "利用可能数",
+      "status": "ステータス"
+    }
+  },
+  "orders": {
+    "title": "注文",
+    "subtitle": "SLAを意識した統合注文インボックス。",
+    "table": {
+      "order": "注文番号",
+      "channel": "チャネル",
+      "amount": "金額",
+      "status": "ステータス",
+      "eta": "到着予定"
+    }
+  },
+  "pricing": {
+    "title": "価格設定",
+    "subtitle": "リプライスプロファイル、シミュレーション、ガードレール。",
+    "table": {
+      "profile": "プロファイル",
+      "channel": "チャネル",
+      "floor": "下限価格",
+      "ceiling": "上限価格",
+      "status": "ステータス"
+    }
+  },
+  "automation": {
+    "title": "自動化",
+    "subtitle": "トリガー・条件・アクションのルールと監査履歴。",
+    "table": {
+      "name": "名称",
+      "trigger": "トリガー",
+      "status": "ステータス",
+      "impact": "インパクト",
+      "lastRun": "最終実行"
+    }
+  },
+  "ai": {
+    "title": "AIコパイロット",
+    "subtitle": "Copilotに分析やコンテンツ作成を依頼します。"
+  },
+  "reviews": {
+    "title": "レビュー",
+    "subtitle": "レビューの集約、センチメント、対応ワークフロー。",
+    "table": {
+      "title": "タイトル",
+      "channel": "チャネル",
+      "rating": "評価",
+      "sentiment": "センチメント"
+    }
+  },
+  "analytics": {
+    "title": "分析",
+    "subtitle": "パフォーマンス、マージン、リスク、自動化効果。"
+  },
+  "logs": {
+    "title": "ログ",
+    "subtitle": "同期、自動化、コネクタのログ。"
+  },
+  "settings": {
+    "title": "設定",
+    "subtitle": "ワークスペース、通知、ブランド、認証情報。"
+  },
+  "admin": {
+    "title": "管理コンソール",
+    "subtitle": "プラン、利用状況、ユーザー管理、システム状況。"
+  }
+}

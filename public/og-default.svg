@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#0ea5e9" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.45"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="18" result="blur"/>
+      <feOffset dx="0" dy="12" result="offsetBlur"/>
+      <feColorMatrix in="offsetBlur" type="matrix" values="0 0 0 0 0   0 0 0 0 0.17   0 0 0 0 0.34  0 0 0 0.25 0"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="120" y="120" width="520" height="390" rx="28" fill="#ffffff" opacity="0.92" filter="url(#shadow)"/>
+  <text x="160" y="220" fill="#0f172a" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="44" font-weight="700">AstraCommerce OS</text>
+  <text x="160" y="270" fill="#334155" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="500">AI-Powered Global Commerce Operating System</text>
+  <text x="160" y="320" fill="#475569" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="20">Unify marketplaces, inventory, pricing, and automation</text>
+  <rect x="700" y="160" width="340" height="240" rx="24" fill="url(#panel)" opacity="0.85" filter="url(#shadow)"/>
+  <circle cx="900" cy="280" r="82" fill="none" stroke="#0ea5e9" stroke-width="12" opacity="0.8"/>
+  <circle cx="900" cy="280" r="54" fill="none" stroke="#2563eb" stroke-width="12" opacity="0.8"/>
+  <circle cx="900" cy="280" r="28" fill="#ffffff" opacity="0.95"/>
+  <text x="700" y="450" fill="#e2e8f0" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18" letter-spacing="1.5">Enterprise-grade · Multi-marketplace · Automation-native</text>
+</svg>

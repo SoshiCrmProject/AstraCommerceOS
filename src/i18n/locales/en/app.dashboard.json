@@ -1,0 +1,56 @@
+{
+  "title": "Command Center",
+  "subtitle": "Unify your marketplace operations in a single, AI-powered cockpit.",
+  "filters": {
+    "today": "Today",
+    "last7": "Last 7 days",
+    "last30": "Last 30 days",
+    "custom": "Custom"
+  },
+  "kpis": {
+    "revenue24h": "Revenue (last 24 hours)",
+    "revenue7d": "Revenue (last 7 days)",
+    "orders24h": "Orders (last 24 hours)",
+    "avgOrderValue": "Average order value",
+    "netProfit7d": "Net profit (last 7 days)",
+    "buyBoxShare": "Buy Box share",
+    "fulfillmentSla": "On-time fulfillment rate"
+  },
+  "sections": {
+    "timeline": "Revenue & orders over time",
+    "systemHealth": "System health & channels",
+    "alerts": "Alerts & actions",
+    "skuInsights": "SKU insights",
+    "automation": "Automation overview",
+    "aiInsights": "AI insights",
+    "reviews": "Review sentiment"
+  },
+  "actions": {
+    "refresh": "Refresh",
+    "openAutomation": "Open automation",
+    "openReviews": "View reviews",
+    "openAiCopilot": "Ask Copilot",
+    "viewAllAlerts": "View all alerts"
+  },
+  "timeline": {
+    "toggleRevenue": "Revenue",
+    "toggleOrders": "Orders",
+    "toggleProfit": "Profit",
+    "channelAll": "All channels"
+  },
+  "alerts": {
+    "filterAll": "All",
+    "filterInventory": "Inventory",
+    "filterPricing": "Pricing",
+    "filterReviews": "Reviews",
+    "filterAutomation": "Automation",
+    "filterOps": "Ops",
+    "filterBilling": "Billing"
+  },
+  "insights": {
+    "topSellers": "Top sellers",
+    "atRisk": "At-risk SKUs",
+    "lowMargin": "Low margin",
+    "risingStars": "Rising stars"
+  }
+}
