@@ -2,18 +2,20 @@ export type InventoryLocationType =
   | 'FBA'
   | 'FBM'
   | 'OWN_WAREHOUSE'
-  | '3PL';
+  | 'THIRD_PARTY_3PL';
 
 export type InventoryLocationSummary = {
-  id: string;
-  name: string;
-  type: InventoryLocationType;
-  country: string;
+  locationId: string;
+  locationName: string;
+  locationType: InventoryLocationType;
+  code?: string;
   region?: string;
+  city?: string;
   skuCount: number;
   totalOnHand: number;
+  totalReserved: number;
   totalAvailable: number;
-  lowStockCount: number;
+  totalInbound: number;
 };
 
 export type InventorySkuStatus =
@@ -30,13 +32,14 @@ export type InventorySkuSummary = {
   productName: string;
   mainImageUrl?: string;
   status: InventorySkuStatus;
-  totalOnHand: number;
-  totalAvailable: number;
-  totalReserved: number;
-  locationsCount: number;
-  daysOfCoverEstimate?: number;
+  onHandTotal: number;
+  reservedTotal: number;
+  availableTotal: number;
+  inboundTotal: number;
+  locationIds: string[];
   avgDailySales30d?: number;
-  pendingInboundUnits?: number;
+  isTopSeller?: boolean;
+  isSlowMover?: boolean;
 };
 
 export type InventorySkuLocationRow = {
@@ -46,15 +49,16 @@ export type InventorySkuLocationRow = {
   onHand: number;
   reserved: number;
   available: number;
-  incoming: number;
-  lastUpdatedAt: string;
+  inbound: number;
+  lastUpdatedAt?: string;
 };
 
 export type InventorySkuDemandInsight = {
   avgDailySales30d: number;
   avgDailySales90d: number;
   trend: 'UP' | 'DOWN' | 'FLAT';
-  stockoutRiskDays?: number;
+  forecastStockoutDays?: number;
+  forecastConfidence: 'HIGH' | 'MEDIUM' | 'LOW';
 };
 
 export type InventorySkuAgingBucket = {
@@ -63,31 +67,62 @@ export type InventorySkuAgingBucket = {
   percentage: number;
 };
 
+export type InventorySkuActivityEvent = {
+  id: string;
+  kind:
+    | 'INBOUND'
+    | 'OUTBOUND'
+    | 'ADJUSTMENT'
+    | 'TRANSFER'
+    | 'RESERVATION'
+    | 'CANCELLATION';
+  description: string;
+  quantity: number;
+  locationName?: string;
+  createdAt: string;
+};
+
 export type InventorySkuDetail = {
   sku: InventorySkuSummary;
   locations: InventorySkuLocationRow[];
   demand: InventorySkuDemandInsight;
   aging: InventorySkuAgingBucket[];
+  activity: InventorySkuActivityEvent[];
 };
+
+export type ReplenishmentSuggestionPriority = 'HIGH' | 'MEDIUM' | 'LOW';
 
 export type ReplenishmentSuggestion = {
   skuId: string;
   skuCode: string;
+  productId: string;
   productName: string;
+  mainImageUrl?: string;
   currentAvailable: number;
   avgDailySales30d: number;
   targetDaysOfCover: number;
-  recommendedReplenishQty: number;
+  recommendedQty: number;
   recommendedShipFromLocation?: string;
   recommendedShipToLocation?: string;
-  priority: 'HIGH' | 'MEDIUM' | 'LOW';
+  priority: ReplenishmentSuggestionPriority;
   reason: string;
+};
+
+export type InventoryOverviewSnapshot = {
+  totalSkus: number;
+  totalOnHand: number;
+  totalAvailable: number;
+  lowStockSkus: number;
+  outOfStockSkus: number;
+  overstockedSkus: number;
+  topAtRiskSkus: InventorySkuSummary[];
 };
 
 export type InventoryFilter = {
   search?: string;
   status?: InventorySkuStatus | 'ALL';
   locationId?: string;
-  hasLowStockOnly?: boolean;
-  hasOverstockOnly?: boolean;
+  onlyLowStock?: boolean;
+  onlyOverstock?: boolean;
+  hasInbound?: boolean;
 };

@@ -1,0 +1,174 @@
+{
+  "title": "Analytics",
+  "subtitle": "Understand revenue, profit, channels, products, and customer behavior in one place.",
+  "performance": {
+    "title": "Performance & Revenue",
+    "subtitle": "Deep dive into revenue trends, channel comparison, and performance metrics."
+  },
+  "products": {
+    "title": "Product Analytics",
+    "subtitle": "Analyze SKU performance, profitability, and identify rising stars and slow movers."
+  },
+  "customers": {
+    "title": "Customer Analytics",
+    "subtitle": "Understand customer cohorts, retention, lifetime value, and geographic breakdown."
+  },
+  "buttons": {
+    "downloadReport": "Download Report (CSV)",
+    "askCopilot": "Ask Analytics Copilot",
+    "explainChart": "Explain this chart",
+    "explainPerformance": "Explain channel performance",
+    "explainFunnel": "Explain drops in the funnel",
+    "viewDetails": "View Details",
+    "filterByChannel": "Filter by this channel",
+    "viewProduct": "View Product",
+    "exportData": "Export Data"
+  },
+  "filters": {
+    "dateRange": "Date Range",
+    "granularity": "Granularity",
+    "channel": "Channel",
+    "region": "Region",
+    "currency": "Currency",
+    "last7Days": "Last 7 days",
+    "last30Days": "Last 30 days",
+    "last90Days": "Last 90 days",
+    "customRange": "Custom range",
+    "day": "Day",
+    "week": "Week",
+    "month": "Month",
+    "allChannels": "All Channels",
+    "allRegions": "All Regions"
+  },
+  "kpis": {
+    "totalRevenue": "Total Revenue",
+    "totalProfit": "Total Profit",
+    "profitMargin": "Profit Margin",
+    "totalOrders": "Total Orders",
+    "revenueGrowth": "Revenue Growth",
+    "profitGrowth": "Profit Growth",
+    "ordersGrowth": "Orders Growth",
+    "avgOrderValue": "Avg Order Value",
+    "vsPreviousPeriod": "vs previous period"
+  },
+  "charts": {
+    "revenueOverTime": "Revenue & Profit Over Time",
+    "channelMix": "Channel Mix",
+    "topSkus": "Top SKUs by Revenue",
+    "conversionFunnel": "Conversion Funnel",
+    "anomaliesAlerts": "Anomalies & Alerts",
+    "revenue": "Revenue",
+    "profit": "Profit",
+    "orders": "Orders",
+    "units": "Units",
+    "legend": "Legend",
+    "date": "Date"
+  },
+  "channelPerformance": {
+    "title": "Channel Performance",
+    "channel": "Channel",
+    "region": "Region",
+    "revenue": "Revenue",
+    "profit": "Profit",
+    "profitMargin": "Margin %",
+    "orders": "Orders",
+    "units": "Units",
+    "avgOrderValue": "AOV",
+    "trend": "Trend",
+    "growth": "Growth",
+    "lateShipmentRate": "Late Ship %"
+  },
+  "topSkus": {
+    "title": "Top SKUs",
+    "byRevenue": "By Revenue",
+    "byProfit": "By Profit",
+    "byUnits": "By Units",
+    "product": "Product",
+    "sku": "SKU",
+    "channel": "Channel",
+    "revenue": "Revenue",
+    "profit": "Profit",
+    "units": "Units",
+    "margin": "Margin %",
+    "returnRate": "Return %",
+    "buyBoxShare": "Buy Box %",
+    "trend": "Trend"
+  },
+  "funnel": {
+    "title": "Conversion Funnel",
+    "stage": "Stage",
+    "count": "Count",
+    "conversion": "Conversion %",
+    "visits": "Visits",
+    "productViews": "Product Views",
+    "addToCart": "Add to Cart",
+    "checkout": "Checkout",
+    "orders": "Orders",
+    "fromPrevious": "from previous"
+  },
+  "anomalies": {
+    "title": "Anomalies & Alerts",
+    "severity": "Severity",
+    "type": "Type",
+    "description": "Description",
+    "detectedAt": "Detected",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "critical": "Critical",
+    "revenueSpike": "Revenue Spike",
+    "revenueDrop": "Revenue Drop",
+    "marginDrop": "Margin Drop",
+    "ordersSpike": "Orders Spike",
+    "cancellationSpike": "Cancellation Spike",
+    "returnRateSpike": "Return Rate Spike",
+    "noAnomalies": "No anomalies detected",
+    "viewRelatedMetrics": "View related metrics"
+  },
+  "cohorts": {
+    "title": "Customer Cohort Retention",
+    "cohort": "Cohort",
+    "month0": "Month 0",
+    "month1": "Month 1",
+    "month2": "Month 2",
+    "month3": "Month 3",
+    "month4": "Month 4",
+    "month5": "Month 5",
+    "retentionRate": "Retention Rate",
+    "customers": "Customers",
+    "revenue": "Revenue"
+  },
+  "geography": {
+    "title": "Geographic Breakdown",
+    "country": "Country",
+    "revenue": "Revenue",
+    "orders": "Orders",
+    "customers": "Customers",
+    "share": "Share %"
+  },
+  "ai": {
+    "title": "Analytics Copilot",
+    "description": "Ask AstraCommerce Copilot to explain your performance.",
+    "placeholder": "Ask a question about your analytics...",
+    "examplePrompts": {
+      "summary": "Summarize my performance this month in simple terms.",
+      "revenueChange": "Why did revenue change compared to last month?",
+      "profitChannels": "Which channels are driving most of the profit?",
+      "customerDropoff": "Where are we losing customers in the funnel?",
+      "topProducts": "What are my best-performing products and why?"
+    },
+    "generating": "Generating insights...",
+    "followUp": "Follow-up questions"
+  },
+  "empty": {
+    "noData": "No data available for this date range",
+    "noAnomalies": "No anomalies detected - everything looks normal",
+    "noSkus": "No SKUs found matching your filters",
+    "tryAdjustingFilters": "Try adjusting your filters"
+  },
+  "trendDirection": {
+    "up": "Up",
+    "down": "Down",
+    "flat": "Flat"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "title": "自動化とワークフローエンジン",
+  "subtitle": "ルールとワークフローでeコマース運営全体を統制",
+  "tabs": {
+    "overview": "概要",
+    "templates": "テンプレート"
+  },
+  "buttons": {
+    "createWorkflow": "ワークフローを作成",
+    "browseTemplates": "テンプレートを参照",
+    "askCopilot": "ワークフローコパイロットに質問",
+    "saveWorkflow": "ワークフローを保存",
+    "runTest": "テスト実行",
+    "pause": "一時停止",
+    "activate": "有効化",
+    "useTemplate": "テンプレートを使用",
+    "preview": "プレビュー"
+  },
+  "kpis": {
+    "activeWorkflows": "有効なワークフロー",
+    "runsLast24h": "実行 (24時間)",
+    "failuresLast24h": "失敗 (24時間)",
+    "pricingAutomations": "価格設定の自動化",
+    "inventoryAutomations": "在庫の自動化"
+  },
+  "filters": {
+    "search": "ルール名で検索...",
+    "allStatus": "すべてのステータス",
+    "active": "有効",
+    "paused": "一時停止",
+    "draft": "下書き",
+    "allTriggers": "すべてのトリガー"
+  },
+  "triggers": {
+    "orderCreated": "注文が作成されたとき",
+    "orderStatusChanged": "注文ステータスが変更されたとき",
+    "inventoryBelowThreshold": "在庫がしきい値を下回ったとき",
+    "priceBelowMinMargin": "価格が最小マージンを下回ったとき",
+    "newNegativeReview": "否定的なレビューを受け取ったとき",
+    "channelSyncFailed": "チャネル同期が失敗したとき",
+    "dailySchedule": "日次スケジュール",
+    "weeklySchedule": "週次スケジュール"
+  },
+  "actionTypes": {
+    "sendEmail": "メールを送信",
+    "sendSlackWebhook": "Slackメッセージを送信",
+    "adjustPrice": "価格を調整",
+    "createReplenishmentTask": "補充タスクを作成",
+    "tagOrder": "注文にタグ付け",
+    "tagProduct": "商品にタグ付け",
+    "createSupportTicket": "サポートチケットを作成",
+    "runChannelSync": "チャネル同期を実行",
+    "runAiSummary": "AI要約を実行"
+  },
+  "tableHeaders": {
+    "name": "名前",
+    "status": "ステータス",
+    "trigger": "トリガー",
+    "actions": "アクション",
+    "runs7d": "実行 (7日)",
+    "lastRun": "最終実行",
+    "quickActions": "クイックアクション",
+    "noRules": "自動化ルールが見つかりません",
+    "neverRun": "実行なし"
+  },
+  "builder": {
+    "createWorkflow": "ワークフローを作成",
+    "editWorkflow": "ワークフローを編集",
+    "basicInfo": "基本情報",
+    "ruleName": "ルール名",
+    "description": "説明",
+    "trigger": "トリガー",
+    "whenThisHappens": "これが発生したとき...",
+    "conditions": "条件 (IF)",
+    "actions": "アクション (THEN)",
+    "addCondition": "条件を追加",
+    "addAction": "アクションを追加",
+    "noConditions": "条件が追加されていません",
+    "noActions": "アクションが追加されていません",
+    "actionLabel": "アクションラベル (任意)",
+    "field": "フィールド",
+    "value": "値"
+  },
+  "executionHistory": {
+    "title": "最近の実行",
+    "noExecutions": "実行が見つかりません",
+    "viewLog": "ログを表示"
+  },
+  "workflowMap": {
+    "title": "ワークフローの可視化",
+    "trigger": "トリガー",
+    "conditions": "条件",
+    "actions": "アクション"
+  },
+  "templates": {
+    "title": "自動化テンプレート",
+    "subtitle": "価格設定、在庫、注文、レビューに関する実証済みのワークフローから開始",
+    "noTemplates": "利用可能なテンプレートがありません",
+    "template": "テンプレート"
+  },
+  "copilot": {
+    "title": "ワークフローコパイロット",
+    "describe": "自動化したい内容を記述してください",
+    "placeholder": "例：在庫が5日分を下回ったときにメールを送信",
+    "suggestedPrompts": "推奨プロンプト:",
+    "generateWorkflow": "ワークフローを生成",
+    "prompt1": "Amazon JPの注文が日次平均を超えたときにアラート",
+    "prompt2": "マージンが10%を下回ったときに価格を調整",
+    "prompt3": "$1000以上の高額注文にタグ付けして優先処理",
+    "prompt4": "在庫が少なくなったときにSlackアラートを送信"
+  }
+}

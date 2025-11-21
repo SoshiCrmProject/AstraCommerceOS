@@ -1,0 +1,165 @@
+{
+  "title": "Settings",
+  "subtitle": "Manage your organization, team, integrations, and billing",
+  
+  "tabs": {
+    "organization": "Organization",
+    "profile": "My Profile",
+    "team": "Team",
+    "branding": "Branding",
+    "integrations": "Integrations",
+    "billing": "Billing & Plan",
+    "security": "Security"
+  },
+  
+  "organization": {
+    "title": "Organization Settings",
+    "subtitle": "Basic information about your organization",
+    "name": "Organization Name",
+    "legalName": "Legal Name",
+    "contactEmail": "Contact Email",
+    "websiteUrl": "Website URL",
+    "defaultCurrency": "Default Currency",
+    "defaultTimezone": "Default Timezone",
+    "locale": "Language",
+    "saveChanges": "Save Changes",
+    "saved": "Settings saved successfully"
+  },
+  
+  "profile": {
+    "title": "My Profile",
+    "subtitle": "Your personal account settings",
+    "name": "Full Name",
+    "email": "Email Address",
+    "avatarUrl": "Avatar URL",
+    "role": "Role",
+    "locale": "Preferred Language",
+    "timezone": "Timezone",
+    "saveChanges": "Save Changes",
+    "saved": "Profile updated successfully"
+  },
+  
+  "team": {
+    "title": "Team Members",
+    "subtitle": "Manage who has access to your organization",
+    "inviteMember": "Invite Member",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status",
+    "joinedAt": "Joined",
+    "actions": "Actions",
+    "roles": {
+      "OWNER": "Owner",
+      "ADMIN": "Admin",
+      "MEMBER": "Member",
+      "VIEWER": "Viewer"
+    },
+    "statuses": {
+      "INVITED": "Invited",
+      "ACTIVE": "Active",
+      "DISABLED": "Disabled"
+    },
+    "removeMember": "Remove",
+    "changeRole": "Change Role",
+    "resendInvite": "Resend Invite"
+  },
+  
+  "branding": {
+    "title": "Branding",
+    "subtitle": "Customize the look and feel of your workspace",
+    "logoUrl": "Logo URL",
+    "faviconUrl": "Favicon URL",
+    "primaryColor": "Primary Color",
+    "accentColor": "Accent Color",
+    "preview": "Preview",
+    "noLogo": "No logo uploaded",
+    "sampleButton": "Sample Button",
+    "saveChanges": "Save Changes",
+    "saved": "Branding updated successfully"
+  },
+  
+  "integrations": {
+    "title": "Integrations",
+    "subtitle": "Connect your marketplace accounts",
+    "amazon": "Amazon Seller Central",
+    "shopify": "Shopify",
+    "shopee": "Shopee",
+    "rakuten": "Rakuten",
+    "walmart": "Walmart Marketplace",
+    "ebay": "eBay",
+    "yahooShopping": "Yahoo! Shopping",
+    "mercari": "Mercari",
+    "tiktokShop": "TikTok Shop",
+    "connected": "Connected",
+    "notConnected": "Not Connected",
+    "connect": "Connect",
+    "disconnect": "Disconnect",
+    "configure": "Configure",
+    "webhookUrl": "Webhook URL",
+    "saveChanges": "Save Changes",
+    "saved": "Integrations updated successfully"
+  },
+  
+  "billing": {
+    "title": "Billing & Plan",
+    "subtitle": "Manage your subscription and payment methods",
+    "currentPlan": "Current Plan",
+    "planTier": {
+      "FREE": "Free",
+      "GROWTH": "Growth",
+      "SCALE": "Scale",
+      "ENTERPRISE": "Enterprise"
+    },
+    "monthlyPrice": "Monthly Price",
+    "nextBillingDate": "Next Billing Date",
+    "paymentMethod": "Payment Method",
+    "invoices": "Invoices",
+    "invoiceId": "Invoice ID",
+    "date": "Date",
+    "amount": "Amount",
+    "status": "Status",
+    "download": "Download",
+    "invoiceStatus": {
+      "PAID": "Paid",
+      "PENDING": "Pending",
+      "FAILED": "Failed"
+    },
+    "changePlan": "Change Plan",
+    "updatePayment": "Update Payment Method",
+    "viewAllInvoices": "View All Invoices"
+  },
+  
+  "security": {
+    "title": "Security",
+    "subtitle": "Manage authentication and access control",
+    "twoFactor": "Two-Factor Authentication",
+    "twoFactorDesc": "Add an extra layer of security to your account",
+    "twoFactorEnabled": "2FA Enabled",
+    "twoFactorDisabled": "2FA Disabled",
+    "enable2FA": "Enable 2FA",
+    "disable2FA": "Disable 2FA",
+    "apiKeys": "API Keys",
+    "createKey": "Create Key",
+    "createApiKey": "Create API Key",
+    "created": "Created",
+    "lastUsed": "Last used",
+    "sessions": "Active Sessions",
+    "currentSession": "Current session",
+    "lastActive": "Last active",
+    "revoke": "Revoke",
+    "revokeAll": "Revoke All Sessions",
+    "saveChanges": "Save Changes",
+    "saved": "Security settings updated successfully"
+  },
+  
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "loading": "Loading...",
+    "saved": "Saved successfully",
+    "error": "An error occurred"
+  }
+}

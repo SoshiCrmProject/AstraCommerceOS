@@ -1,0 +1,114 @@
+{
+  "title": "Logs & Observability",
+  "subtitle": "Inspect system events, connector issues, automation failures, and performance warnings in one place.",
+  "buttons": {
+    "exportLogs": "Export Logs (CSV)",
+    "askCopilot": "Ask Log Copilot",
+    "explainLog": "Explain this log",
+    "copyLogId": "Copy Log ID",
+    "copyFullJson": "Copy Full JSON",
+    "sendTestEvent": "Send Test Event",
+    "copyUrl": "Copy URL"
+  },
+  "filters": {
+    "search": "Search logs...",
+    "dateRange": "Date Range",
+    "level": "Level",
+    "source": "Source",
+    "entityType": "Entity Type",
+    "last1Hour": "Last 1 hour",
+    "last24Hours": "Last 24 hours",
+    "last7Days": "Last 7 days",
+    "customRange": "Custom range",
+    "all": "All",
+    "onlyErrors": "Only errors",
+    "withRequestId": "With request ID",
+    "withCorrelationId": "With correlation ID"
+  },
+  "levels": {
+    "DEBUG": "Debug",
+    "INFO": "Info",
+    "WARN": "Warn",
+    "ERROR": "Error",
+    "FATAL": "Fatal",
+    "ALL": "All Levels"
+  },
+  "sources": {
+    "BACKEND": "Backend",
+    "FRONTEND": "Frontend",
+    "CONNECTOR": "Connector",
+    "AUTOMATION": "Automation",
+    "JOB_QUEUE": "Job Queue",
+    "AUTH": "Auth",
+    "BILLING": "Billing",
+    "ALL": "All Sources"
+  },
+  "entityTypes": {
+    "ORDER": "Order",
+    "PRODUCT": "Product",
+    "SKU": "SKU",
+    "CHANNEL": "Channel",
+    "AUTOMATION_RULE": "Automation Rule",
+    "JOB": "Job",
+    "USER": "User",
+    "ORG": "Organization",
+    "NONE": "None",
+    "ALL": "All Types"
+  },
+  "kpis": {
+    "totalLogs": "Total Logs",
+    "errors": "Errors",
+    "warnings": "Warnings",
+    "uniqueRequests": "Unique Requests",
+    "uniqueCorrelations": "Unique Correlations"
+  },
+  "table": {
+    "timestamp": "Timestamp",
+    "level": "Level",
+    "source": "Source",
+    "message": "Message",
+    "context": "Context",
+    "entity": "Entity",
+    "requestId": "Request ID",
+    "noLogs": "No logs found",
+    "noLogsDescription": "No logs match your current filters. Try expanding the time range or clearing filters.",
+    "page": "Page",
+    "of": "of",
+    "perPage": "per page"
+  },
+  "detail": {
+    "title": "Log Details",
+    "message": "Message",
+    "context": "Context",
+    "entity": "Entity",
+    "identifiers": "Identifiers",
+    "metadata": "Metadata",
+    "requestId": "Request ID",
+    "correlationId": "Correlation ID",
+    "timestamp": "Timestamp",
+    "source": "Source",
+    "level": "Level"
+  },
+  "chart": {
+    "title": "Log Volume Over Time",
+    "explainSpike": "Explain this spike",
+    "logs": "Logs",
+    "errors": "Errors"
+  },
+  "ai": {
+    "title": "Log Copilot",
+    "description": "Ask questions about your system logs and get AI-powered insights.",
+    "placeholder": "Ask about your logs...",
+    "examplePrompts": {
+      "spike": "Why am I seeing a spike in errors today?",
+      "connectors": "Which connectors are failing most often?",
+      "summary": "Summarize all ERROR logs for the last 24 hours."
+    },
+    "generating": "Analyzing logs...",
+    "followUp": "Suggested actions"
+  },
+  "empty": {
+    "noLogs": "No logs available",
+    "tryAdjusting": "Try adjusting your filters or time range"
+  }
+}

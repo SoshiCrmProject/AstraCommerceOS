@@ -1,0 +1,158 @@
+{
+  "title": "自動フルフィルメント・Amazon自動発注",
+  "subtitle": "厳密な利益率と配送条件に基づき、Amazon在庫から適格注文を自動出荷",
+  
+  "buttons": {
+    "evaluateNow": "今すぐ評価",
+    "queuePurchases": "購入をキューに追加",
+    "downloadCsv": "未出荷レポート（CSV）をダウンロード",
+    "saveConfig": "設定を保存",
+    "testPurchase": "購入テスト",
+    "viewOrder": "注文詳細を表示",
+    "refreshData": "データを更新"
+  },
+  
+  "config": {
+    "title": "自動フルフィルメント設定",
+    "enabled": "自動フルフィルメントを有効化",
+    "enabledHelp": "有効にすると、適格注文が自動的にAmazon購入キューに追加されます",
+    "includePoints": "利益計算にAmazonポイントを含める",
+    "includePointsHelp": "予想獲得Amazonポイントを期待利益に加算します",
+    "includeShipping": "利益計算に国内配送料を含める",
+    "includeShippingHelp": "Amazon倉庫から納品代行センターへの配送料を利益から減算します",
+    "maxDeliveryDays": "最大許容配送日数（Amazon→倉庫）",
+    "maxDeliveryDaysHelp": "この日数を超える配送時間の注文はスキップされます",
+    "minProfit": "自動出荷の最低期待利益",
+    "minProfitHelp": "マイナス値も可能（例：戦略的損失の場合は-2000）",
+    "eligibleShops": "適格ショップ・チャネル",
+    "eligibleShopsHelp": "自動フルフィルメントを使用できる連携マーケットプレイスを選択",
+    "configSaved": "設定を保存しました"
+  },
+  
+  "summary": {
+    "title": "サマリー",
+    "totalCandidates": "総候補数",
+    "eligible": "適格",
+    "skipped": "スキップ",
+    "queued": "キュー済み",
+    "succeeded": "成功",
+    "failed": "失敗",
+    "totalProfit": "総期待利益",
+    "avgProfit": "平均利益"
+  },
+  
+  "table": {
+    "title": "自動フルフィルメント候補",
+    "marketplace": "マーケットプレイス",
+    "orderId": "注文ID",
+    "shop": "ショップ",
+    "product": "商品",
+    "sku": "SKU",
+    "qty": "数量",
+    "orderTotal": "注文合計",
+    "amazonAsin": "Amazon ASIN",
+    "amazonMarket": "Amazonマーケット",
+    "amazonPrice": "Amazon価格",
+    "amazonPoints": "ポイント",
+    "shipping": "配送料",
+    "shipDays": "配送日数",
+    "profit": "期待利益",
+    "status": "ステータス",
+    "reasons": "理由",
+    "actions": "アクション",
+    "noResults": "候補が見つかりません",
+    "noResultsDescription": "マーケットプレイスの注文を同期すると、自動フルフィルメント候補が表示されます"
+  },
+  
+  "filters": {
+    "all": "すべて",
+    "search": "商品、SKU、ASINを検索...",
+    "status": "ステータス",
+    "marketplace": "マーケットプレイス",
+    "shop": "ショップ",
+    "onlyEligible": "適格のみ",
+    "onlyFailed": "失敗のみ",
+    "minProfit": "最小利益",
+    "maxProfit": "最大利益"
+  },
+  
+  "status": {
+    "PENDING_EVAL": "評価待ち",
+    "ELIGIBLE": "適格",
+    "SKIPPED_CONDITION": "スキップ済み",
+    "QUEUED_FOR_PURCHASE": "キュー済み",
+    "PURCHASE_IN_PROGRESS": "処理中",
+    "PURCHASE_SUCCEEDED": "成功",
+    "PURCHASE_FAILED": "失敗"
+  },
+  
+  "reasons": {
+    "NEGATIVE_PROFIT": "利益マイナス",
+    "PROFIT_BELOW_THRESHOLD": "利益が閾値未満",
+    "DELIVERY_TOO_SLOW": "配送が遅い",
+    "AMAZON_OUT_OF_STOCK": "Amazon在庫切れ",
+    "AMAZON_USED_ONLY": "中古品のみ利用可能",
+    "AMAZON_LISTING_MISSING": "Amazon出品なし",
+    "POINTS_EXCLUDED": "ポイント未計算",
+    "DOMESTIC_SHIPPING_NOT_INCLUDED": "国内配送料未計算",
+    "SHOP_NOT_ELIGIBLE": "ショップ対象外",
+    "HEADLESS_ERROR": "自動化エラー",
+    "CAPTCHA_REQUIRED": "CAPTCHA検証",
+    "TWO_FACTOR_REQUIRED": "2段階認証必要",
+    "UNKNOWN": "不明なエラー"
+  },
+  
+  "warning": {
+    "title": "⚠️ 重要：ヘッドレス自動化のリスク",
+    "message": "この機能はヘッドレスブラウザ自動化を使用してAmazonに注文を発注します。Amazonの頻繁なUI変更により、CAPTCHA検証、DOM構造の変更、認証失敗などの予期しない問題が発生する可能性があります。この機能は自己責任で使用し、エラーログと未出荷エクスポートを常に監視してください。手動介入が必要になる場合があります。",
+    "understand": "リスクを理解しました"
+  },
+  
+  "messages": {
+    "evaluating": "候補を評価中...",
+    "evaluated": "{count}件の候補を評価しました",
+    "queuing": "購入をキューに追加中...",
+    "queued": "{count}件の購入をキューに追加しました",
+    "downloading": "CSVを生成中...",
+    "noEligible": "キューに追加する適格注文がありません",
+    "sessionInvalid": "Amazonセッションが無効です。設定で再認証してください。",
+    "error": "エラーが発生しました。もう一度お試しください。"
+  },
+  
+  "csv": {
+    "filename": "未出荷注文-{date}.csv",
+    "headers": {
+      "orderId": "注文ID",
+      "marketplace": "マーケットプレイス",
+      "shop": "ショップ",
+      "product": "商品",
+      "sku": "SKU",
+      "qty": "数量",
+      "orderTotal": "注文合計",
+      "amazonAsin": "Amazon ASIN",
+      "amazonMarket": "Amazonマーケットプレイス",
+      "amazonPrice": "Amazon価格",
+      "amazonPoints": "Amazonポイント",
+      "shipping": "国内配送料",
+      "shipDays": "予想配送日数",
+      "profit": "期待利益",
+      "status": "ステータス",
+      "reasons": "理由",
+      "error": "エラーメッセージ"
+    }
+  },
+  
+  "marketplaces": {
+    "SHOPEE_JP": "Shopee Japan",
+    "SHOPEE_TW": "Shopee Taiwan",
+    "SHOPEE_SG": "Shopee Singapore",
+    "RAKUTEN_JP": "楽天市場",
+    "MERCARI_JP": "メルカリ",
+    "YAHOO_SHOPPING_JP": "Yahoo!ショッピング",
+    "AMAZON_JP": "Amazon Japan",
+    "SHOPIFY": "Shopify",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "TIKTOK_SHOP": "TikTok Shop"
+  }
+}

@@ -1,0 +1,180 @@
+{
+  "title": "Inventory Management",
+  "subtitle": "Monitor stock levels, locations, and replenishment needs",
+  "tabs": {
+    "overview": "Overview",
+    "locations": "Locations",
+    "replenishment": "Replenishment"
+  },
+  "kpis": {
+    "totalSkus": "Total SKUs",
+    "onHand": "On Hand",
+    "available": "Available",
+    "lowStock": "Low Stock",
+    "lowStockDesc": "Needs attention",
+    "outOfStock": "Out of Stock",
+    "outOfStockDesc": "Critical",
+    "overstocked": "Overstocked",
+    "overstockedDesc": "Review pricing"
+  },
+  "filters": {
+    "search": "Search SKU or Product",
+    "searchPlaceholder": "Search by SKU code or product name...",
+    "status": "Status",
+    "allStatuses": "All Statuses",
+    "location": "Location",
+    "allLocations": "All Locations",
+    "quickFilters": "Quick Filters",
+    "lowStock": "Low Stock",
+    "overstock": "Overstock",
+    "hasInbound": "Has Inbound"
+  },
+  "statuses": {
+    "healthy": "Healthy",
+    "lowStock": "Low Stock",
+    "outOfStock": "Out of Stock",
+    "overstocked": "Overstocked",
+    "blocked": "Blocked"
+  },
+  "table": {
+    "product": "Product",
+    "status": "Status",
+    "onHand": "On Hand",
+    "reserved": "Reserved",
+    "available": "Available",
+    "inbound": "Inbound",
+    "locations": "Locations",
+    "avgSales": "Avg Sales/Day",
+    "noItems": "No inventory items found",
+    "tryAdjusting": "Try adjusting your filters",
+    "topSeller": "Top Seller",
+    "slowMover": "Slow Mover"
+  },
+  "detail": {
+    "title": "SKU Detail",
+    "onHand": "On Hand",
+    "reserved": "Reserved",
+    "available": "Available",
+    "inbound": "Inbound",
+    "locationsBreakdown": "Inventory by Location",
+    "demandForecast": "Demand Forecast & Sales Trend",
+    "avgSales30d": "Avg Sales (30d)",
+    "avgSales90d": "Avg Sales (90d)",
+    "demandTrend": "Demand Trend",
+    "daysOfCover": "Days of Cover",
+    "daysOfCoverDesc": "Based on current available stock and 30d sales velocity",
+    "stockoutRisk": "Stockout Risk",
+    "stockoutInDays": "Forecasted stockout in {days} days",
+    "forecastConfidence": "Forecast Confidence",
+    "inventoryAging": "Inventory Aging Analysis",
+    "noAgingData": "No aging data available",
+    "freshInventory": "Fresh Inventory (0-30 days)",
+    "agedInventory": "Aged Inventory (90+ days)",
+    "recentActivity": "Recent Activity",
+    "noActivity": "No recent activity",
+    "quickActions": "Quick Actions",
+    "adjustStock": "Adjust Stock Level",
+    "createTransfer": "Create Transfer Order",
+    "generatePO": "Generate Purchase Order",
+    "viewSalesHistory": "View Sales History"
+  },
+  "trend": {
+    "increasing": "Increasing",
+    "decreasing": "Decreasing",
+    "stable": "Stable"
+  },
+  "locations": {
+    "title": "Inventory Locations",
+    "subtitle": "Manage and compare inventory across all warehouses, FBA, and 3PL partners",
+    "totalLocations": "Total Locations",
+    "totalOnHand": "Total On Hand",
+    "totalAvailable": "Total Available",
+    "totalInbound": "Total Inbound",
+    "noLocations": "No locations configured",
+    "skuCount": "SKU Count",
+    "types": {
+      "fba": "Amazon FBA",
+      "fbm": "FBM",
+      "ownWarehouse": "Own Warehouse",
+      "thirdParty3pl": "3PL Partner"
+    }
+  },
+  "replenishment": {
+    "title": "Replenishment Planner",
+    "subtitle": "AI-powered stock replenishment recommendations to prevent stockouts",
+    "totalSuggestions": "Total Suggestions",
+    "highPriority": "High Priority",
+    "mediumPriority": "Medium Priority",
+    "totalUnitsNeeded": "Total Units Needed",
+    "priorityFilter": "Priority Filter",
+    "allPriorities": "All Priorities",
+    "targetDaysOfCover": "Target Days of Cover",
+    "generateBulkPO": "Generate Bulk PO",
+    "noSuggestions": "No replenishment suggestions",
+    "allWellStocked": "All SKUs are well-stocked",
+    "table": {
+      "priority": "Priority",
+      "product": "Product",
+      "currentAvailable": "Current Available",
+      "dailySales": "Daily Sales",
+      "targetDays": "Target Days",
+      "recommendedQty": "Recommended Qty",
+      "transferRoute": "Transfer Route",
+      "reason": "Reason",
+      "transfer": "Transfer",
+      "to": "To"
+    },
+    "priorities": {
+      "high": "High Priority",
+      "medium": "Medium Priority",
+      "low": "Low Priority"
+    }
+  },
+  "atRisk": {
+    "title": "Top At-Risk SKUs",
+    "subtitle": "Low stock or out of stock items requiring immediate attention",
+    "noAtRisk": "No at-risk SKUs",
+    "available": "Available",
+    "dailySales": "Daily Sales",
+    "inbound": "inbound",
+    "viewAll": "View all replenishment suggestions"
+  },
+  "aiCopilot": {
+    "title": "AI Inventory Copilot",
+    "subtitle": "Proactive insights & recommendations",
+    "askAI": "Ask AI about inventory...",
+    "criticalAlert": "Critical Stock Alert",
+    "demandSurge": "Demand Surge Detected",
+    "optimization": "Optimization Opportunity",
+    "demandForecast": "Demand Forecast",
+    "pricingInsight": "Pricing Insight",
+    "bulkOptimization": "Bulk Optimization",
+    "leadTimeWarning": "Lead Time Warning",
+    "actions": {
+      "viewReplenishment": "View Replenishment",
+      "analyzeTrend": "Analyze Trend",
+      "createTransfer": "Create Transfer",
+      "generatePO": "Generate PO",
+      "reviewPricing": "Review Pricing",
+      "createBulkPO": "Create Bulk PO",
+      "adjustSettings": "Adjust Settings"
+    }
+  },
+  "activity": {
+    "inbound": "Inbound",
+    "outbound": "Outbound",
+    "adjustment": "Adjustment",
+    "transfer": "Transfer",
+    "reservation": "Reservation",
+    "cancellation": "Cancellation",
+    "today": "Today",
+    "daysAgo": "{count} days ago",
+    "weeksAgo": "{count} weeks ago",
+    "monthsAgo": "{count} months ago"
+  },
+  "pagination": {
+    "showing": "Showing {start} to {end} of {total} SKUs",
+    "previous": "Previous",
+    "next": "Next"
+  }
+}

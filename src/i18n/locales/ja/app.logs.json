@@ -1,0 +1,114 @@
+{
+  "title": "ログ・可観測性",
+  "subtitle": "システムイベント、コネクタの問題、自動化の失敗、パフォーマンス警告を一か所で確認します。",
+  "buttons": {
+    "exportLogs": "ログをエクスポート (CSV)",
+    "askCopilot": "ログコパイロットに質問",
+    "explainLog": "このログを説明",
+    "copyLogId": "ログIDをコピー",
+    "copyFullJson": "完全なJSONをコピー",
+    "sendTestEvent": "テストイベントを送信",
+    "copyUrl": "URLをコピー"
+  },
+  "filters": {
+    "search": "ログを検索...",
+    "dateRange": "期間",
+    "level": "レベル",
+    "source": "ソース",
+    "entityType": "エンティティタイプ",
+    "last1Hour": "過去1時間",
+    "last24Hours": "過去24時間",
+    "last7Days": "過去7日間",
+    "customRange": "カスタム期間",
+    "all": "すべて",
+    "onlyErrors": "エラーのみ",
+    "withRequestId": "リクエストID付き",
+    "withCorrelationId": "相関ID付き"
+  },
+  "levels": {
+    "DEBUG": "デバッグ",
+    "INFO": "情報",
+    "WARN": "警告",
+    "ERROR": "エラー",
+    "FATAL": "致命的",
+    "ALL": "全レベル"
+  },
+  "sources": {
+    "BACKEND": "バックエンド",
+    "FRONTEND": "フロントエンド",
+    "CONNECTOR": "コネクタ",
+    "AUTOMATION": "自動化",
+    "JOB_QUEUE": "ジョブキュー",
+    "AUTH": "認証",
+    "BILLING": "請求",
+    "ALL": "全ソース"
+  },
+  "entityTypes": {
+    "ORDER": "注文",
+    "PRODUCT": "商品",
+    "SKU": "SKU",
+    "CHANNEL": "チャネル",
+    "AUTOMATION_RULE": "自動化ルール",
+    "JOB": "ジョブ",
+    "USER": "ユーザー",
+    "ORG": "組織",
+    "NONE": "なし",
+    "ALL": "全タイプ"
+  },
+  "kpis": {
+    "totalLogs": "総ログ数",
+    "errors": "エラー",
+    "warnings": "警告",
+    "uniqueRequests": "ユニークリクエスト",
+    "uniqueCorrelations": "ユニーク相関"
+  },
+  "table": {
+    "timestamp": "タイムスタンプ",
+    "level": "レベル",
+    "source": "ソース",
+    "message": "メッセージ",
+    "context": "コンテキスト",
+    "entity": "エンティティ",
+    "requestId": "リクエストID",
+    "noLogs": "ログが見つかりません",
+    "noLogsDescription": "現在のフィルターに一致するログがありません。期間を拡大するかフィルターをクリアしてください。",
+    "page": "ページ",
+    "of": "/",
+    "perPage": "件表示"
+  },
+  "detail": {
+    "title": "ログ詳細",
+    "message": "メッセージ",
+    "context": "コンテキスト",
+    "entity": "エンティティ",
+    "identifiers": "識別子",
+    "metadata": "メタデータ",
+    "requestId": "リクエストID",
+    "correlationId": "相関ID",
+    "timestamp": "タイムスタンプ",
+    "source": "ソース",
+    "level": "レベル"
+  },
+  "chart": {
+    "title": "ログ量推移",
+    "explainSpike": "このスパイクを説明",
+    "logs": "ログ",
+    "errors": "エラー"
+  },
+  "ai": {
+    "title": "ログコパイロット",
+    "description": "システムログに関する質問をして、AIによるインサイトを取得します。",
+    "placeholder": "ログについて質問する...",
+    "examplePrompts": {
+      "spike": "今日エラーが急増している理由は何ですか？",
+      "connectors": "どのコネクタが最も頻繁に失敗していますか？",
+      "summary": "過去24時間のすべてのエラーログを要約してください。"
+    },
+    "generating": "ログを分析中...",
+    "followUp": "推奨アクション"
+  },
+  "empty": {
+    "noLogs": "ログがありません",
+    "tryAdjusting": "フィルターまたは期間を調整してください"
+  }
+}

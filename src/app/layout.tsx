@@ -23,14 +23,13 @@ export const metadata: Metadata = {
 
 type RootLayoutProps = {
   children: React.ReactNode;
-  params?: { locale?: Locale };
+  params?: Promise<Record<string, never>>;
 };
 
 export default function RootLayout({ children, params }: RootLayoutProps) {
-  const lang = isLocale(params?.locale ?? "") ? (params?.locale as Locale) : defaultLocale;
-
+  // Root layout doesn't use locale param
   return (
-    <html lang={lang}>
+    <html lang={defaultLocale}>
       <body
         className={`${inter.variable} ${geistMono.variable} bg-page text-primary antialiased`}
       >

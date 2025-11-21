@@ -1,4 +1,4 @@
-type PipelineKpiCard = {
+export type PipelineKpiCard = {
   label: string;
   value: string | number;
   change?: string;

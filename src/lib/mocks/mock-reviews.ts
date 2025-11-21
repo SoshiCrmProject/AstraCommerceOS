@@ -1,13 +1,395 @@
-export type MockReview = {
-  id: string;
-  channel: string;
-  rating: number;
-  title: string;
-  sentiment: "positive" | "neutral" | "negative";
+import type {
+  ReviewSummary,
+  ReviewDetail,
+  ReviewOverviewSnapshot,
+  ReviewTemplate,
+  ReviewTimeSeriesPoint,
+  ChannelComparison,
+} from '@/lib/services/review-types';
+
+export const mockReviews: ReviewSummary[] = [
+  {
+    id: 'rev-001',
+    channelType: 'AMAZON',
+    channelName: 'Amazon Japan',
+    region: 'JP',
+    rating: 5,
+    title: '完璧な商品です！',
+    bodyPreview: '配送も早く、商品の品質も素晴らしい。期待以上でした。また購入します。',
+    sentiment: 'POSITIVE',
+    status: 'RESPONDED',
+    priority: 'LOW',
+    productId: 'prod-001',
+    productName: 'Wireless Bluetooth Speaker',
+    skuCode: 'WH-BT-001',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: '田中太郎',
+    language: 'ja',
+    createdAt: '2025-11-19T10:30:00Z',
+    lastUpdatedAt: '2025-11-19T14:22:00Z',
+    hasAiSuggestedReply: true,
+  },
+  {
+    id: 'rev-002',
+    channelType: 'SHOPIFY',
+    channelName: 'Shopify US Store',
+    region: 'US',
+    rating: 1,
+    title: 'Terrible quality, broken on arrival',
+    bodyPreview: 'The product arrived damaged. The box was crushed and the item doesn\'t work. Very disappointed...',
+    sentiment: 'NEGATIVE',
+    status: 'NEW',
+    priority: 'CRITICAL',
+    productId: 'prod-002',
+    productName: 'USB-C Power Bank 20000mAh',
+    skuCode: 'PB-20K-002',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: 'John Smith',
+    language: 'en',
+    createdAt: '2025-11-20T08:15:00Z',
+    lastUpdatedAt: '2025-11-20T08:15:00Z',
+    hasAiSuggestedReply: true,
+  },
+  {
+    id: 'rev-003',
+    channelType: 'RAKUTEN',
+    channelName: 'Rakuten Japan',
+    region: 'JP',
+    rating: 4,
+    title: '概ね満足',
+    bodyPreview: '商品は良いのですが、配送に5日かかりました。もう少し早ければ完璧でした。',
+    sentiment: 'POSITIVE',
+    status: 'IN_PROGRESS',
+    priority: 'MEDIUM',
+    productId: 'prod-003',
+    productName: 'Wireless Mouse',
+    skuCode: 'MS-WL-003',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: '佐藤花子',
+    language: 'ja',
+    createdAt: '2025-11-18T16:45:00Z',
+    lastUpdatedAt: '2025-11-19T09:30:00Z',
+    hasAiSuggestedReply: false,
+  },
+  {
+    id: 'rev-004',
+    channelType: 'AMAZON',
+    channelName: 'Amazon US',
+    region: 'US',
+    rating: 2,
+    title: 'Not as described',
+    bodyPreview: 'The color is different from the photos. The material feels cheap. Would not recommend.',
+    sentiment: 'NEGATIVE',
+    status: 'NEW',
+    priority: 'HIGH',
+    productId: 'prod-004',
+    productName: 'Phone Case Premium Leather',
+    skuCode: 'PC-LTR-004',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: 'Sarah Johnson',
+    language: 'en',
+    createdAt: '2025-11-20T06:20:00Z',
+    lastUpdatedAt: '2025-11-20T06:20:00Z',
+    hasAiSuggestedReply: true,
+  },
+  {
+    id: 'rev-005',
+    channelType: 'TIKTOK_SHOP',
+    channelName: 'TikTok Shop US',
+    region: 'US',
+    rating: 5,
+    title: 'Love it! Best purchase ever',
+    bodyPreview: 'This is exactly what I needed! Fast shipping, great quality, amazing price. 10/10 would buy again!',
+    sentiment: 'POSITIVE',
+    status: 'RESPONDED',
+    priority: 'LOW',
+    productId: 'prod-005',
+    productName: 'LED Desk Lamp',
+    skuCode: 'LD-001',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: 'Emily Chen',
+    language: 'en',
+    createdAt: '2025-11-17T14:00:00Z',
+    lastUpdatedAt: '2025-11-18T10:15:00Z',
+    hasAiSuggestedReply: false,
+  },
+  {
+    id: 'rev-006',
+    channelType: 'SHOPEE',
+    channelName: 'Shopee Singapore',
+    region: 'SG',
+    rating: 3,
+    title: 'Average product',
+    bodyPreview: 'It works but nothing special. Price is okay but I expected better quality for this price point.',
+    sentiment: 'NEUTRAL',
+    status: 'RESOLVED',
+    priority: 'LOW',
+    productId: 'prod-006',
+    productName: 'Wireless Earbuds',
+    skuCode: 'WE-BT-006',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: 'Marcus Tan',
+    language: 'en',
+    createdAt: '2025-11-16T11:30:00Z',
+    lastUpdatedAt: '2025-11-17T15:20:00Z',
+    hasAiSuggestedReply: false,
+  },
+  {
+    id: 'rev-007',
+    channelType: 'AMAZON',
+    channelName: 'Amazon Japan',
+    region: 'JP',
+    rating: 1,
+    title: '最悪の買い物',
+    bodyPreview: '写真と全く違う商品が届きました。返品したいです。カスタマーサービスに連絡が取れません。',
+    sentiment: 'NEGATIVE',
+    status: 'ESCALATED',
+    priority: 'CRITICAL',
+    productId: 'prod-007',
+    productName: 'Gaming Keyboard RGB',
+    skuCode: 'KB-RGB-007',
+    mainImageUrl: '/placeholder-product.jpg',
+    authorName: '山田次郎',
+    language: 'ja',
+    createdAt: '2025-11-20T07:45:00Z',
+    lastUpdatedAt: '2025-11-20T09:30:00Z',
+    hasAiSuggestedReply: true,
+  },
+];
+
+export const mockReviewDetails: Record<string, ReviewDetail> = {
+  'rev-001': {
+    summary: mockReviews[0],
+    bodyFull: '配送も早く、商品の品質も素晴らしい。期待以上でした。また購入します。\n\n梱包も丁寧で、すぐに使い始めることができました。音質も良く、Bluetoothの接続も安定しています。この価格でこの品質は素晴らしいと思います。友人にもおすすめしました。',
+    orderId: 'ORD-JP-20251119-001',
+    tags: ['quality', 'shipping', 'positive-experience'],
+    internalNotes: [
+      {
+        id: 'note-001',
+        author: 'support@astra.com',
+        note: 'Customer responded positively to our thank-you message.',
+        createdAt: '2025-11-19T15:00:00Z',
+      },
+    ],
+  },
+  'rev-002': {
+    summary: mockReviews[1],
+    bodyFull: 'The product arrived damaged. The box was crushed and the item doesn\'t work. Very disappointed with this purchase. I\'ve been a loyal customer but this experience has made me reconsider.\n\nI tried contacting customer service but haven\'t heard back yet. I need a replacement or refund ASAP. This is unacceptable for the price I paid.',
+    orderId: 'ORD-US-20251120-045',
+    tags: ['damaged', 'shipping-issue', 'urgent'],
+    internalNotes: [
+      {
+        id: 'note-002',
+        author: 'cx-team@astra.com',
+        note: 'Escalated to shipping team. Replacement order initiated.',
+        createdAt: '2025-11-20T08:30:00Z',
+      },
+    ],
+  },
+  'rev-007': {
+    summary: mockReviews[6],
+    bodyFull: '写真と全く違う商品が届きました。返品したいです。カスタマーサービスに連絡が取れません。\n\n注文したのは黒色のゲーミングキーボードでしたが、届いたのは白色で、しかもキーの一部が反応しません。非常に失望しています。すぐに対応してください。',
+    orderId: 'ORD-JP-20251119-082',
+    tags: ['wrong-item', 'defective', 'escalated'],
+    internalNotes: [
+      {
+        id: 'note-007a',
+        author: 'support-jp@astra.com',
+        note: 'Customer sent photos showing wrong color received. Warehouse error confirmed.',
+        createdAt: '2025-11-20T08:00:00Z',
+      },
+      {
+        id: 'note-007b',
+        author: 'manager@astra.com',
+        note: 'Approved express replacement + full refund. Customer to keep wrong item.',
+        createdAt: '2025-11-20T09:30:00Z',
+      },
+    ],
+  },
 };
 
-export const mockReviews: MockReview[] = [
-  { id: "RV-1001", channel: "Amazon JP", rating: 5, title: "Fast shipping and great quality", sentiment: "positive" },
-  { id: "RV-1002", channel: "TikTok Shop", rating: 2, title: "Packaging damaged", sentiment: "negative" },
-  { id: "RV-1003", channel: "Rakuten", rating: 4, title: "Good value, will reorder", sentiment: "positive" }
+export const mockOverviewSnapshot: ReviewOverviewSnapshot = {
+  aggregates: {
+    totalReviews: 1247,
+    avgRating: 4.2,
+    totalPositive: 892,
+    totalNeutral: 184,
+    totalNegative: 171,
+    newReviews24h: 23,
+    negativeLast7d: 47,
+    respondedRateLast7d: 78.5,
+  },
+  timeSeries: generateTimeSeriesData(),
+  topPositiveKeywords: [
+    {
+      keyword: 'fast shipping',
+      sentiment: 'POSITIVE',
+      count: 234,
+      samplePhrase: 'Delivery was incredibly fast, got it in 2 days!',
+    },
+    {
+      keyword: 'great quality',
+      sentiment: 'POSITIVE',
+      count: 198,
+      samplePhrase: 'The build quality exceeded my expectations',
+    },
+    {
+      keyword: 'good value',
+      sentiment: 'POSITIVE',
+      count: 167,
+      samplePhrase: 'Amazing value for the price',
+    },
+    {
+      keyword: 'easy to use',
+      sentiment: 'POSITIVE',
+      count: 143,
+      samplePhrase: 'Setup was super easy, works right out of the box',
+    },
+    {
+      keyword: 'excellent service',
+      sentiment: 'POSITIVE',
+      count: 128,
+      samplePhrase: 'Customer service was helpful and responsive',
+    },
+  ],
+  topNegativeKeywords: [
+    {
+      keyword: 'damaged packaging',
+      sentiment: 'NEGATIVE',
+      count: 87,
+      samplePhrase: 'Box was crushed, product was damaged',
+    },
+    {
+      keyword: 'slow shipping',
+      sentiment: 'NEGATIVE',
+      count: 64,
+      samplePhrase: 'Took over a week to arrive',
+    },
+    {
+      keyword: 'not as described',
+      sentiment: 'NEGATIVE',
+      count: 52,
+      samplePhrase: 'Color/size different from listing',
+    },
+    {
+      keyword: 'poor quality',
+      sentiment: 'NEGATIVE',
+      count: 41,
+      samplePhrase: 'Material feels cheap, broke after a week',
+    },
+    {
+      keyword: 'no response',
+      sentiment: 'NEGATIVE',
+      count: 38,
+      samplePhrase: 'Customer service never replied to my inquiry',
+    },
+  ],
+};
+
+function generateTimeSeriesData(): ReviewTimeSeriesPoint[] {
+  const data: ReviewTimeSeriesPoint[] = [];
+  const today = new Date();
+  
+  for (let i = 29; i >= 0; i--) {
+    const date = new Date(today);
+    date.setDate(date.getDate() - i);
+    
+    data.push({
+      date: date.toISOString().split('T')[0],
+      count: Math.floor(Math.random() * 30) + 35,
+      avgRating: 3.8 + Math.random() * 0.8,
+      negativeCount: Math.floor(Math.random() * 8) + 2,
+    });
+  }
+  
+  return data;
+}
+
+export const mockTemplates: ReviewTemplate[] = [
+  {
+    id: 'tmpl-001',
+    name: 'Thank you for positive feedback',
+    language: 'en',
+    tone: 'FRIENDLY',
+    applicableTo: 'POSITIVE',
+    body: 'Thank you so much for your wonderful review! We\'re thrilled to hear that you\'re happy with your purchase. Your satisfaction is our top priority, and feedback like yours motivates us to keep delivering great products and service.\n\nIf you ever need anything, please don\'t hesitate to reach out. We hope to serve you again soon!',
+  },
+  {
+    id: 'tmpl-002',
+    name: 'Apology for shipping delay',
+    language: 'en',
+    tone: 'FORMAL',
+    applicableTo: 'NEGATIVE',
+    body: 'We sincerely apologize for the delay in shipping your order. We understand how frustrating this must be, and we take full responsibility for not meeting your expectations.\n\nWe\'ve investigated the issue and are taking steps to prevent this from happening in the future. As a token of our apology, we\'d like to offer you [compensation details].\n\nThank you for your patience and understanding.',
+  },
+  {
+    id: 'tmpl-003',
+    name: 'Apology for damaged product',
+    language: 'en',
+    tone: 'FORMAL',
+    applicableTo: 'NEGATIVE',
+    body: 'We\'re very sorry to hear that your product arrived damaged. This is absolutely not the experience we want our customers to have.\n\nWe\'d like to make this right immediately. We can offer you:\n1. A full replacement shipped via express delivery\n2. A complete refund\n\nPlease let us know your preference, and we\'ll process it right away. Again, our sincerest apologies for this inconvenience.',
+  },
+  {
+    id: 'tmpl-004',
+    name: 'ポジティブレビューへのお礼',
+    language: 'ja',
+    tone: 'FRIENDLY',
+    applicableTo: 'POSITIVE',
+    body: 'この度は素敵なレビューをいただき、誠にありがとうございます。お客様にご満足いただけて、大変嬉しく思います。\n\n今後もお客様に喜んでいただける商品とサービスを提供できるよう努めてまいります。またのご利用を心よりお待ちしております。',
+  },
+  {
+    id: 'tmpl-005',
+    name: '配送遅延のお詫び',
+    language: 'ja',
+    tone: 'FORMAL',
+    applicableTo: 'NEGATIVE',
+    body: 'この度は、商品の配送が遅れてしまい、誠に申し訳ございません。お客様にご迷惑をおかけしましたこと、深くお詫び申し上げます。\n\n配送遅延の原因を調査し、再発防止に努めております。お詫びの印として、[補償内容]をご用意させていただきます。\n\n今後ともご愛顧のほど、よろしくお願いいたします。',
+  },
+  {
+    id: 'tmpl-006',
+    name: '破損商品のお詫び',
+    language: 'ja',
+    tone: 'FORMAL',
+    applicableTo: 'NEGATIVE',
+    body: '商品が破損した状態で届いてしまったとのこと、誠に申し訳ございません。このような事態を招いてしまい、深くお詫び申し上げます。\n\n以下の対応をご用意させていただきます：\n1. 新品商品の即時発送（速達便にて）\n2. 全額返金\n\nご希望の対応をお知らせいただければ、直ちに手配させていただきます。この度は本当に申し訳ございませんでした。',
+  },
+];
+
+export const mockChannelComparisons: ChannelComparison[] = [
+  {
+    channelType: 'AMAZON',
+    channelName: 'Amazon (All Regions)',
+    avgRating: 4.3,
+    reviewCount: 487,
+    negativePercentage: 12.1,
+  },
+  {
+    channelType: 'SHOPIFY',
+    channelName: 'Shopify Stores',
+    avgRating: 4.5,
+    reviewCount: 312,
+    negativePercentage: 8.7,
+  },
+  {
+    channelType: 'RAKUTEN',
+    channelName: 'Rakuten Japan',
+    avgRating: 4.1,
+    reviewCount: 198,
+    negativePercentage: 15.2,
+  },
+  {
+    channelType: 'TIKTOK_SHOP',
+    channelName: 'TikTok Shop',
+    avgRating: 4.6,
+    reviewCount: 143,
+    negativePercentage: 6.3,
+  },
+  {
+    channelType: 'SHOPEE',
+    channelName: 'Shopee',
+    avgRating: 4.0,
+    reviewCount: 107,
+    negativePercentage: 18.7,
+  },
 ];

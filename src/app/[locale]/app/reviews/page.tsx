@@ -1,57 +1,50 @@
-import { type Locale } from "@/i18n/config";
-import { getAppDictionary } from "@/i18n/getAppDictionary";
-import { PageHeader } from "@/components/app/page-header";
-import { mockReviews } from "@/lib/mocks/mock-reviews";
+import { getReviewsDictionary } from '@/i18n/getReviewsDictionary';
+import { PageHeader } from '@/components/app/page-header';
+import { ReviewsOverview } from '@/components/reviews/reviews-overview';
+import { Sparkles, BarChart3, FileText } from 'lucide-react';
+import Link from 'next/link';
 
-type ReviewsPageProps = {
-  params: Promise<{ locale: Locale }>;
+type Props = {
+  params: Promise<{ locale: string }>;
 };
 
-export default async function ReviewsPage({ params }: ReviewsPageProps) {
+export default async function ReviewsPage({ params }: Props) {
   const { locale } = await params;
-  const dict = await getAppDictionary(locale);
+  const dict = await getReviewsDictionary(locale);
 
   return (
     <div className="space-y-6 pb-12">
       <PageHeader
-        title={dict.reviews.title}
-        subtitle={dict.reviews.subtitle}
-        breadcrumbs={[
-          { label: dict.common.breadcrumbs.home, href: `/${locale}/app` },
-          { label: dict.reviews.title },
-        ]}
-        actions={<button className="btn btn-primary">{dict.common.buttons.viewAll}</button>}
+        title={dict.title}
+        subtitle={dict.subtitle}
+        actions={
+          <div className="flex gap-3">
+            <Link
+              href={`/${locale}/app/reviews/templates`}
+              className="px-4 py-2 border border-gray-300 rounded-lg text-sm font-medium text-gray-700 hover:bg-gray-50 flex items-center gap-2"
+            >
+              <FileText className="w-4 h-4" />
+              {dict.buttons.replyTemplates}
+            </Link>
+            <Link
+              href={`/${locale}/app/reviews/insights`}
+              className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 flex items-center gap-2"
+            >
+              <BarChart3 className="w-4 h-4" />
+              {dict.buttons.openInsights}
+            </Link>
+            <Link
+              href={`/${locale}/app/ai`}
+              className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-lg text-sm font-medium hover:from-purple-700 hover:to-blue-700 flex items-center gap-2"
+            >
+              <Sparkles className="w-4 h-4" />
+              {dict.buttons.askCopilot}
+            </Link>
+          </div>
+        }
       />
 
-      <div className="rounded-panel border border-default bg-surface p-5 shadow-token-lg">
-        <div className="space-y-3">
-          {mockReviews.map((review) => (
-            <div
-              key={review.id}
-              className="flex items-start justify-between rounded-card border border-default bg-surface-muted p-4 shadow-soft"
-            >
-              <div>
-                <p className="text-sm font-semibold text-primary">{review.title}</p>
-                <p className="text-xs text-muted">
-                  {review.channel} · {review.id}
-                </p>
-                <p className="mt-1 text-sm text-secondary">Rating: {review.rating}/5</p>
-              </div>
-              <span
-                className={`rounded-pill px-3 py-1 text-xs font-semibold ${
-                  review.sentiment === "positive"
-                    ? "bg-green-100 text-green-700"
-                    : review.sentiment === "neutral"
-                      ? "bg-blue-100 text-blue-700"
-                      : "bg-red-100 text-red-700"
-                }`}
-              >
-                {review.sentiment}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
+      <ReviewsOverview dict={dict} locale={locale} />
     </div>
   );
 }

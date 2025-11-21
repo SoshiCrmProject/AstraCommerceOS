@@ -6,7 +6,7 @@ import { getAppDictionary } from "@/i18n/getAppDictionary";
 import { getOrdersDictionary } from "@/i18n/getOrdersDictionary";
 import { PageHeader } from "@/components/app/page-header";
 import { OrderService } from "@/lib/services/order-service";
-import { PipelineKpiBar } from "@/components/orders/pipeline-kpi-bar";
+import { PipelineKpiBar, type PipelineKpiCard } from "@/components/orders/pipeline-kpi-bar";
 import { ChannelBreakdown } from "@/components/orders/channel-breakdown";
 import { OrderFilters } from "@/components/orders/order-filters";
 import { OrdersTable } from "@/components/orders/orders-table";
@@ -99,9 +99,9 @@ export default function OrdersPage({ params }: OrdersPageProps) {
       value: `${snapshot.onTimeSlaRate}%`,
       change: "+0.6%",
       direction: "up" as const,
-      variant: snapshot.onTimeSlaRate >= 95 ? "success" : snapshot.onTimeSlaRate >= 90 ? "warning" : "danger",
+      variant: (snapshot.onTimeSlaRate >= 95 ? "success" : snapshot.onTimeSlaRate >= 90 ? "warning" : "danger") as "success" | "warning" | "danger",
     },
-  ];
+  ] as PipelineKpiCard[];
 
   return (
     <div className="space-y-6 pb-12">

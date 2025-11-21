@@ -1,32 +1,39 @@
-import { type Locale } from "@/i18n/config";
-import { getAppDictionary } from "@/i18n/getAppDictionary";
-import { PageHeader } from "@/components/app/page-header";
+/**
+ * Settings Main Page - Tabbed Settings Center
+ */
 
-type SettingsPageProps = {
-  params: Promise<{ locale: Locale }>;
-};
+import { getSettingsDictionary } from '@/i18n/getSettingsDictionary';
+import SettingsService from '@/lib/services/settings-service';
+import { SettingsClient } from './client';
 
-export default async function SettingsPage({ params }: SettingsPageProps) {
+export default async function SettingsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
   const { locale } = await params;
-  const dict = await getAppDictionary(locale);
+  const dict = await getSettingsDictionary(locale as 'en' | 'ja');
+
+  // Load all settings data in parallel
+  const [orgProfile, userProfile, teamMembers, branding, integrations, billing] =
+    await Promise.all([
+      SettingsService.getOrgProfile('org-123'),
+      SettingsService.getUserProfile('user-456'),
+      SettingsService.getTeamMembers('org-123'),
+      SettingsService.getBrandingSettings('org-123'),
+      SettingsService.getIntegrationSettings('org-123'),
+      SettingsService.getBillingSummary('org-123'),
+    ]);
 
   return (
-    <div className="space-y-6 pb-12">
-      <PageHeader
-        title={dict.settings.title}
-        subtitle={dict.settings.subtitle}
-        breadcrumbs={[
-          { label: dict.common.breadcrumbs.home, href: `/${locale}/app` },
-          { label: dict.settings.title },
-        ]}
-        actions={<button className="btn btn-primary">{dict.common.buttons.settings}</button>}
-      />
-
-      <div className="rounded-panel border border-default bg-surface p-5 shadow-token-lg">
-        <p className="text-sm text-secondary">
-          Workspace, branding, notifications, and credential settings will appear here. (Mock UI.)
-        </p>
-      </div>
-    </div>
+    <SettingsClient
+      dict={dict}
+      orgProfile={orgProfile}
+      userProfile={userProfile}
+      teamMembers={teamMembers}
+      branding={branding}
+      integrations={integrations}
+      billing={billing}
+    />
   );
 }

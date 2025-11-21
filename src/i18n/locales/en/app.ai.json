@@ -1,0 +1,117 @@
+{
+  "title": "AI Copilot",
+  "subtitle": "Ask AstraCommerce Copilot anything about your channels, pricing, inventory, orders, and automation",
+  "modes": {
+    "general": "General",
+    "pricingAdvisor": "Pricing Advisor",
+    "inventoryPlanner": "Inventory Planner",
+    "listingOptimizer": "Listing Optimizer",
+    "ordersRisk": "Orders & Risk",
+    "reviewsAnalyzer": "Reviews & CX",
+    "automationDesigner": "Automation Designer"
+  },
+  "buttons": {
+    "newChat": "New Chat",
+    "sendMessage": "Send",
+    "openInCopilot": "Open in Copilot",
+    "useInChat": "Use in Chat",
+    "useTemplate": "Use Template",
+    "rename": "Rename",
+    "delete": "Delete",
+    "pin": "Pin",
+    "unpin": "Unpin"
+  },
+  "threads": {
+    "title": "Recent Conversations",
+    "search": "Search conversations...",
+    "noThreads": "No conversations yet",
+    "noThreadsDesc": "Start a new chat to begin working with AI Copilot",
+    "pinned": "Pinned"
+  },
+  "chat": {
+    "placeholder": "Ask anything about your business...",
+    "typing": "Copilot is thinking...",
+    "suggestedFollowUps": "Suggested follow-ups:",
+    "referencedEntities": "Referenced:",
+    "newConversation": "New conversation",
+    "editTitle": "Edit title"
+  },
+  "context": {
+    "title": "Context",
+    "dashboardSnapshot": "Dashboard snapshot",
+    "pricingContext": "Pricing data",
+    "inventoryContext": "Inventory data",
+    "ordersContext": "Orders data",
+    "listingsContext": "Listings data",
+    "reviewsContext": "Reviews data",
+    "attached": "Attached",
+    "notAttached": "Not attached"
+  },
+  "shortcuts": {
+    "title": "Shortcuts",
+    "pricingShortcuts": "Pricing Shortcuts",
+    "inventoryShortcuts": "Inventory Shortcuts",
+    "listingShortcuts": "Listing Shortcuts",
+    "ordersShortcuts": "Orders Shortcuts",
+    "reviewsShortcuts": "Reviews Shortcuts",
+    "automationShortcuts": "Automation Shortcuts",
+    "pricing": {
+      "negativeMargins": "Find SKUs with negative margin",
+      "priceIncreases": "Suggest price increases",
+      "overpriced": "Identify overpriced SKUs"
+    },
+    "inventory": {
+      "stockout": "Show SKUs at risk of stockout",
+      "replenishment": "Generate replenishment plan for next 30 days",
+      "overstock": "Find overstocked items"
+    },
+    "listings": {
+      "improveTitle": "Improve this listing title",
+      "bulletPoints": "Generate bullet points for a top seller",
+      "localize": "Localize to Japanese marketplace tone"
+    },
+    "orders": {
+      "slaRisk": "Highlight orders at SLA risk today",
+      "backlog": "Explain current backlog in simple terms"
+    },
+    "reviews": {
+      "summarizeNegative": "Summarize negative reviews from last 7 days",
+      "apologyTemplate": "Draft apology message template"
+    },
+    "automation": {
+      "pricingWorkflow": "Propose a workflow to auto-adjust prices",
+      "inventoryAlert": "Alert me in Slack when inventory is low"
+    }
+  },
+  "docs": {
+    "title": "Docs Helper",
+    "description": "Ask questions about how AstraCommerce OS works"
+  },
+  "playbooks": {
+    "title": "AI Playbooks",
+    "subtitle": "Ready-to-use AI workflows for common commerce tasks",
+    "noPlaybooks": "No playbooks available",
+    "tags": "Tags"
+  },
+  "prompts": {
+    "title": "Prompt Library",
+    "subtitle": "Reusable prompt templates for every part of your business",
+    "noPrompts": "No prompts available",
+    "categories": {
+      "all": "All",
+      "pricing": "Pricing",
+      "inventory": "Inventory",
+      "listings": "Listings",
+      "orders": "Orders",
+      "reviews": "Reviews",
+      "automation": "Automation"
+    }
+  },
+  "quickActions": {
+    "title": "Quick Actions",
+    "startPricingChat": "Start pricing advisor chat",
+    "startInventoryChat": "Start inventory planning chat",
+    "startListingChat": "Start listing optimizer chat",
+    "startReviewsChat": "Start reviews analyzer chat"
+  }
+}

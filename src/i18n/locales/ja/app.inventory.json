@@ -1,0 +1,180 @@
+{
+  "title": "在庫管理",
+  "subtitle": "在庫レベル、ロケーション、補充ニーズを監視",
+  "tabs": {
+    "overview": "概要",
+    "locations": "ロケーション",
+    "replenishment": "補充"
+  },
+  "kpis": {
+    "totalSkus": "総SKU数",
+    "onHand": "手持在庫",
+    "available": "利用可能",
+    "lowStock": "在庫僅少",
+    "lowStockDesc": "要注意",
+    "outOfStock": "在庫切れ",
+    "outOfStockDesc": "緊急",
+    "overstocked": "過剰在庫",
+    "overstockedDesc": "価格見直し"
+  },
+  "filters": {
+    "search": "SKUまたは商品を検索",
+    "searchPlaceholder": "SKUコードまたは商品名で検索...",
+    "status": "ステータス",
+    "allStatuses": "すべてのステータス",
+    "location": "ロケーション",
+    "allLocations": "すべてのロケーション",
+    "quickFilters": "クイックフィルタ",
+    "lowStock": "在庫僅少",
+    "overstock": "過剰在庫",
+    "hasInbound": "入荷あり"
+  },
+  "statuses": {
+    "healthy": "正常",
+    "lowStock": "在庫僅少",
+    "outOfStock": "在庫切れ",
+    "overstocked": "過剰在庫",
+    "blocked": "ブロック済み"
+  },
+  "table": {
+    "product": "商品",
+    "status": "ステータス",
+    "onHand": "手持在庫",
+    "reserved": "予約済み",
+    "available": "利用可能",
+    "inbound": "入荷予定",
+    "locations": "ロケーション",
+    "avgSales": "平均販売数/日",
+    "noItems": "在庫アイテムが見つかりません",
+    "tryAdjusting": "フィルタを調整してください",
+    "topSeller": "トップセラー",
+    "slowMover": "動きの遅い商品"
+  },
+  "detail": {
+    "title": "SKU詳細",
+    "onHand": "手持在庫",
+    "reserved": "予約済み",
+    "available": "利用可能",
+    "inbound": "入荷予定",
+    "locationsBreakdown": "ロケーション別在庫",
+    "demandForecast": "需要予測と販売トレンド",
+    "avgSales30d": "平均販売数（30日）",
+    "avgSales90d": "平均販売数（90日）",
+    "demandTrend": "需要トレンド",
+    "daysOfCover": "在庫日数",
+    "daysOfCoverDesc": "現在の利用可能在庫と30日間の販売速度に基づく",
+    "stockoutRisk": "在庫切れリスク",
+    "stockoutInDays": "{days}日後に在庫切れ予測",
+    "forecastConfidence": "予測信頼度",
+    "inventoryAging": "在庫エージング分析",
+    "noAgingData": "エージングデータがありません",
+    "freshInventory": "新鮮な在庫（0-30日）",
+    "agedInventory": "古い在庫（90日以上）",
+    "recentActivity": "最近のアクティビティ",
+    "noActivity": "最近のアクティビティなし",
+    "quickActions": "クイックアクション",
+    "adjustStock": "在庫レベル調整",
+    "createTransfer": "転送注文作成",
+    "generatePO": "発注書生成",
+    "viewSalesHistory": "販売履歴表示"
+  },
+  "trend": {
+    "increasing": "増加",
+    "decreasing": "減少",
+    "stable": "安定"
+  },
+  "locations": {
+    "title": "在庫ロケーション",
+    "subtitle": "すべての倉庫、FBA、3PLパートナー間で在庫を管理・比較",
+    "totalLocations": "総ロケーション数",
+    "totalOnHand": "総手持在庫",
+    "totalAvailable": "総利用可能在庫",
+    "totalInbound": "総入荷予定",
+    "noLocations": "ロケーションが設定されていません",
+    "skuCount": "SKU数",
+    "types": {
+      "fba": "Amazon FBA",
+      "fbm": "FBM",
+      "ownWarehouse": "自社倉庫",
+      "thirdParty3pl": "3PLパートナー"
+    }
+  },
+  "replenishment": {
+    "title": "補充プランナー",
+    "subtitle": "在庫切れを防ぐAI駆動の在庫補充推奨",
+    "totalSuggestions": "総提案数",
+    "highPriority": "高優先度",
+    "mediumPriority": "中優先度",
+    "totalUnitsNeeded": "必要総ユニット数",
+    "priorityFilter": "優先度フィルタ",
+    "allPriorities": "すべての優先度",
+    "targetDaysOfCover": "目標在庫日数",
+    "generateBulkPO": "一括発注書生成",
+    "noSuggestions": "補充提案がありません",
+    "allWellStocked": "すべてのSKUが十分に在庫があります",
+    "table": {
+      "priority": "優先度",
+      "product": "商品",
+      "currentAvailable": "現在利用可能",
+      "dailySales": "日販売数",
+      "targetDays": "目標日数",
+      "recommendedQty": "推奨数量",
+      "transferRoute": "転送ルート",
+      "reason": "理由",
+      "transfer": "転送",
+      "to": "宛先"
+    },
+    "priorities": {
+      "high": "高優先度",
+      "medium": "中優先度",
+      "low": "低優先度"
+    }
+  },
+  "atRisk": {
+    "title": "リスクのあるSKUトップ",
+    "subtitle": "即座に注意が必要な在庫僅少または在庫切れアイテム",
+    "noAtRisk": "リスクのあるSKUなし",
+    "available": "利用可能",
+    "dailySales": "日販売数",
+    "inbound": "入荷予定",
+    "viewAll": "すべての補充提案を表示"
+  },
+  "aiCopilot": {
+    "title": "AI在庫コパイロット",
+    "subtitle": "プロアクティブな洞察と推奨",
+    "askAI": "AIに在庫について質問...",
+    "criticalAlert": "重要な在庫アラート",
+    "demandSurge": "需要急増検出",
+    "optimization": "最適化の機会",
+    "demandForecast": "需要予測",
+    "pricingInsight": "価格設定の洞察",
+    "bulkOptimization": "一括最適化",
+    "leadTimeWarning": "リードタイム警告",
+    "actions": {
+      "viewReplenishment": "補充を表示",
+      "analyzeTrend": "トレンド分析",
+      "createTransfer": "転送作成",
+      "generatePO": "発注書生成",
+      "reviewPricing": "価格設定確認",
+      "createBulkPO": "一括発注書作成",
+      "adjustSettings": "設定調整"
+    }
+  },
+  "activity": {
+    "inbound": "入荷",
+    "outbound": "出荷",
+    "adjustment": "調整",
+    "transfer": "転送",
+    "reservation": "予約",
+    "cancellation": "キャンセル",
+    "today": "今日",
+    "daysAgo": "{count}日前",
+    "weeksAgo": "{count}週間前",
+    "monthsAgo": "{count}か月前"
+  },
+  "pagination": {
+    "showing": "{total}件中{start}～{end}件のSKUを表示",
+    "previous": "前へ",
+    "next": "次へ"
+  }
+}

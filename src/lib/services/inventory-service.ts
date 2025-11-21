@@ -1,97 +1,233 @@
-import {
+import type {
   InventoryLocationSummary,
   InventorySkuSummary,
   InventorySkuDetail,
+  InventoryOverviewSnapshot,
+  InventoryFilter,
   ReplenishmentSuggestion,
-  InventoryFilter
 } from './inventory-types';
-import { mockLocations, mockInventorySkus, mockReplenishmentSuggestions, getMockSkuDetail } from '../mocks/inventory';
+import { mockInventoryData } from '../mocks/mock-inventory-data';
 
-export async function getInventoryOverview(
-  orgId: string
-): Promise<{
-  totalSkus: number;
-  totalOnHand: number;
-  totalAvailable: number;
-  lowStockSkus: number;
-  outOfStockSkus: number;
-  overstockedSkus: number;
-  locations: InventoryLocationSummary[];
-}> {
-  await new Promise(resolve => setTimeout(resolve, 100));
-  
-  const skus = mockInventorySkus;
-  
-  return {
-    totalSkus: skus.length,
-    totalOnHand: skus.reduce((sum, sku) => sum + sku.totalOnHand, 0),
-    totalAvailable: skus.reduce((sum, sku) => sum + sku.totalAvailable, 0),
-    lowStockSkus: skus.filter(sku => sku.status === 'LOW_STOCK').length,
-    outOfStockSkus: skus.filter(sku => sku.status === 'OUT_OF_STOCK').length,
-    overstockedSkus: skus.filter(sku => sku.status === 'OVERSTOCKED').length,
-    locations: mockLocations
-  };
-}
+export type PaginatedInventorySkuResult = {
+  items: InventorySkuSummary[];
+  totalCount: number;
+  page: number;
+  pageSize: number;
+  totalPages: number;
+};
 
-export async function getInventorySkuList(
-  orgId: string,
-  filter: InventoryFilter,
-  pagination: { page: number; pageSize: number }
-): Promise<{ items: InventorySkuSummary[]; total: number }> {
-  await new Promise(resolve => setTimeout(resolve, 100));
-  
-  let skus = [...mockInventorySkus];
-  
-  if (filter.search) {
-    const search = filter.search.toLowerCase();
-    skus = skus.filter(sku => 
-      sku.skuCode.toLowerCase().includes(search) ||
-      sku.productName.toLowerCase().includes(search)
+export type ReplenishmentParams = {
+  targetDaysOfCover?: number;
+  priorityFilter?: 'HIGH' | 'MEDIUM' | 'LOW' | 'ALL';
+  locationId?: string;
+};
+
+export class InventoryService {
+  /**
+   * Get high-level inventory overview snapshot
+   * Returns KPIs, totals, and at-risk SKUs for dashboard
+   */
+  static async getInventoryOverview(
+    orgId: string
+  ): Promise<InventoryOverviewSnapshot> {
+    // In production: fetch from Supabase with orgId filter
+    // For now: return mock data
+    await new Promise((r) => setTimeout(r, 100));
+
+    const { skuList, locations } = mockInventoryData;
+
+    // Calculate aggregates
+    const totalOnHand = skuList.reduce(
+      (sum, sku) => sum + sku.onHandTotal,
+      0
     );
-  }
-  
-  if (filter.status && filter.status !== 'ALL') {
-    skus = skus.filter(sku => sku.status === filter.status);
-  }
-  
-  if (filter.hasLowStockOnly) {
-    skus = skus.filter(sku => sku.status === 'LOW_STOCK');
-  }
-  
-  if (filter.hasOverstockOnly) {
-    skus = skus.filter(sku => sku.status === 'OVERSTOCKED');
-  }
-  
-  const start = (pagination.page - 1) * pagination.pageSize;
-  const end = start + pagination.pageSize;
-  const paginatedItems = skus.slice(start, end);
-  
-  return {
-    items: paginatedItems,
-    total: skus.length
-  };
-}
+    const totalAvailable = skuList.reduce(
+      (sum, sku) => sum + sku.availableTotal,
+      0
+    );
 
-export async function getInventorySkuDetail(
-  orgId: string,
-  skuId: string
-): Promise<InventorySkuDetail> {
-  await new Promise(resolve => setTimeout(resolve, 150));
-  
-  return getMockSkuDetail(skuId);
-}
+    const lowStockSkus = skuList.filter(
+      (sku) => sku.status === 'LOW_STOCK'
+    ).length;
+    const outOfStockSkus = skuList.filter(
+      (sku) => sku.status === 'OUT_OF_STOCK'
+    ).length;
+    const overstockedSkus = skuList.filter(
+      (sku) => sku.status === 'OVERSTOCKED'
+    ).length;
 
-export async function getReplenishmentSuggestions(
-  orgId: string,
-  params: { locationId?: string; maxCount?: number }
-): Promise<ReplenishmentSuggestion[]> {
-  await new Promise(resolve => setTimeout(resolve, 200));
-  
-  let suggestions = [...mockReplenishmentSuggestions];
-  
-  if (params.maxCount) {
-    suggestions = suggestions.slice(0, params.maxCount);
+    // Top at-risk SKUs: LOW_STOCK or OUT_OF_STOCK, sorted by revenue impact
+    const atRiskSkus = skuList
+      .filter(
+        (sku) => sku.status === 'LOW_STOCK' || sku.status === 'OUT_OF_STOCK'
+      )
+      .sort((a, b) => {
+        // Prioritize OUT_OF_STOCK, then by revenue
+        if (a.status === 'OUT_OF_STOCK' && b.status !== 'OUT_OF_STOCK')
+          return -1;
+        if (a.status !== 'OUT_OF_STOCK' && b.status === 'OUT_OF_STOCK')
+          return 1;
+        return (b.avgDailySales30d || 0) - (a.avgDailySales30d || 0);
+      })
+      .slice(0, 5);
+
+    return {
+      totalSkus: skuList.length,
+      totalOnHand,
+      totalAvailable,
+      lowStockSkus,
+      outOfStockSkus,
+      overstockedSkus,
+      topAtRiskSkus: atRiskSkus,
+    };
   }
-  
-  return suggestions;
+
+  /**
+   * Get list of all inventory locations
+   * Returns summary stats for each warehouse/FBA/3PL location
+   */
+  static async getInventoryLocations(
+    orgId: string
+  ): Promise<InventoryLocationSummary[]> {
+    // In production: fetch from Supabase
+    await new Promise((r) => setTimeout(r, 100));
+
+    return mockInventoryData.locations;
+  }
+
+  /**
+   * Get paginated list of SKUs with filtering
+   * Main table view with search, status filters, location filters
+   */
+  static async getInventorySkuList(
+    orgId: string,
+    filter: InventoryFilter = {},
+    pagination: { page: number; pageSize: number } = { page: 1, pageSize: 25 }
+  ): Promise<PaginatedInventorySkuResult> {
+    // In production: fetch from Supabase with filters
+    await new Promise((r) => setTimeout(r, 120));
+
+    let { skuList } = mockInventoryData;
+
+    // Apply filters
+    if (filter.search) {
+      const searchLower = filter.search.toLowerCase();
+      skuList = skuList.filter(
+        (sku) =>
+          sku.skuCode.toLowerCase().includes(searchLower) ||
+          sku.productName.toLowerCase().includes(searchLower)
+      );
+    }
+
+    if (filter.status && filter.status !== 'ALL') {
+      skuList = skuList.filter((sku) => sku.status === filter.status);
+    }
+
+    if (filter.locationId) {
+      skuList = skuList.filter((sku) =>
+        sku.locationIds.includes(filter.locationId!)
+      );
+    }
+
+    if (filter.onlyLowStock) {
+      skuList = skuList.filter((sku) => sku.status === 'LOW_STOCK');
+    }
+
+    if (filter.onlyOverstock) {
+      skuList = skuList.filter((sku) => sku.status === 'OVERSTOCKED');
+    }
+
+    if (filter.hasInbound) {
+      skuList = skuList.filter((sku) => sku.inboundTotal > 0);
+    }
+
+    // Pagination
+    const totalCount = skuList.length;
+    const totalPages = Math.ceil(totalCount / pagination.pageSize);
+    const start = (pagination.page - 1) * pagination.pageSize;
+    const end = start + pagination.pageSize;
+    const items = skuList.slice(start, end);
+
+    return {
+      items,
+      totalCount,
+      page: pagination.page,
+      pageSize: pagination.pageSize,
+      totalPages,
+    };
+  }
+
+  /**
+   * Get detailed view of a single SKU
+   * Includes locations breakdown, demand insights, aging, activity history
+   */
+  static async getInventorySkuDetail(
+    orgId: string,
+    skuId: string
+  ): Promise<InventorySkuDetail> {
+    // In production: fetch from Supabase with joins
+    await new Promise((r) => setTimeout(r, 100));
+
+    const detail = mockInventoryData.skuDetails.find(
+      (d) => d.sku.skuId === skuId
+    );
+
+    if (!detail) {
+      throw new Error(`SKU ${skuId} not found`);
+    }
+
+    return detail;
+  }
+
+  /**
+   * Get replenishment suggestions for low-stock SKUs
+   * AI-driven recommendations for stock transfers and reorders
+   */
+  static async getReplenishmentSuggestions(
+    orgId: string,
+    params: ReplenishmentParams = {}
+  ): Promise<ReplenishmentSuggestion[]> {
+    // In production: fetch from Supabase + run AI models
+    await new Promise((r) => setTimeout(r, 150));
+
+    let { suggestions } = mockInventoryData;
+
+    // Apply filters
+    if (params.priorityFilter && params.priorityFilter !== 'ALL') {
+      suggestions = suggestions.filter(
+        (s) => s.priority === params.priorityFilter
+      );
+    }
+
+    if (params.locationId) {
+      suggestions = suggestions.filter(
+        (s) =>
+          s.recommendedShipFromLocation === params.locationId ||
+          s.recommendedShipToLocation === params.locationId
+      );
+    }
+
+    if (params.targetDaysOfCover) {
+      // Filter suggestions based on target days of cover
+      suggestions = suggestions.filter((s) => {
+        const daysOfCover =
+          s.avgDailySales30d > 0
+            ? s.currentAvailable / s.avgDailySales30d
+            : 999;
+        return daysOfCover < params.targetDaysOfCover!;
+      });
+    }
+
+    // Sort by priority: HIGH > MEDIUM > LOW, then by quantity needed
+    suggestions.sort((a, b) => {
+      const priorityOrder = { HIGH: 3, MEDIUM: 2, LOW: 1 };
+      const aPriority = priorityOrder[a.priority];
+      const bPriority = priorityOrder[b.priority];
+
+      if (aPriority !== bPriority) return bPriority - aPriority;
+      return b.recommendedQty - a.recommendedQty;
+    });
+
+    return suggestions;
+  }
 }

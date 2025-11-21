@@ -1,57 +1,50 @@
-import { type Locale } from "@/i18n/config";
-import { getAppDictionary } from "@/i18n/getAppDictionary";
-import { PageHeader } from "@/components/app/page-header";
-import { mockAutomations } from "@/lib/mocks/mock-automation";
+import { Suspense } from 'react';
+import Link from 'next/link';
+import { PageHeader } from '@/components/app/page-header';
+import { AutomationContent } from './automation-content';
+import { getAutomationDictionary } from '@/i18n/getAutomationDictionary';
 
-type AutomationPageProps = {
-  params: Promise<{ locale: Locale }>;
+export const metadata = {
+  title: 'Automation & Workflow Engine',
 };
 
-export default async function AutomationPage({ params }: AutomationPageProps) {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function AutomationPage({ params }: Props) {
   const { locale } = await params;
-  const dict = await getAppDictionary(locale);
+  const dict = await getAutomationDictionary(locale as 'en' | 'ja');
 
   return (
-    <div className="space-y-6 pb-12">
+    <div className="flex flex-col h-full">
       <PageHeader
-        title={dict.automation.title}
-        subtitle={dict.automation.subtitle}
-        breadcrumbs={[
-          { label: dict.common.breadcrumbs.home, href: `/${locale}/app` },
-          { label: dict.automation.title },
-        ]}
-        actions={<button className="btn btn-primary">{dict.common.buttons.addNew}</button>}
+        title={dict.title}
+        subtitle={dict.subtitle}
       />
+      
+      {/* Tabs */}
+      <div className="border-b border-gray-200 bg-surface px-6">
+        <nav className="flex gap-6">
+          <Link
+            href={`/${locale}/app/automation`}
+            className="px-1 py-3 border-b-2 border-blue-600 text-sm font-medium text-blue-600"
+          >
+            {dict.tabs.overview}
+          </Link>
+          <Link
+            href={`/${locale}/app/automation/templates`}
+            className="px-1 py-3 border-b-2 border-transparent text-sm font-medium text-gray-600 hover:text-gray-900 hover:border-gray-300"
+          >
+            {dict.tabs.templates}
+          </Link>
+        </nav>
+      </div>
 
-      <div className="rounded-panel border border-default bg-surface p-5 shadow-token-lg">
-        <div className="grid gap-3 md:grid-cols-3">
-          {mockAutomations.map((rule) => (
-            <div
-              key={rule.name}
-              className="rounded-card border border-default bg-surface-muted p-4 shadow-soft"
-            >
-              <div className="flex items-center justify-between">
-                <p className="text-sm font-semibold text-primary">{rule.name}</p>
-                <span
-                  className={`rounded-pill px-3 py-1 text-xs font-semibold ${
-                    rule.status === "active"
-                      ? "bg-green-100 text-green-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}
-                >
-                  {rule.status}
-                </span>
-              </div>
-              <p className="text-xs text-muted">
-                {dict.automation.table.trigger}: {rule.trigger}
-              </p>
-              <p className="mt-2 text-sm text-secondary">{rule.impact}</p>
-              <p className="mt-1 text-xs text-muted">
-                {dict.automation.table.lastRun}: {rule.lastRun}
-              </p>
-            </div>
-          ))}
-        </div>
+      <div className="flex-1 overflow-y-auto p-6">
+        <Suspense fallback={<div className="text-gray-500">Loading automation...</div>}>
+          <AutomationContent locale={locale} />
+        </Suspense>
       </div>
     </div>
   );

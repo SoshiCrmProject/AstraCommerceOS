@@ -1,0 +1,113 @@
+{
+  "title": "Admin Dashboard",
+  "subtitle": "System administration and tenant management",
+  
+  "kpis": {
+    "totalTenants": "Total Tenants",
+    "activeTenants": "Active Tenants",
+    "totalRevenue": "Monthly Revenue",
+    "systemUptime": "System Uptime"
+  },
+  
+  "systemHealth": {
+    "title": "System Health",
+    "status": "Status",
+    "healthy": "Healthy",
+    "degraded": "Degraded",
+    "down": "Down",
+    "database": "Database",
+    "redis": "Redis Cache",
+    "messageQueue": "Message Queue",
+    "storage": "Object Storage",
+    "api": "API Gateway",
+    "responseTime": "Response Time",
+    "uptime": "Uptime",
+    "viewDetails": "View Details"
+  },
+  
+  "jobQueues": {
+    "title": "Job Queues",
+    "queueName": "Queue Name",
+    "pending": "Pending",
+    "active": "Active",
+    "completed": "Completed",
+    "failed": "Failed",
+    "actions": "Actions",
+    "pauseQueue": "Pause",
+    "resumeQueue": "Resume",
+    "clearQueue": "Clear",
+    "autoPurchase": "Auto-Purchase",
+    "listingSync": "Listing Sync",
+    "orderSync": "Order Sync",
+    "inventoryUpdate": "Inventory Update",
+    "priceUpdate": "Price Update"
+  },
+  
+  "apiUsage": {
+    "title": "API Usage (Last 24h)",
+    "endpoint": "Endpoint",
+    "requests": "Requests",
+    "avgLatency": "Avg Latency",
+    "errorRate": "Error Rate",
+    "p95Latency": "P95 Latency"
+  },
+  
+  "tenants": {
+    "title": "Tenants",
+    "searchPlaceholder": "Search tenants...",
+    "orgName": "Organization",
+    "plan": "Plan",
+    "status": "Status",
+    "orders": "Orders/mo",
+    "users": "Users",
+    "mrr": "MRR",
+    "createdAt": "Created",
+    "actions": "Actions",
+    "viewDetails": "View",
+    "impersonate": "Impersonate",
+    "suspend": "Suspend",
+    "active": "Active",
+    "suspended": "Suspended",
+    "trial": "Trial",
+    "planTier": {
+      "FREE": "Free",
+      "GROWTH": "Growth",
+      "SCALE": "Scale",
+      "ENTERPRISE": "Enterprise"
+    }
+  },
+  
+  "tenantDetail": {
+    "title": "Tenant Details",
+    "overview": "Overview",
+    "billing": "Billing",
+    "usage": "Usage",
+    "activity": "Activity",
+    "organization": "Organization",
+    "contactEmail": "Contact Email",
+    "website": "Website",
+    "createdAt": "Created At",
+    "lastActive": "Last Active",
+    "currentPlan": "Current Plan",
+    "billingCycle": "Billing Cycle",
+    "nextBillingDate": "Next Billing",
+    "monthlyRevenue": "Monthly Revenue",
+    "totalRevenue": "Total Revenue",
+    "ordersThisMonth": "Orders This Month",
+    "usageLimit": "Usage Limit",
+    "activeUsers": "Active Users",
+    "userLimit": "User Limit",
+    "storageUsed": "Storage Used",
+    "apiCalls": "API Calls (24h)",
+    "close": "Close"
+  },
+  
+  "common": {
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "refresh": "Refresh",
+    "export": "Export",
+    "filter": "Filter",
+    "search": "Search"
+  }
+}

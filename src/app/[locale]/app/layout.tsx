@@ -8,12 +8,12 @@ import { mockUser } from "@/lib/mocks/mock-user";
 
 type AppLayoutProps = {
   children: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export default async function AppLayout({ children, params }: AppLayoutProps) {
   const { locale } = await params;
-  const appDict = await getAppDictionary(locale);
+  const appDict = await getAppDictionary(locale as Locale);
 
   const navItems = [
     { key: "dashboard", label: appDict.nav.dashboard, href: `/${locale}/app` },
@@ -35,10 +35,10 @@ export default async function AppLayout({ children, params }: AppLayoutProps) {
   return (
     <div className="min-h-screen bg-[var(--bg-shell)]">
       <div className="mx-auto flex min-h-screen max-w-[1400px]">
-        <Sidebar locale={locale} navItems={navItems} role={mockUser.role} />
+        <Sidebar locale={locale as Locale} navItems={navItems} role={mockUser.role} />
         <div className="relative flex min-h-screen flex-1 flex-col bg-[var(--bg-app)]">
           <Topbar
-            locale={locale}
+            locale={locale as Locale}
             searchPlaceholder={appDict.common.searchPlaceholder}
             pageTitle={appDict.dashboard.title}
             navLanguageLabels={{ en: "EN", ja: "日本語" }}
@@ -48,7 +48,7 @@ export default async function AppLayout({ children, params }: AppLayoutProps) {
           </main>
         </div>
       </div>
-      <MobileNav locale={locale} />
+      <MobileNav locale={locale as Locale} />
     </div>
   );
 }

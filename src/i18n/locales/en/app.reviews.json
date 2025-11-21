@@ -1,0 +1,175 @@
+{
+  "title": "Reviews & Customer Feedback",
+  "subtitle": "Monitor sentiment, prioritize issues, and respond to customers across all marketplaces.",
+  "insights": {
+    "title": "CX Insights",
+    "subtitle": "Identify trends, recurring issues, and opportunities to improve customer experience."
+  },
+  "templates": {
+    "title": "Reply Templates",
+    "subtitle": "Standardize and speed up customer responses across marketplaces."
+  },
+  "buttons": {
+    "openInsights": "Open CX Insights",
+    "replyTemplates": "Reply Templates",
+    "askCopilot": "Ask CX Copilot",
+    "generateReply": "Generate Reply",
+    "applyTemplate": "Apply Template",
+    "markInProgress": "Mark as In Progress",
+    "markResolved": "Mark as Resolved",
+    "escalate": "Escalate",
+    "addNote": "Add Note",
+    "addTag": "Add Tag",
+    "copyToClipboard": "Copy to Clipboard",
+    "openInChannel": "Open in Channel",
+    "viewProduct": "View Product",
+    "showTranslated": "Show Translated",
+    "improveMyDraft": "Improve My Draft",
+    "preview": "Preview",
+    "useInCopilot": "Use in AI Copilot",
+    "addTemplate": "Add Template"
+  },
+  "filters": {
+    "search": "Search reviews, products, authors...",
+    "channel": "Channel",
+    "rating": "Rating",
+    "sentiment": "Sentiment",
+    "status": "Status",
+    "priority": "Priority",
+    "unrespondedOnly": "Unresponded only",
+    "negativeOnly": "Negative only (1-2★)",
+    "all": "All"
+  },
+  "charts": {
+    "sentimentBreakdown": "Sentiment Breakdown",
+    "reviewTrends": "Review Trends (Last 30 Days)"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "Rakuten",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo! Shopping",
+    "MERCARI": "Mercari",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "sentiment": {
+    "POSITIVE": "Positive",
+    "NEUTRAL": "Neutral",
+    "NEGATIVE": "Negative"
+  },
+  "status": {
+    "NEW": "New",
+    "IN_PROGRESS": "In Progress",
+    "RESPONDED": "Responded",
+    "RESOLVED": "Resolved",
+    "ESCALATED": "Escalated"
+  },
+  "priority": {
+    "LOW": "Low",
+    "MEDIUM": "Medium",
+    "HIGH": "High",
+    "CRITICAL": "Critical"
+  },
+  "kpis": {
+    "avgRating": "Average Rating",
+    "totalReviews": "Total Reviews",
+    "positiveReviews": "Positive Reviews",
+    "neutralReviews": "Neutral Reviews",
+    "negativeReviews": "Negative Reviews",
+    "newReviews24h": "New in 24h",
+    "negativeLast7d": "Negative (7d)",
+    "responseRate": "Response Rate"
+  },
+  "table": {
+    "rating": "Rating",
+    "product": "Product",
+    "channel": "Channel",
+    "region": "Region",
+    "body": "Review",
+    "sentiment": "Sentiment",
+    "status": "Status",
+    "priority": "Priority",
+    "created": "Created",
+    "updated": "Last Updated",
+    "noReviews": "No reviews found",
+    "noReviewsDesc": "Try adjusting your filters or connect more marketplaces."
+  },
+  "detail": {
+    "reviewCard": "Review Details",
+    "productContext": "Product & Order Context",
+    "internalNotes": "Internal Notes",
+    "aiAssistant": "AI Response Assistant",
+    "templates": "Suggested Templates",
+    "originalLanguage": "Original language",
+    "replyLanguage": "Reply in",
+    "tone": "Tone",
+    "tones": {
+      "FORMAL": "Formal",
+      "NEUTRAL": "Neutral",
+      "FRIENDLY": "Friendly"
+    },
+    "includeNextSteps": "Include explanation of next steps",
+    "addNotePlaceholder": "Add an internal note...",
+    "addTagPlaceholder": "Add tag...",
+    "replyPlaceholder": "Write your reply here or generate with AI..."
+  },
+  "insights": {
+    "summaryKpis": "Summary KPIs",
+    "trendAnalysis": "Trend Analysis",
+    "channelComparison": "Channel Comparison",
+    "issuesByTheme": "Issues by Theme",
+    "winsByTheme": "Wins by Theme",
+    "topChannel": "Top channel by rating",
+    "lowestChannel": "Lowest channel by rating",
+    "theme": "Theme",
+    "count": "Count",
+    "examplePhrase": "Example Phrase",
+    "suggestedArea": "Suggested Area",
+    "avgRatingLabel": "Avg Rating",
+    "reviewCountLabel": "Review Count",
+    "negativePercentage": "Negative %"
+  },
+  "trends": {
+    "reviewsPerDay": "Reviews per day",
+    "avgRating": "Average rating",
+    "negativeCount": "Negative reviews",
+    "last7days": "Last 7 days",
+    "last30days": "Last 30 days",
+    "last90days": "Last 90 days"
+  },
+  "keywords": {
+    "topPositive": "Top Positive Themes",
+    "topNegative": "Top Negative Themes",
+    "keyword": "Keyword",
+    "mentions": "Mentions",
+    "sample": "Sample"
+  },
+  "copilot": {
+    "prompts": {
+      "summarizeNegative": "Summarize negative reviews from the last 7 days.",
+      "topIssues": "What are the top 3 issues impacting customer satisfaction?",
+      "ratingTrend": "Write a report explaining our rating trend in simple terms.",
+      "summarizeThread": "Summarize this review thread"
+    },
+    "actions": {
+      "copySummary": "Copy Summary",
+      "openWorkspace": "Open in AI Workspace"
+    }
+  },
+  "templateFields": {
+    "name": "Template Name",
+    "language": "Language",
+    "tone": "Tone",
+    "applicableTo": "Applicable To",
+    "bodyText": "Body Text",
+    "applicableTypes": {
+      "NEGATIVE": "Negative Reviews",
+      "NEUTRAL": "Neutral Reviews",
+      "POSITIVE": "Positive Reviews",
+      "ANY": "Any Review"
+    }
+  }
+}

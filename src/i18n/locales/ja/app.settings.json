@@ -1,0 +1,165 @@
+{
+  "title": "設定",
+  "subtitle": "組織、チーム、連携、課金を管理",
+  
+  "tabs": {
+    "organization": "組織",
+    "profile": "プロフィール",
+    "team": "チーム",
+    "branding": "ブランディング",
+    "integrations": "連携",
+    "billing": "課金・プラン",
+    "security": "セキュリティ"
+  },
+  
+  "organization": {
+    "title": "組織設定",
+    "subtitle": "組織の基本情報",
+    "name": "組織名",
+    "legalName": "正式名称",
+    "contactEmail": "連絡先メールアドレス",
+    "websiteUrl": "ウェブサイトURL",
+    "defaultCurrency": "デフォルト通貨",
+    "defaultTimezone": "デフォルトタイムゾーン",
+    "locale": "言語",
+    "saveChanges": "変更を保存",
+    "saved": "設定を保存しました"
+  },
+  
+  "profile": {
+    "title": "プロフィール",
+    "subtitle": "個人アカウント設定",
+    "name": "氏名",
+    "email": "メールアドレス",
+    "avatarUrl": "アバターURL",
+    "role": "役割",
+    "locale": "優先言語",
+    "timezone": "タイムゾーン",
+    "saveChanges": "変更を保存",
+    "saved": "プロフィールを更新しました"
+  },
+  
+  "team": {
+    "title": "チームメンバー",
+    "subtitle": "組織へのアクセス権限を管理",
+    "inviteMember": "メンバーを招待",
+    "name": "氏名",
+    "email": "メールアドレス",
+    "role": "役割",
+    "status": "ステータス",
+    "joinedAt": "参加日",
+    "actions": "操作",
+    "roles": {
+      "OWNER": "オーナー",
+      "ADMIN": "管理者",
+      "MEMBER": "メンバー",
+      "VIEWER": "閲覧者"
+    },
+    "statuses": {
+      "INVITED": "招待中",
+      "ACTIVE": "アクティブ",
+      "DISABLED": "無効"
+    },
+    "removeMember": "削除",
+    "changeRole": "役割を変更",
+    "resendInvite": "招待を再送信"
+  },
+  
+  "branding": {
+    "title": "ブランディング",
+    "subtitle": "ワークスペースのデザインをカスタマイズ",
+    "logoUrl": "ロゴURL",
+    "faviconUrl": "ファビコンURL",
+    "primaryColor": "プライマリカラー",
+    "accentColor": "アクセントカラー",
+    "preview": "プレビュー",
+    "noLogo": "ロゴが未登録です",
+    "sampleButton": "サンプルボタン",
+    "saveChanges": "変更を保存",
+    "saved": "ブランディング設定を保存しました"
+  },
+  
+  "integrations": {
+    "title": "連携",
+    "subtitle": "マーケットプレイスアカウントを接続",
+    "amazon": "Amazonセラーセントラル",
+    "shopify": "Shopify",
+    "shopee": "Shopee",
+    "rakuten": "楽天市場",
+    "walmart": "Walmartマーケットプレイス",
+    "ebay": "eBay",
+    "yahooShopping": "Yahoo!ショッピング",
+    "mercari": "メルカリ",
+    "tiktokShop": "TikTok Shop",
+    "connected": "接続済み",
+    "notConnected": "未接続",
+    "connect": "接続",
+    "disconnect": "切断",
+    "configure": "設定",
+    "webhookUrl": "Webhook URL",
+    "saveChanges": "変更を保存",
+    "saved": "連携設定を更新しました"
+  },
+  
+  "billing": {
+    "title": "課金・プラン",
+    "subtitle": "サブスクリプションと支払い方法を管理",
+    "currentPlan": "現在のプラン",
+    "planTier": {
+      "FREE": "無料",
+      "GROWTH": "Growth",
+      "SCALE": "Scale",
+      "ENTERPRISE": "Enterprise"
+    },
+    "monthlyPrice": "月額料金",
+    "nextBillingDate": "次回請求日",
+    "paymentMethod": "支払い方法",
+    "invoices": "請求書",
+    "invoiceId": "請求書ID",
+    "date": "日付",
+    "amount": "金額",
+    "status": "ステータス",
+    "download": "ダウンロード",
+    "invoiceStatus": {
+      "PAID": "支払い済み",
+      "PENDING": "保留中",
+      "FAILED": "失敗"
+    },
+    "changePlan": "プラン変更",
+    "updatePayment": "支払い方法を更新",
+    "viewAllInvoices": "すべての請求書を表示"
+  },
+  
+  "security": {
+    "title": "セキュリティ",
+    "subtitle": "認証とアクセス制御を管理",
+    "twoFactor": "2段階認証",
+    "twoFactorDesc": "アカウントに追加のセキュリティ層を追加",
+    "twoFactorEnabled": "2段階認証有効",
+    "twoFactorDisabled": "2段階認証無効",
+    "enable2FA": "2段階認証を有効化",
+    "disable2FA": "2段階認証を無効化",
+    "apiKeys": "APIキー",
+    "createKey": "キーを作成",
+    "createApiKey": "APIキーを作成",
+    "created": "作成日",
+    "lastUsed": "最終使用日",
+    "sessions": "アクティブセッション",
+    "currentSession": "現在のセッション",
+    "lastActive": "最終アクティブ",
+    "revoke": "無効化",
+    "revokeAll": "すべてのセッションを無効化",
+    "saveChanges": "変更を保存",
+    "saved": "セキュリティ設定を更新しました"
+  },
+  
+  "common": {
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "loading": "読み込み中...",
+    "saved": "保存しました",
+    "error": "エラーが発生しました"
+  }
+}

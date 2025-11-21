@@ -1,0 +1,175 @@
+{
+  "title": "レビュー・顧客フィードバック",
+  "subtitle": "全マーケットプレイスの顧客感情を監視し、問題を優先順位付けして対応します。",
+  "insights": {
+    "title": "CXインサイト",
+    "subtitle": "トレンド、繰り返し発生する問題、顧客体験改善の機会を特定します。"
+  },
+  "templates": {
+    "title": "返信テンプレート",
+    "subtitle": "マーケットプレイス全体で顧客対応を標準化し、効率化します。"
+  },
+  "buttons": {
+    "openInsights": "CXインサイトを開く",
+    "replyTemplates": "返信テンプレート",
+    "askCopilot": "CXコパイロットに質問",
+    "generateReply": "返信を生成",
+    "applyTemplate": "テンプレートを適用",
+    "markInProgress": "対応中にする",
+    "markResolved": "解決済みにする",
+    "escalate": "エスカレーション",
+    "addNote": "メモを追加",
+    "addTag": "タグを追加",
+    "copyToClipboard": "クリップボードにコピー",
+    "openInChannel": "チャネルで開く",
+    "viewProduct": "商品を表示",
+    "showTranslated": "翻訳を表示",
+    "improveMyDraft": "下書きを改善",
+    "preview": "プレビュー",
+    "useInCopilot": "AIコパイロットで使用",
+    "addTemplate": "テンプレートを追加"
+  },
+  "filters": {
+    "search": "レビュー、商品、著者名を検索...",
+    "channel": "チャネル",
+    "rating": "評価",
+    "sentiment": "感情",
+    "status": "ステータス",
+    "priority": "優先度",
+    "unrespondedOnly": "未返信のみ",
+    "negativeOnly": "ネガティブのみ (1-2★)",
+    "all": "すべて"
+  },
+  "charts": {
+    "sentimentBreakdown": "感情内訳",
+    "reviewTrends": "レビュートレンド（過去30日間）"
+  },
+  "channels": {
+    "AMAZON": "Amazon",
+    "SHOPIFY": "Shopify",
+    "SHOPEE": "Shopee",
+    "RAKUTEN": "楽天",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "YAHOO_SHOPPING": "Yahoo!ショッピング",
+    "MERCARI": "メルカリ",
+    "TIKTOK_SHOP": "TikTok Shop"
+  },
+  "sentiment": {
+    "POSITIVE": "ポジティブ",
+    "NEUTRAL": "中立",
+    "NEGATIVE": "ネガティブ"
+  },
+  "status": {
+    "NEW": "新規",
+    "IN_PROGRESS": "対応中",
+    "RESPONDED": "返信済み",
+    "RESOLVED": "解決済み",
+    "ESCALATED": "エスカレーション済み"
+  },
+  "priority": {
+    "LOW": "低",
+    "MEDIUM": "中",
+    "HIGH": "高",
+    "CRITICAL": "緊急"
+  },
+  "kpis": {
+    "avgRating": "平均評価",
+    "totalReviews": "総レビュー数",
+    "positiveReviews": "ポジティブ",
+    "neutralReviews": "中立",
+    "negativeReviews": "ネガティブ",
+    "newReviews24h": "24時間以内",
+    "negativeLast7d": "ネガティブ（7日間）",
+    "responseRate": "返信率"
+  },
+  "table": {
+    "rating": "評価",
+    "product": "商品",
+    "channel": "チャネル",
+    "region": "地域",
+    "body": "レビュー内容",
+    "sentiment": "感情",
+    "status": "ステータス",
+    "priority": "優先度",
+    "created": "作成日",
+    "updated": "最終更新日",
+    "noReviews": "レビューが見つかりません",
+    "noReviewsDesc": "フィルターを調整するか、マーケットプレイスを追加してください。"
+  },
+  "detail": {
+    "reviewCard": "レビュー詳細",
+    "productContext": "商品・注文情報",
+    "internalNotes": "内部メモ",
+    "aiAssistant": "AI返信アシスタント",
+    "templates": "推奨テンプレート",
+    "originalLanguage": "元の言語",
+    "replyLanguage": "返信言語",
+    "tone": "トーン",
+    "tones": {
+      "FORMAL": "フォーマル",
+      "NEUTRAL": "中立",
+      "FRIENDLY": "フレンドリー"
+    },
+    "includeNextSteps": "次のステップの説明を含める",
+    "addNotePlaceholder": "内部メモを追加...",
+    "addTagPlaceholder": "タグを追加...",
+    "replyPlaceholder": "ここに返信を入力するか、AIで生成してください..."
+  },
+  "insights": {
+    "summaryKpis": "サマリーKPI",
+    "trendAnalysis": "トレンド分析",
+    "channelComparison": "チャネル比較",
+    "issuesByTheme": "テーマ別課題",
+    "winsByTheme": "テーマ別成功要因",
+    "topChannel": "評価最高チャネル",
+    "lowestChannel": "評価最低チャネル",
+    "theme": "テーマ",
+    "count": "件数",
+    "examplePhrase": "例文",
+    "suggestedArea": "推奨分野",
+    "avgRatingLabel": "平均評価",
+    "reviewCountLabel": "レビュー数",
+    "negativePercentage": "ネガティブ率"
+  },
+  "trends": {
+    "reviewsPerDay": "1日あたりのレビュー数",
+    "avgRating": "平均評価",
+    "negativeCount": "ネガティブレビュー",
+    "last7days": "過去7日間",
+    "last30days": "過去30日間",
+    "last90days": "過去90日間"
+  },
+  "keywords": {
+    "topPositive": "トップポジティブテーマ",
+    "topNegative": "トップネガティブテーマ",
+    "keyword": "キーワード",
+    "mentions": "言及数",
+    "sample": "サンプル"
+  },
+  "copilot": {
+    "prompts": {
+      "summarizeNegative": "過去7日間のネガティブレビューを要約してください。",
+      "topIssues": "顧客満足度に影響を与えている上位3つの問題は何ですか？",
+      "ratingTrend": "評価のトレンドをわかりやすく説明するレポートを作成してください。",
+      "summarizeThread": "このレビュースレッドを要約"
+    },
+    "actions": {
+      "copySummary": "サマリーをコピー",
+      "openWorkspace": "AIワークスペースで開く"
+    }
+  },
+  "templateFields": {
+    "name": "テンプレート名",
+    "language": "言語",
+    "tone": "トーン",
+    "applicableTo": "適用対象",
+    "bodyText": "本文テキスト",
+    "applicableTypes": {
+      "NEGATIVE": "ネガティブレビュー",
+      "NEUTRAL": "中立レビュー",
+      "POSITIVE": "ポジティブレビュー",
+      "ANY": "すべてのレビュー"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "title": "Automation & Workflow Engine",
+  "subtitle": "Orchestrate your entire ecommerce operation with rules and workflows",
+  "tabs": {
+    "overview": "Overview",
+    "templates": "Templates"
+  },
+  "buttons": {
+    "createWorkflow": "Create Workflow",
+    "browseTemplates": "Browse Templates",
+    "askCopilot": "Ask Workflow Copilot",
+    "saveWorkflow": "Save Workflow",
+    "runTest": "Run Test",
+    "pause": "Pause",
+    "activate": "Activate",
+    "useTemplate": "Use Template",
+    "preview": "Preview"
+  },
+  "kpis": {
+    "activeWorkflows": "Active Workflows",
+    "runsLast24h": "Runs (24h)",
+    "failuresLast24h": "Failures (24h)",
+    "pricingAutomations": "Pricing Automations",
+    "inventoryAutomations": "Inventory Automations"
+  },
+  "filters": {
+    "search": "Search by rule name...",
+    "allStatus": "All Status",
+    "active": "Active",
+    "paused": "Paused",
+    "draft": "Draft",
+    "allTriggers": "All Triggers"
+  },
+  "triggers": {
+    "orderCreated": "Order is created",
+    "orderStatusChanged": "Order status changes",
+    "inventoryBelowThreshold": "Inventory drops below threshold",
+    "priceBelowMinMargin": "Price falls below min margin",
+    "newNegativeReview": "Negative review received",
+    "channelSyncFailed": "Channel sync fails",
+    "dailySchedule": "Daily schedule",
+    "weeklySchedule": "Weekly schedule"
+  },
+  "actionTypes": {
+    "sendEmail": "Send email",
+    "sendSlackWebhook": "Send Slack message",
+    "adjustPrice": "Adjust price",
+    "createReplenishmentTask": "Create replenishment task",
+    "tagOrder": "Tag order",
+    "tagProduct": "Tag product",
+    "createSupportTicket": "Create support ticket",
+    "runChannelSync": "Run channel sync",
+    "runAiSummary": "Run AI summary"
+  },
+  "tableHeaders": {
+    "name": "Name",
+    "status": "Status",
+    "trigger": "Trigger",
+    "actions": "Actions",
+    "runs7d": "Runs (7d)",
+    "lastRun": "Last Run",
+    "quickActions": "Quick Actions",
+    "noRules": "No automation rules found",
+    "neverRun": "Never run"
+  },
+  "builder": {
+    "createWorkflow": "Create Workflow",
+    "editWorkflow": "Edit Workflow",
+    "basicInfo": "Basic Information",
+    "ruleName": "Rule Name",
+    "description": "Description",
+    "trigger": "Trigger",
+    "whenThisHappens": "When this happens...",
+    "conditions": "Conditions (IF)",
+    "actions": "Actions (THEN)",
+    "addCondition": "Add Condition",
+    "addAction": "Add Action",
+    "noConditions": "No conditions added",
+    "noActions": "No actions added",
+    "actionLabel": "Action label (optional)",
+    "field": "field",
+    "value": "value"
+  },
+  "executionHistory": {
+    "title": "Recent Executions",
+    "noExecutions": "No executions found",
+    "viewLog": "View Log"
+  },
+  "workflowMap": {
+    "title": "Workflow Visualization",
+    "trigger": "Trigger",
+    "conditions": "Conditions",
+    "actions": "Actions"
+  },
+  "templates": {
+    "title": "Automation Templates",
+    "subtitle": "Start from proven workflows for pricing, inventory, orders, and reviews",
+    "noTemplates": "No templates available",
+    "template": "Template"
+  },
+  "copilot": {
+    "title": "Workflow Copilot",
+    "describe": "Describe what you want to automate",
+    "placeholder": "E.g., Send me an email when inventory drops below 5 days of cover",
+    "suggestedPrompts": "Suggested prompts:",
+    "generateWorkflow": "Generate Workflow",
+    "prompt1": "Alert me when Amazon JP orders spike above daily average",
+    "prompt2": "Adjust prices when margins drop below 10%",
+    "prompt3": "Tag and prioritize high-value orders over $1000",
+    "prompt4": "Send Slack alert when inventory runs low"
+  }
+}

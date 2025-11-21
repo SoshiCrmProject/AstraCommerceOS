@@ -1,0 +1,117 @@
+{
+  "title": "AIコパイロット",
+  "subtitle": "チャネル、価格設定、在庫、注文、自動化に関することをAstraCommerceコパイロットに質問してください",
+  "modes": {
+    "general": "一般",
+    "pricingAdvisor": "価格設定アドバイザー",
+    "inventoryPlanner": "在庫プランナー",
+    "listingOptimizer": "出品最適化",
+    "ordersRisk": "注文とリスク",
+    "reviewsAnalyzer": "レビューとCX",
+    "automationDesigner": "自動化デザイナー"
+  },
+  "buttons": {
+    "newChat": "新しいチャット",
+    "sendMessage": "送信",
+    "openInCopilot": "コパイロットで開く",
+    "useInChat": "チャットで使用",
+    "useTemplate": "テンプレートを使用",
+    "rename": "名前を変更",
+    "delete": "削除",
+    "pin": "ピン留め",
+    "unpin": "ピン留め解除"
+  },
+  "threads": {
+    "title": "最近の会話",
+    "search": "会話を検索...",
+    "noThreads": "会話がありません",
+    "noThreadsDesc": "新しいチャットを開始してAIコパイロットを使い始めましょう",
+    "pinned": "ピン留め済み"
+  },
+  "chat": {
+    "placeholder": "ビジネスに関することを何でも質問してください...",
+    "typing": "コパイロットが考えています...",
+    "suggestedFollowUps": "おすすめのフォローアップ:",
+    "referencedEntities": "参照:",
+    "newConversation": "新しい会話",
+    "editTitle": "タイトルを編集"
+  },
+  "context": {
+    "title": "コンテキスト",
+    "dashboardSnapshot": "ダッシュボードのスナップショット",
+    "pricingContext": "価格設定データ",
+    "inventoryContext": "在庫データ",
+    "ordersContext": "注文データ",
+    "listingsContext": "出品データ",
+    "reviewsContext": "レビューデータ",
+    "attached": "添付済み",
+    "notAttached": "未添付"
+  },
+  "shortcuts": {
+    "title": "ショートカット",
+    "pricingShortcuts": "価格設定ショートカット",
+    "inventoryShortcuts": "在庫ショートカット",
+    "listingShortcuts": "出品ショートカット",
+    "ordersShortcuts": "注文ショートカット",
+    "reviewsShortcuts": "レビューショートカット",
+    "automationShortcuts": "自動化ショートカット",
+    "pricing": {
+      "negativeMargins": "マージンがマイナスのSKUを検索",
+      "priceIncreases": "値上げを提案",
+      "overpriced": "価格が高すぎるSKUを特定"
+    },
+    "inventory": {
+      "stockout": "在庫切れのリスクがあるSKUを表示",
+      "replenishment": "今後30日間の補充計画を生成",
+      "overstock": "在庫過多のアイテムを検索"
+    },
+    "listings": {
+      "improveTitle": "この出品タイトルを改善",
+      "bulletPoints": "トップセラーの箇条書きを生成",
+      "localize": "日本市場のトーンにローカライズ"
+    },
+    "orders": {
+      "slaRisk": "本日SLAリスクのある注文を強調表示",
+      "backlog": "現在のバックログを簡単に説明"
+    },
+    "reviews": {
+      "summarizeNegative": "過去7日間のネガティブレビューを要約",
+      "apologyTemplate": "謝罪メッセージテンプレートを作成"
+    },
+    "automation": {
+      "pricingWorkflow": "価格自動調整のワークフローを提案",
+      "inventoryAlert": "在庫が少なくなったらSlackで通知"
+    }
+  },
+  "docs": {
+    "title": "ドキュメントヘルパー",
+    "description": "AstraCommerce OSの仕組みについて質問してください"
+  },
+  "playbooks": {
+    "title": "AIプレイブック",
+    "subtitle": "一般的なコマース業務のための即利用可能なAIワークフロー",
+    "noPlaybooks": "利用可能なプレイブックがありません",
+    "tags": "タグ"
+  },
+  "prompts": {
+    "title": "プロンプトライブラリ",
+    "subtitle": "ビジネスのあらゆる部分に対応する再利用可能なプロンプトテンプレート",
+    "noPrompts": "利用可能なプロンプトがありません",
+    "categories": {
+      "all": "すべて",
+      "pricing": "価格設定",
+      "inventory": "在庫",
+      "listings": "出品",
+      "orders": "注文",
+      "reviews": "レビュー",
+      "automation": "自動化"
+    }
+  },
+  "quickActions": {
+    "title": "クイックアクション",
+    "startPricingChat": "価格設定アドバイザーチャットを開始",
+    "startInventoryChat": "在庫計画チャットを開始",
+    "startListingChat": "出品最適化チャットを開始",
+    "startReviewsChat": "レビュー分析チャットを開始"
+  }
+}

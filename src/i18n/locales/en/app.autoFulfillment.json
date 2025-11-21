@@ -1,0 +1,158 @@
+{
+  "title": "Auto-Fulfillment & Amazon Auto-Purchase",
+  "subtitle": "Automatically ship eligible orders using your Amazon supply with strict profit and delivery rules",
+  
+  "buttons": {
+    "evaluateNow": "Evaluate Now",
+    "queuePurchases": "Queue Purchases",
+    "downloadCsv": "Download Non-Fulfilled Report (CSV)",
+    "saveConfig": "Save Configuration",
+    "testPurchase": "Test Purchase",
+    "viewOrder": "View Full Order",
+    "refreshData": "Refresh Data"
+  },
+  
+  "config": {
+    "title": "Auto-Fulfillment Configuration",
+    "enabled": "Enable auto-fulfillment",
+    "enabledHelp": "When enabled, eligible orders will automatically queue for Amazon purchase",
+    "includePoints": "Include Amazon Points in profit calculation",
+    "includePointsHelp": "Add estimated Amazon Points reward to expected profit",
+    "includeShipping": "Include domestic shipping fee in profit calculation",
+    "includeShippingHelp": "Subtract shipping cost from Amazon warehouse to prep center",
+    "maxDeliveryDays": "Max allowed shipping days (Amazon → warehouse)",
+    "maxDeliveryDaysHelp": "Orders exceeding this delivery time will be skipped",
+    "minProfit": "Minimum expected profit to auto-ship",
+    "minProfitHelp": "Can be negative (e.g., -2000 for strategic loss)",
+    "eligibleShops": "Eligible shops/channels",
+    "eligibleShopsHelp": "Select which connected marketplaces can use auto-fulfillment",
+    "configSaved": "Configuration saved successfully"
+  },
+  
+  "summary": {
+    "title": "Summary",
+    "totalCandidates": "Total Candidates",
+    "eligible": "Eligible",
+    "skipped": "Skipped",
+    "queued": "Queued",
+    "succeeded": "Succeeded",
+    "failed": "Failed",
+    "totalProfit": "Total Expected Profit",
+    "avgProfit": "Avg Profit"
+  },
+  
+  "table": {
+    "title": "Auto-Fulfillment Candidates",
+    "marketplace": "Marketplace",
+    "orderId": "Order ID",
+    "shop": "Shop",
+    "product": "Product",
+    "sku": "SKU",
+    "qty": "Qty",
+    "orderTotal": "Order Total",
+    "amazonAsin": "Amazon ASIN",
+    "amazonMarket": "Amazon Market",
+    "amazonPrice": "Amazon Price",
+    "amazonPoints": "Points",
+    "shipping": "Shipping",
+    "shipDays": "Ship Days",
+    "profit": "Expected Profit",
+    "status": "Status",
+    "reasons": "Reasons",
+    "actions": "Actions",
+    "noResults": "No candidates found",
+    "noResultsDescription": "Sync your marketplace orders to see auto-fulfillment candidates"
+  },
+  
+  "filters": {
+    "all": "All",
+    "search": "Search products, SKUs, ASINs...",
+    "status": "Status",
+    "marketplace": "Marketplace",
+    "shop": "Shop",
+    "onlyEligible": "Only Eligible",
+    "onlyFailed": "Only Failed",
+    "minProfit": "Min Profit",
+    "maxProfit": "Max Profit"
+  },
+  
+  "status": {
+    "PENDING_EVAL": "Pending Evaluation",
+    "ELIGIBLE": "Eligible",
+    "SKIPPED_CONDITION": "Skipped",
+    "QUEUED_FOR_PURCHASE": "Queued",
+    "PURCHASE_IN_PROGRESS": "In Progress",
+    "PURCHASE_SUCCEEDED": "Success",
+    "PURCHASE_FAILED": "Failed"
+  },
+  
+  "reasons": {
+    "NEGATIVE_PROFIT": "Negative profit",
+    "PROFIT_BELOW_THRESHOLD": "Profit below threshold",
+    "DELIVERY_TOO_SLOW": "Delivery too slow",
+    "AMAZON_OUT_OF_STOCK": "Amazon out of stock",
+    "AMAZON_USED_ONLY": "Only used condition available",
+    "AMAZON_LISTING_MISSING": "Amazon listing missing",
+    "POINTS_EXCLUDED": "Points not included in profit",
+    "DOMESTIC_SHIPPING_NOT_INCLUDED": "Domestic shipping not included",
+    "SHOP_NOT_ELIGIBLE": "Shop not eligible",
+    "HEADLESS_ERROR": "Headless automation error",
+    "CAPTCHA_REQUIRED": "CAPTCHA challenge",
+    "TWO_FACTOR_REQUIRED": "2FA required",
+    "UNKNOWN": "Unknown error"
+  },
+  
+  "warning": {
+    "title": "⚠️ Important: Headless Automation Risks",
+    "message": "This feature uses headless browser automation to place orders on Amazon. Due to Amazon's frequent UI changes, unexpected issues may occur including CAPTCHA challenges, DOM structure changes, and authentication failures. Use this function at your own risk and always monitor error logs and non-fulfilled exports. Manual intervention may be required.",
+    "understand": "I understand the risks"
+  },
+  
+  "messages": {
+    "evaluating": "Evaluating candidates...",
+    "evaluated": "Evaluated {count} candidates",
+    "queuing": "Queueing purchases...",
+    "queued": "Queued {count} purchases",
+    "downloading": "Generating CSV...",
+    "noEligible": "No eligible orders to queue",
+    "sessionInvalid": "Amazon session invalid. Please re-authenticate in Settings.",
+    "error": "An error occurred. Please try again."
+  },
+  
+  "csv": {
+    "filename": "non-fulfilled-orders-{date}.csv",
+    "headers": {
+      "orderId": "Order ID",
+      "marketplace": "Marketplace",
+      "shop": "Shop",
+      "product": "Product",
+      "sku": "SKU",
+      "qty": "Quantity",
+      "orderTotal": "Order Total",
+      "amazonAsin": "Amazon ASIN",
+      "amazonMarket": "Amazon Marketplace",
+      "amazonPrice": "Amazon Price",
+      "amazonPoints": "Amazon Points",
+      "shipping": "Domestic Shipping",
+      "shipDays": "Estimated Ship Days",
+      "profit": "Expected Profit",
+      "status": "Status",
+      "reasons": "Reasons",
+      "error": "Error Message"
+    }
+  },
+  
+  "marketplaces": {
+    "SHOPEE_JP": "Shopee Japan",
+    "SHOPEE_TW": "Shopee Taiwan",
+    "SHOPEE_SG": "Shopee Singapore",
+    "RAKUTEN_JP": "Rakuten Japan",
+    "MERCARI_JP": "Mercari Japan",
+    "YAHOO_SHOPPING_JP": "Yahoo! Shopping Japan",
+    "AMAZON_JP": "Amazon Japan",
+    "SHOPIFY": "Shopify",
+    "EBAY": "eBay",
+    "WALMART": "Walmart",
+    "TIKTOK_SHOP": "TikTok Shop"
+  }
+}

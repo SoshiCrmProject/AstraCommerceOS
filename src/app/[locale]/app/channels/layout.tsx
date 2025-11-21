@@ -6,13 +6,13 @@ import { PageHeader } from "@/components/app/page-header";
 
 type ChannelsLayoutProps = {
   children: ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export default async function ChannelsLayout({ children, params }: ChannelsLayoutProps) {
   const { locale } = await params;
-  const appDict = await getAppDictionary(locale);
-  const channelDict = await getChannelsDictionary(locale);
+  const appDict = await getAppDictionary(locale as Locale);
+  const channelDict = await getChannelsDictionary(locale as Locale);
 
   return (
     <div className="space-y-6 pb-12">

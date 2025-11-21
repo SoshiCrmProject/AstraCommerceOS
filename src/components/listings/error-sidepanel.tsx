@@ -89,10 +89,10 @@ export function ErrorSidepanel({ listing, errors, dict, locale, onClose }: Error
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex flex-wrap gap-2">
                       <span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${getSeverityColor(error.severity)}`}>
-                        {dict.compliance.severity[error.severity]}
+                        {dict.detail?.compliance?.severity?.[error.severity] || error.severity}
                       </span>
                       <span className={`inline-flex rounded-full px-2 py-1 text-xs font-semibold ${getCategoryColor(error.category)}`}>
-                        {dict.compliance.categories[error.category]}
+                        {dict.detail?.compliance?.categories?.[error.category] || error.category}
                       </span>
                     </div>
                     {error.resolved && (

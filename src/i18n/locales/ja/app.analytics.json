@@ -1,0 +1,174 @@
+{
+  "title": "分析",
+  "subtitle": "収益、利益、チャネル、商品、顧客行動を一か所で把握します。",
+  "performance": {
+    "title": "パフォーマンス・収益",
+    "subtitle": "収益トレンド、チャネル比較、パフォーマンス指標を詳しく分析します。"
+  },
+  "products": {
+    "title": "商品分析",
+    "subtitle": "SKUのパフォーマンス、収益性を分析し、成長商品と低迷商品を特定します。"
+  },
+  "customers": {
+    "title": "顧客分析",
+    "subtitle": "顧客コホート、リテンション、生涯価値、地理的内訳を把握します。"
+  },
+  "buttons": {
+    "downloadReport": "レポートをダウンロード (CSV)",
+    "askCopilot": "分析コパイロットに質問",
+    "explainChart": "このチャートを説明",
+    "explainPerformance": "チャネルパフォーマンスを説明",
+    "explainFunnel": "ファネルのドロップを説明",
+    "viewDetails": "詳細を表示",
+    "filterByChannel": "このチャネルでフィルター",
+    "viewProduct": "商品を表示",
+    "exportData": "データをエクスポート"
+  },
+  "filters": {
+    "dateRange": "期間",
+    "granularity": "粒度",
+    "channel": "チャネル",
+    "region": "地域",
+    "currency": "通貨",
+    "last7Days": "過去7日間",
+    "last30Days": "過去30日間",
+    "last90Days": "過去90日間",
+    "customRange": "カスタム期間",
+    "day": "日",
+    "week": "週",
+    "month": "月",
+    "allChannels": "全チャネル",
+    "allRegions": "全地域"
+  },
+  "kpis": {
+    "totalRevenue": "総収益",
+    "totalProfit": "総利益",
+    "profitMargin": "利益率",
+    "totalOrders": "総注文数",
+    "revenueGrowth": "収益成長率",
+    "profitGrowth": "利益成長率",
+    "ordersGrowth": "注文成長率",
+    "avgOrderValue": "平均注文額",
+    "vsPreviousPeriod": "前期比"
+  },
+  "charts": {
+    "revenueOverTime": "収益・利益推移",
+    "channelMix": "チャネル構成",
+    "topSkus": "収益上位SKU",
+    "conversionFunnel": "コンバージョンファネル",
+    "anomaliesAlerts": "異常・アラート",
+    "revenue": "収益",
+    "profit": "利益",
+    "orders": "注文数",
+    "units": "販売数",
+    "legend": "凡例",
+    "date": "日付"
+  },
+  "channelPerformance": {
+    "title": "チャネルパフォーマンス",
+    "channel": "チャネル",
+    "region": "地域",
+    "revenue": "収益",
+    "profit": "利益",
+    "profitMargin": "利益率 %",
+    "orders": "注文数",
+    "units": "販売数",
+    "avgOrderValue": "平均注文額",
+    "trend": "トレンド",
+    "growth": "成長率",
+    "lateShipmentRate": "遅延出荷率 %"
+  },
+  "topSkus": {
+    "title": "上位SKU",
+    "byRevenue": "収益順",
+    "byProfit": "利益順",
+    "byUnits": "販売数順",
+    "product": "商品",
+    "sku": "SKU",
+    "channel": "チャネル",
+    "revenue": "収益",
+    "profit": "利益",
+    "units": "販売数",
+    "margin": "利益率 %",
+    "returnRate": "返品率 %",
+    "buyBoxShare": "カート獲得率 %",
+    "trend": "トレンド"
+  },
+  "funnel": {
+    "title": "コンバージョンファネル",
+    "stage": "ステージ",
+    "count": "件数",
+    "conversion": "転換率 %",
+    "visits": "訪問",
+    "productViews": "商品閲覧",
+    "addToCart": "カート追加",
+    "checkout": "チェックアウト",
+    "orders": "注文",
+    "fromPrevious": "前段階から"
+  },
+  "anomalies": {
+    "title": "異常・アラート",
+    "severity": "重要度",
+    "type": "種類",
+    "description": "説明",
+    "detectedAt": "検出時刻",
+    "low": "低",
+    "medium": "中",
+    "high": "高",
+    "critical": "重大",
+    "revenueSpike": "収益急増",
+    "revenueDrop": "収益急減",
+    "marginDrop": "利益率低下",
+    "ordersSpike": "注文急増",
+    "cancellationSpike": "キャンセル急増",
+    "returnRateSpike": "返品率急増",
+    "noAnomalies": "異常は検出されていません",
+    "viewRelatedMetrics": "関連指標を表示"
+  },
+  "cohorts": {
+    "title": "顧客コホート・リテンション",
+    "cohort": "コホート",
+    "month0": "0ヶ月目",
+    "month1": "1ヶ月目",
+    "month2": "2ヶ月目",
+    "month3": "3ヶ月目",
+    "month4": "4ヶ月目",
+    "month5": "5ヶ月目",
+    "retentionRate": "リテンション率",
+    "customers": "顧客数",
+    "revenue": "収益"
+  },
+  "geography": {
+    "title": "地理的内訳",
+    "country": "国",
+    "revenue": "収益",
+    "orders": "注文数",
+    "customers": "顧客数",
+    "share": "シェア %"
+  },
+  "ai": {
+    "title": "分析コパイロット",
+    "description": "AstraCommerceコパイロットにパフォーマンスの説明を依頼できます。",
+    "placeholder": "分析について質問する...",
+    "examplePrompts": {
+      "summary": "今月のパフォーマンスを簡単に要約してください。",
+      "revenueChange": "先月と比べて収益が変化した理由は何ですか？",
+      "profitChannels": "最も利益を生み出しているチャネルはどれですか？",
+      "customerDropoff": "ファネルのどこで顧客を失っていますか？",
+      "topProducts": "最も好調な商品は何ですか、その理由は？"
+    },
+    "generating": "インサイトを生成中...",
+    "followUp": "フォローアップ質問"
+  },
+  "empty": {
+    "noData": "この期間のデータがありません",
+    "noAnomalies": "異常は検出されていません - すべて正常です",
+    "noSkus": "フィルターに一致するSKUが見つかりません",
+    "tryAdjustingFilters": "フィルターを調整してください"
+  },
+  "trendDirection": {
+    "up": "上昇",
+    "down": "下降",
+    "flat": "横ばい"
+  }
+}

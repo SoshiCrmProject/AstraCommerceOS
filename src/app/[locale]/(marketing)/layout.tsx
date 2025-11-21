@@ -5,7 +5,7 @@ import { getMarketingDictionary } from "@/i18n/getMarketingDictionary";
 
 type MarketingLayoutProps = {
   children: React.ReactNode;
-  params: Promise<{ locale: Locale }>;
+  params: Promise<{ locale: string }>;
 };
 
 export default async function MarketingLayout({
@@ -13,16 +13,16 @@ export default async function MarketingLayout({
   params,
 }: MarketingLayoutProps) {
   const { locale } = await params;
-  const dictionary = await getMarketingDictionary(locale);
+  const dict = await getMarketingDictionary(locale as Locale);
 
   return (
     <div className="flex min-h-screen flex-col bg-page">
-      <Navbar locale={locale} nav={dictionary.nav} />
+      <Navbar locale={locale as Locale} nav={dict.nav} />
       <main className="flex-1">{children}</main>
       <Footer
-        locale={locale}
-        footer={dictionary.footer}
-        languageLabels={{ en: dictionary.nav.languageEn, ja: dictionary.nav.languageJa }}
+        locale={locale as Locale}
+        footer={dict.footer}
+        languageLabels={{ en: dict.nav.languageEn, ja: dict.nav.languageJa }}
       />
     </div>
   );

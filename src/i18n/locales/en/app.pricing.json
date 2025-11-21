@@ -1,0 +1,98 @@
+{
+  "title": "Pricing & Repricing",
+  "subtitle": "Manage pricing strategies, repricing rules, and experiments",
+  "tabs": {
+    "overview": "Overview",
+    "rules": "Rules",
+    "experiments": "Experiments"
+  },
+  "kpis": {
+    "avgMargin": "Avg Margin",
+    "negativeMargin": "Negative Margin",
+    "lowMargin": "Low Margin (<20%)",
+    "activeRules": "Active Rules",
+    "inExperiments": "In Experiments"
+  },
+  "filters": {
+    "search": "Search SKU or product...",
+    "allChannels": "All Channels",
+    "allStrategies": "All Strategies",
+    "allMargins": "All Margins",
+    "negative": "Negative",
+    "low": "Low (<20%)",
+    "healthy": "Healthy (20-40%)",
+    "high": "High (>40%)"
+  },
+  "table": {
+    "sku": "SKU",
+    "product": "Product",
+    "channel": "Channel",
+    "price": "Price",
+    "cost": "Cost",
+    "margin": "Margin",
+    "strategy": "Strategy",
+    "status": "Status",
+    "noSkus": "No SKUs found"
+  },
+  "detail": {
+    "title": "SKU Pricing Detail",
+    "currentPrice": "Current Price",
+    "margin": "Margin",
+    "channel": "Channel",
+    "competitorPricing": "Competitor Pricing",
+    "multiChannelPricing": "Multi-Channel Pricing",
+    "priceHistory": "Price History"
+  },
+  "aiAdvisor": {
+    "title": "AI Pricing Advisor",
+    "suggestedPrice": "Suggested Price",
+    "targetMargin": "Target margin",
+    "current": "current",
+    "reason1": "Based on 35% target margin + competitor analysis",
+    "reason2": "Likely to improve BuyBox win rate by 12%",
+    "applySuggestion": "Apply Suggestion"
+  },
+  "rulesPage": {
+    "title": "Active Repricing Rules",
+    "subtitle": "Configure automated pricing strategies",
+    "newRule": "+ New Rule",
+    "table": {
+      "ruleName": "Rule Name",
+      "strategy": "Strategy",
+      "appliesTo": "Applies To",
+      "conditions": "Conditions",
+      "status": "Status",
+      "actions": "Actions",
+      "edit": "Edit",
+      "noRules": "No repricing rules found"
+    }
+  },
+  "experimentsPage": {
+    "title": "Pricing A/B Experiments",
+    "subtitle": "Test and optimize pricing strategies",
+    "newExperiment": "+ New Experiment",
+    "running": "Running Experiments",
+    "completed": "Completed Experiments",
+    "noExperiments": "No experiments found. Create your first experiment to start testing pricing strategies.",
+    "table": {
+      "experiment": "Experiment",
+      "sku": "SKU",
+      "channel": "Channel",
+      "variantA": "Variant A",
+      "variantB": "Variant B",
+      "status": "Status",
+      "duration": "Duration",
+      "cvr": "CVR",
+      "revenue": "Rev",
+      "started": "Started",
+      "ends": "Ends",
+      "ongoing": "Ongoing"
+    }
+  },
+  "competitor": {
+    "title": "Competitor Pricing",
+    "buyBox": "BuyBox",
+    "noData": "No competitor data available"
+  }
+}
+

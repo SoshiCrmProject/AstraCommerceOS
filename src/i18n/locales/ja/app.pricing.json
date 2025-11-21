@@ -1,0 +1,97 @@
+{
+  "title": "価格設定とリプライシング",
+  "subtitle": "価格戦略、リプライシングルール、実験を管理",
+  "tabs": {
+    "overview": "概要",
+    "rules": "ルール",
+    "experiments": "実験"
+  },
+  "kpis": {
+    "avgMargin": "平均マージン",
+    "negativeMargin": "マイナスマージン",
+    "lowMargin": "低マージン (<20%)",
+    "activeRules": "有効なルール",
+    "inExperiments": "実験中"
+  },
+  "filters": {
+    "search": "SKUまたは商品を検索...",
+    "allChannels": "すべてのチャネル",
+    "allStrategies": "すべての戦略",
+    "allMargins": "すべてのマージン",
+    "negative": "マイナス",
+    "low": "低 (<20%)",
+    "healthy": "健全 (20-40%)",
+    "high": "高 (>40%)"
+  },
+  "table": {
+    "sku": "SKU",
+    "product": "商品",
+    "channel": "チャネル",
+    "price": "価格",
+    "cost": "コスト",
+    "margin": "マージン",
+    "strategy": "戦略",
+    "status": "ステータス",
+    "noSkus": "SKUが見つかりません"
+  },
+  "detail": {
+    "title": "SKU価格詳細",
+    "currentPrice": "現在の価格",
+    "margin": "マージン",
+    "channel": "チャネル",
+    "competitorPricing": "競合他社の価格",
+    "multiChannelPricing": "マルチチャネル価格",
+    "priceHistory": "価格履歴"
+  },
+  "aiAdvisor": {
+    "title": "AI価格アドバイザー",
+    "suggestedPrice": "推奨価格",
+    "targetMargin": "目標マージン",
+    "current": "現在",
+    "reason1": "35%の目標マージン + 競合分析に基づく",
+    "reason2": "バイボックス獲得率を12%向上させる可能性があります",
+    "applySuggestion": "提案を適用"
+  },
+  "rulesPage": {
+    "title": "有効なリプライシングルール",
+    "subtitle": "自動価格設定戦略を設定",
+    "newRule": "+ 新しいルール",
+    "table": {
+      "ruleName": "ルール名",
+      "strategy": "戦略",
+      "appliesTo": "適用先",
+      "conditions": "条件",
+      "status": "ステータス",
+      "actions": "アクション",
+      "edit": "編集",
+      "noRules": "リプライシングルールが見つかりません"
+    }
+  },
+  "experimentsPage": {
+    "title": "価格A/B実験",
+    "subtitle": "価格戦略のテストと最適化",
+    "newExperiment": "+ 新しい実験",
+    "running": "実行中の実験",
+    "completed": "完了した実験",
+    "noExperiments": "実験が見つかりません。最初の実験を作成して価格戦略のテストを開始してください。",
+    "table": {
+      "experiment": "実験",
+      "sku": "SKU",
+      "channel": "チャネル",
+      "variantA": "バリアントA",
+      "variantB": "バリアントB",
+      "status": "ステータス",
+      "duration": "期間",
+      "cvr": "CVR",
+      "revenue": "売上",
+      "started": "開始",
+      "ends": "終了",
+      "ongoing": "進行中"
+    }
+  },
+  "competitor": {
+    "title": "競合他社の価格",
+    "buyBox": "バイボックス",
+    "noData": "競合データがありません"
+  }
+}
