@@ -26,24 +26,59 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
     
     // If authenticated via Supabase, return user
     if (!error && user) {
+      // Get or create user in Prisma database
+      let dbUser = await prisma.user.findUnique({
+        where: { email: user.email || '' },
+      });
+
+      // Auto-create user in database on first login
+      if (!dbUser && user.email) {
+        dbUser = await prisma.user.create({
+          data: {
+            email: user.email,
+            name: user.user_metadata?.name || user.email.split('@')[0],
+            authProviderId: user.id,
+            emailVerified: true,
+          },
+        });
+
+        // Create default organization for new user
+        const org = await prisma.organization.create({
+          data: {
+            name: `${dbUser.name}'s Workspace`,
+            slug: `${dbUser.email.split('@')[0]}-${Date.now()}`,
+            ownerId: dbUser.id,
+            plan: 'trial',
+            planStatus: 'active',
+          },
+        });
+
+        // Create membership
+        await prisma.membership.create({
+          data: {
+            orgId: org.id,
+            userId: dbUser.id,
+            role: 'owner',
+          },
+        });
+      }
+
       // Get user's organization from Prisma
       const membership = await prisma.membership.findFirst({
-        where: { 
-          user: { email: user.email || '' }
-        },
+        where: { userId: dbUser?.id },
         include: { organization: true },
       });
 
       return {
         id: user.id,
         email: user.email || '',
-        name: user.user_metadata?.name || null,
+        name: user.user_metadata?.name || dbUser?.name || null,
         currentOrgId: membership?.orgId || null,
       };
     }
   } catch (err) {
     // Supabase not configured or error - fall through to demo mode
-    console.log('Supabase auth not available, using demo user');
+    console.log('Supabase auth error:', err);
   }
 
   // For development: Return demo user when Supabase auth is not available
