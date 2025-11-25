@@ -32,10 +32,10 @@ export class OrdersService {
 
     if (filters.search) {
       where.OR = [
-        { orderNumber: { contains: filters.search, mode: 'insensitive' } },
-        { externalOrderId: { contains: filters.search, mode: 'insensitive' } },
-        { customerName: { contains: filters.search, mode: 'insensitive' } },
-        { customerEmail: { contains: filters.search, mode: 'insensitive' } },
+        { orderNumber: { contains: filters.search } },
+        { externalOrderId: { contains: filters.search } },
+        { customerName: { contains: filters.search } },
+        { customerEmail: { contains: filters.search } },
       ];
     }
 
@@ -55,12 +55,10 @@ export class OrdersService {
       if (filters.dateTo) where.orderedAt.lte = filters.dateTo;
     }
 
-    if (filters.minTotal) {
-      where.total = { ...where.total, gte: filters.minTotal };
-    }
-
-    if (filters.maxTotal) {
-      where.total = { ...where.total, lte: filters.maxTotal };
+    if (filters.minTotal || filters.maxTotal) {
+      where.total = {};
+      if (filters.minTotal) where.total.gte = filters.minTotal;
+      if (filters.maxTotal) where.total.lte = filters.maxTotal;
     }
 
     const [orders, total] = await Promise.all([

@@ -281,8 +281,10 @@ export class InventoryService {
     return prisma.inventoryItem.findMany({
       where: {
         orgId,
-        available: { lte: prisma.inventoryItem.fields.safetyStock },
-        available: { gt: 0 },
+        AND: [
+          { available: { lte: prisma.inventoryItem.fields.safetyStock } },
+          { available: { gt: 0 } },
+        ],
       },
       include: {
         sku: {
@@ -321,6 +323,9 @@ export class InventoryService {
     const [allItems, lowStock, outOfStock] = await Promise.all([
       prisma.inventoryItem.findMany({
         where: { orgId },
+        include: {
+          sku: true,
+        },
       }),
       this.getLowStockItems(orgId),
       this.getOutOfStockItems(orgId),

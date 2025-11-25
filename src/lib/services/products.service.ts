@@ -48,9 +48,9 @@ export class ProductsService {
     // Apply filters
     if (filters.search) {
       where.OR = [
-        { name: { contains: filters.search, mode: 'insensitive' } },
-        { brand: { contains: filters.search, mode: 'insensitive' } },
-        { category: { contains: filters.search, mode: 'insensitive' } },
+        { name: { contains: filters.search } },
+        { brand: { contains: filters.search } },
+        { category: { contains: filters.search } },
       ];
     }
 
@@ -297,6 +297,9 @@ export class ProductsService {
               sku: {
                 productId,
               },
+            },
+            include: {
+              sku: true,
             },
           },
         },

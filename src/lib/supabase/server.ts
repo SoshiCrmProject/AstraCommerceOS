@@ -20,6 +20,5 @@ export const supabaseServer = () => {
         Authorization: `Bearer ${supabaseKey}`,
       },
     },
-    cookies,
   });
 };
