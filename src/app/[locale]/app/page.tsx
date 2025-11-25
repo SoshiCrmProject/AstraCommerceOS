@@ -29,25 +29,36 @@ async function refreshAction(locale: Locale) {
 }
 
 export default async function DashboardPage({ params }: DashboardPageProps) {
-  const { locale } = await params;
-  const commonDict = await getAppDictionary(locale);
-  const dashDict = await getDashboardDictionary(locale);
-
-  // Get current user and org with error handling
-  let user;
   try {
-    user = await getUserWithOrg();
-    if (!user || !user.currentOrgId) {
-      console.error('No user or organization found, redirecting to sign-in');
+    console.log('=== DASHBOARD PAGE START ===');
+    const { locale } = await params;
+    console.log('Locale:', locale);
+    
+    const commonDict = await getAppDictionary(locale);
+    const dashDict = await getDashboardDictionary(locale);
+    console.log('Dictionaries loaded successfully');
+
+    // Get current user and org with error handling
+    console.log('Attempting to get user with org...');
+    let user;
+    try {
+      user = await getUserWithOrg();
+      console.log('User retrieved:', user ? `User ID: ${user.id}, Org ID: ${user.currentOrgId}` : 'null');
+      if (!user || !user.currentOrgId) {
+        console.error('No user or organization found, redirecting to sign-in');
+        redirect(`/${locale}/sign-in`);
+      }
+    } catch (error) {
+      console.error('Authentication error in dashboard:', error);
+      console.error('Error details:', error instanceof Error ? error.message : String(error));
+      console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
       redirect(`/${locale}/sign-in`);
     }
-  } catch (error) {
-    console.error('Authentication error in dashboard:', error);
-    redirect(`/${locale}/sign-in`);
-  }
 
-  // Get real dashboard data from database
-  const snapshot = await DashboardService.getDashboardSnapshot(user.currentOrgId);
+    // Get real dashboard data from database
+    console.log('Fetching dashboard snapshot for org:', user.currentOrgId);
+    const snapshot = await DashboardService.getDashboardSnapshot(user.currentOrgId);
+    console.log('Dashboard snapshot retrieved successfully');
 
   const kpiCards = [
     {
@@ -235,4 +246,14 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
       </div>
     </div>
   );
+  } catch (error) {
+    console.error('=== DASHBOARD PAGE ERROR ===');
+    console.error('Error type:', error?.constructor?.name);
+    console.error('Error message:', error instanceof Error ? error.message : String(error));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
+    console.error('Full error object:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
+    
+    // Re-throw to show in UI
+    throw new Error(`Dashboard error: ${error instanceof Error ? error.message : String(error)}`);
+  }
 }

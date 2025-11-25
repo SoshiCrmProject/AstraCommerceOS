@@ -10,24 +10,27 @@ export class DashboardService {
    * Get complete dashboard snapshot
    */
   static async getDashboardSnapshot(orgId: string) {
-    const now = new Date();
-    const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
-    const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    try {
+      console.log('DashboardService.getDashboardSnapshot called for orgId:', orgId);
+      const now = new Date();
+      const thirtyDaysAgo = new Date(now.getTime() - 30 * 24 * 60 * 60 * 1000);
+      const yesterday = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
-    // Get all data in parallel
-    const [
-      orders,
-      recentOrders,
-      products,
-      activeListings,
-      lowStockItems,
-      channels,
-      recentReviews,
-      automationRules,
-      recentAutomationExecutions,
-      analyticsSnapshots,
-      recentLogs,
-    ] = await Promise.all([
+      console.log('Starting parallel database queries...');
+      // Get all data in parallel
+      const [
+        orders,
+        recentOrders,
+        products,
+        activeListings,
+        lowStockItems,
+        channels,
+        recentReviews,
+        automationRules,
+        recentAutomationExecutions,
+        analyticsSnapshots,
+        recentLogs,
+      ] = await Promise.all([
       // Orders for KPIs
       prisma.order.findMany({
         where: {
@@ -496,5 +499,13 @@ export class DashboardService {
         lowStockCount: lowStockItems.length,
       },
     };
+    } catch (error) {
+      console.error('=== DASHBOARD SERVICE ERROR ===');
+      console.error('Error type:', error?.constructor?.name);
+      console.error('Error message:', error instanceof Error ? error.message : String(error));
+      console.error('Error stack:', error instanceof Error ? error.stack : 'No stack');
+      console.error('Full error:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
+      throw error;
+    }
   }
 }

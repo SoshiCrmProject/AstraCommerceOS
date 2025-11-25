@@ -1,8 +1,12 @@
 import { PrismaClient } from '@prisma/client';
 
 const prismaClientSingleton = () => {
+  console.log('Initializing Prisma Client...');
+  console.log('DATABASE_URL configured:', !!process.env.DATABASE_URL);
+  console.log('DIRECT_URL configured:', !!process.env.DIRECT_URL);
+  
   return new PrismaClient({
-    log: process.env.NODE_ENV === 'development' ? ['query', 'error', 'warn'] : ['error'],
+    log: ['query', 'error', 'warn'], // Enable all logging in production temporarily
   });
 };
 
