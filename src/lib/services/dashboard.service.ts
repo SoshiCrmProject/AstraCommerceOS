@@ -413,10 +413,25 @@ export class DashboardService {
           region = nameMatch ? nameMatch[1] : 'US';
         }
         
+        // Normalize channel type to match expected enum values
+        const normalizeChannelType = (type: string): 'AMAZON' | 'SHOPIFY' | 'SHOPEE' | 'RAKUTEN' | 'EBAY' | 'WALMART' | 'TIKTOK_SHOP' | 'YAHOO_SHOPPING' | 'MERCARI' => {
+          const upperType = type.toUpperCase();
+          if (upperType.includes('AMAZON')) return 'AMAZON';
+          if (upperType.includes('SHOPIFY')) return 'SHOPIFY';
+          if (upperType.includes('SHOPEE')) return 'SHOPEE';
+          if (upperType.includes('RAKUTEN')) return 'RAKUTEN';
+          if (upperType.includes('EBAY')) return 'EBAY';
+          if (upperType.includes('WALMART')) return 'WALMART';
+          if (upperType.includes('TIKTOK')) return 'TIKTOK_SHOP';
+          if (upperType.includes('YAHOO')) return 'YAHOO_SHOPPING';
+          if (upperType.includes('MERCARI')) return 'MERCARI';
+          return 'AMAZON'; // Default fallback
+        };
+        
         return {
           id: channel.id,
           name: channel.channelName,
-          type: channel.channelType,
+          type: normalizeChannelType(channel.channelType),
           region: region,
           status: (channel.health === 'healthy' ? 'HEALTHY' : channel.health === 'degraded' ? 'WARNING' : 'ERROR') as 'HEALTHY' | 'WARNING' | 'ERROR',
           health: channel.health || 'unknown',
