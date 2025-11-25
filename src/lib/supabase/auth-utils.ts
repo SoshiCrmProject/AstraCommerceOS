@@ -7,6 +7,118 @@ import { supabaseServer } from '@/lib/supabase/server';
 import prisma from '@/lib/prisma';
 import { cache } from 'react';
 
+/**
+ * Seed demo data for a new organization
+ */
+async function seedDemoDataForOrg(orgId: string) {
+  console.log(`Seeding demo data for organization: ${orgId}`);
+
+  // Create demo channels
+  const channels = await Promise.all([
+    prisma.channelConnection.create({
+      data: {
+        orgId,
+        channelType: 'amazon',
+        channelName: 'Amazon US',
+        credentials: {},
+        config: { region: 'US', marketplace: 'amazon.com' },
+        health: 'healthy',
+        lastSyncedAt: new Date(),
+      },
+    }),
+    prisma.channelConnection.create({
+      data: {
+        orgId,
+        channelType: 'shopify',
+        channelName: 'Shopify Store',
+        credentials: {},
+        config: { storeName: 'demo-store' },
+        health: 'healthy',
+        lastSyncedAt: new Date(),
+      },
+    }),
+  ]);
+
+  // Create demo products
+  const products = [];
+  for (let i = 1; i <= 5; i++) {
+    const product = await prisma.product.create({
+      data: {
+        orgId,
+        name: `Demo Product ${i}`,
+        description: `Sample product for getting started with AstraCommerce OS`,
+        brand: 'Demo Brand',
+        category: 'Electronics',
+        status: 'active',
+        skus: {
+          create: [{
+            orgId,
+            sku: `SKU-DEMO-${i}`,
+            costPrice: 50.00,
+            currency: 'USD',
+          }],
+        },
+      },
+    });
+    products.push(product);
+  }
+
+  // Create demo orders
+  const now = new Date();
+  for (let i = 0; i < 10; i++) {
+    const daysAgo = Math.floor(Math.random() * 7); // Last 7 days
+    const orderDate = new Date(now.getTime() - daysAgo * 24 * 60 * 60 * 1000);
+    
+    await prisma.order.create({
+      data: {
+        orgId,
+        channelId: channels[Math.floor(Math.random() * channels.length)].id,
+        orderNumber: `ORD-${Date.now()}-${i}`,
+        customerName: `Sample Customer ${i + 1}`,
+        customerEmail: `customer${i + 1}@example.com`,
+        status: ['pending', 'processing', 'shipped', 'delivered'][Math.floor(Math.random() * 4)],
+        orderedAt: orderDate,
+        subtotal: 99.99 + (i * 10),
+        total: 99.99 + (i * 10),
+        currency: 'USD',
+        lineItems: {
+          create: [{
+            productSku: `SKU-DEMO-${(i % 5) + 1}`,
+            productName: `Demo Product ${(i % 5) + 1}`,
+            quantity: 1 + Math.floor(Math.random() * 2),
+            unitPrice: 99.99,
+            subtotal: 99.99 + (i * 10),
+            total: 99.99 + (i * 10),
+          }],
+        },
+      },
+    });
+  }
+
+  // Create demo inventory
+  for (const product of products) {
+    const skus = await prisma.sku.findMany({
+      where: { productId: product.id },
+    });
+
+    for (const sku of skus) {
+      await prisma.inventoryItem.create({
+        data: {
+          orgId,
+          skuId: sku.id,
+          location: 'Main Warehouse',
+          available: 100 + Math.floor(Math.random() * 400),
+          reserved: Math.floor(Math.random() * 20),
+          incoming: Math.floor(Math.random() * 50),
+          safetyStock: 50,
+        },
+      });
+    }
+  }
+
+  console.log('Demo data seeded: 2 channels, 5 products, 10 orders');
+}
+
 export interface UserWithOrg {
   id: string;
   email: string;
@@ -44,8 +156,10 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
       console.log('Prisma user lookup:', dbUser ? `Found: ${dbUser.id}` : 'Not found');
 
       // Auto-create user in database on first login
+      let isNewUser = false;
       if (!dbUser && user.email) {
         console.log('Creating new user in Prisma database...');
+        isNewUser = true;
         dbUser = await prisma.user.create({
           data: {
             email: user.email,
@@ -76,6 +190,16 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
             role: 'owner',
           },
         });
+
+        // Seed demo data for new organization
+        console.log('Seeding demo data for new organization...');
+        try {
+          await seedDemoDataForOrg(org.id);
+          console.log('Demo data seeded successfully');
+        } catch (seedError) {
+          console.error('Error seeding demo data:', seedError);
+          // Don't fail user creation if seeding fails
+        }
       }
 
       // Get user's organization from Prisma
