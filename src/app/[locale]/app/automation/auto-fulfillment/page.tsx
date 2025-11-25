@@ -31,13 +31,77 @@ export default async function AutoFulfillmentPage(props: AutoFulfillmentPageProp
     throw new Error('No organization selected');
   }
 
+  const orgId = user.currentOrgId;
+
   // Fetch real data from database
   const [config, stats, jobs, channels] = await Promise.all([
-    AutoFulfillmentService.getConfig(user.currentOrgId),
-    AutoFulfillmentService.getStats(user.currentOrgId),
-    AutoFulfillmentService.getJobs(user.currentOrgId, { take: 20 }),
-    ChannelService.getChannels(user.currentOrgId),
+    AutoFulfillmentService.getConfig(orgId),
+    AutoFulfillmentService.getStats(orgId),
+    AutoFulfillmentService.getJobs(orgId, { take: 20 }),
+    ChannelService.getChannels(orgId),
   ]);
+
+  // Mock dict for now - should come from i18n
+  const dict = {
+    title: 'Auto-Fulfillment',
+    subtitle: 'Automated order fulfillment across marketplaces',
+    actions: {
+      viewLogs: 'View Logs',
+      exportFailed: 'Export Failed',
+    },
+    warning: {
+      title: 'Risk Warning',
+      message: 'Automated purchasing involves financial risk. Monitor carefully.',
+    },
+    table: {
+      title: 'Fulfillment Candidates',
+    },
+  };
+
+  const summary = {
+    totalProcessed: stats.total || 0,
+    successRate: stats.successRate || 0,
+    avgProcessingTime: 0,
+    pendingJobs: stats.pending || 0,
+    totalCandidates: stats.total || 0,
+    eligible: stats.completed || 0,
+    skipped: stats.failed || 0,
+    queued: stats.pending || 0,
+    processing: 0,
+    completed: stats.completed || 0,
+    succeeded: stats.completed || 0,
+    failed: stats.failed || 0,
+    totalProfit: stats.totalProfit || 0,
+    totalExpectedProfit: stats.totalProfit || 0,
+    averageProfit: stats.totalProfit / (stats.completed || 1),
+  };
+
+  const candidates = jobs.jobs.map((job: any) => ({
+    id: job.id,
+    orderId: job.orderId,
+    status: job.status,
+    createdAt: job.createdAt,
+    orgId: orgId,
+    marketplaceOrderId: job.orderId,
+    marketplace: 'shopee',
+    shopId: '',
+    lineItemSku: '',
+    productName: '',
+    quantity: 1,
+    salePrice: 0,
+    amazonAsin: '',
+    amazonTitle: '',
+    amazonPrice: 0,
+    estimatedFees: 0,
+    shippingCost: 0,
+    amazonPoints: 0,
+    expectedProfit: 0,
+    expectedDeliveryDays: 0,
+    isEligible: true,
+    ineligibleReason: null,
+    profitMargin: 0,
+    metadata: {},
+  }));
 
   return (
     <div className="flex flex-col gap-6 pb-12">
@@ -58,7 +122,17 @@ export default async function AutoFulfillmentPage(props: AutoFulfillmentPageProp
 
       {/* Configuration Panel */}
       <ConfigPanel
-        initialConfig={config}
+        initialConfig={(config || {
+          enabled: false,
+          sourceChannels: [],
+          targetMarketplace: 'amazon',
+          minProfitAmount: 0,
+          maxDeliveryDays: 7,
+          includePoints: false,
+          includeShippingCost: true,
+          autoRetry: true,
+          maxRetries: 3,
+        }) as any}
         dict={dict}
         onSave={async (newConfig) => {
           'use server';
@@ -70,7 +144,7 @@ export default async function AutoFulfillmentPage(props: AutoFulfillmentPageProp
       {/* Candidates Table */}
       <div>
         <h2 className="text-lg font-semibold text-gray-900 mb-4">{dict.table.title}</h2>
-        <CandidatesTable candidates={candidates} dict={dict} locale={params.locale} />
+        <CandidatesTable candidates={candidates as any} dict={dict} locale={params.locale} />
       </div>
     </div>
   );
