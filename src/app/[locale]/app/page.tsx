@@ -42,37 +42,37 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
       label: dashDict.kpis.revenue24h,
       value: `$${(snapshot.kpis.revenue24h / 1000).toFixed(1)}k`,
       change: snapshot.kpis.revenue24hChange,
-      direction: (snapshot.kpis.revenue24hChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.revenue24hChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
     {
       label: dashDict.kpis.netProfit7d,
       value: `$${(snapshot.kpis.netProfit7d / 1000).toFixed(1)}k`,
       change: snapshot.kpis.netProfit7dChange,
-      direction: (snapshot.kpis.netProfit7dChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.netProfit7dChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
     {
       label: dashDict.kpis.orders24h,
       value: snapshot.kpis.orders24h.toLocaleString(),
       change: snapshot.kpis.orders24hChange,
-      direction: (snapshot.kpis.orders24hChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.orders24hChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
     {
       label: dashDict.kpis.avgOrderValue,
       value: `$${snapshot.kpis.avgOrderValue.toFixed(2)}`,
       change: snapshot.kpis.avgOrderValueChange,
-      direction: (snapshot.kpis.avgOrderValueChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.avgOrderValueChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
     {
       label: dashDict.kpis.buyBoxShare,
       value: `${snapshot.kpis.buyBoxShare}%`,
       change: snapshot.kpis.buyBoxShareChange,
-      direction: (snapshot.kpis.buyBoxShareChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.buyBoxShareChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
     {
       label: dashDict.kpis.fulfillmentSla,
       value: `${snapshot.kpis.fulfillmentSla}%`,
       change: snapshot.kpis.fulfillmentSlaChange,
-      direction: (snapshot.kpis.fulfillmentSlaChange?.startsWith('+') ? 'up' : 'down') as const,
+      direction: snapshot.kpis.fulfillmentSlaChange?.startsWith('+') ? 'up' as const : 'down' as const,
     },
   ];
 
