@@ -20,7 +20,7 @@ export interface UserWithOrg {
  */
 export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
   try {
-    const supabase = supabaseServer();
+    const supabase = await supabaseServer();
     
     const { data: { user }, error } = await supabase.auth.getUser();
     
