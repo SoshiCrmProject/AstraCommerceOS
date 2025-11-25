@@ -14,7 +14,7 @@ export async function createWorkspaceAction(formData: FormData) {
     throw new Error("Missing required fields");
   }
 
-  const supabase = supabaseServer();
+  const supabase = await supabaseServer();
 
   const { data: workspace, error } = await supabase
     .from("workspaces")

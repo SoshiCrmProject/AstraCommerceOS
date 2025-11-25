@@ -15,7 +15,7 @@ export async function inviteMemberAction(formData: FormData) {
     throw new Error("Missing required fields");
   }
 
-  const supabase = supabaseServer();
+  const supabase = await supabaseServer();
 
   const { data: workspace, error: workspaceError } = await supabase
     .from("workspaces")
