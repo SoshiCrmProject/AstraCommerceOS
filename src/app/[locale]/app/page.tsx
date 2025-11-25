@@ -97,8 +97,8 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
   // Map channel health
   const healthBadges = snapshot.channels.map((ch) => ({
     label: ch.name,
-    status: ch.health === 'healthy' ? 'HEALTHY' : ch.health === 'degraded' ? 'WARNING' : 'ERROR',
-    description: ch.status,
+    status: ch.status,
+    description: ch.health === 'healthy' ? 'HEALTHY' : ch.health === 'degraded' ? 'WARNING' : 'ERROR',
   }));
 
   return (
