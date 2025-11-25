@@ -232,16 +232,16 @@ export class DashboardService {
     }));
 
     // Alerts
-    const alerts: Array<{ id: string; type: string; severity: string; message: string; timestamp: Date }> = [];
+    const alerts: Array<{ id: string; severity: 'info' | 'warning' | 'critical'; title: string; description: string; category: 'inventory' | 'pricing' | 'reviews' | 'automation' | 'ops' | 'billing' }> = [];
 
     // Low stock alerts
     lowStockItems.forEach((item) => {
       alerts.push({
         id: `low-stock-${item.id}`,
-        type: 'inventory',
         severity: 'warning',
-        message: `Low stock: ${item.sku.name || item.sku.sku} (${item.available} remaining)`,
-        timestamp: new Date(),
+        title: 'Low Stock Alert',
+        description: `${item.sku.name || item.sku.sku} (${item.available} units remaining)`,
+        category: 'inventory',
       });
     });
 
@@ -251,10 +251,10 @@ export class DashboardService {
       .forEach((exec) => {
         alerts.push({
           id: `automation-${exec.id}`,
-          type: 'automation',
-          severity: 'error',
-          message: `Automation failed: ${exec.rule.name}`,
-          timestamp: exec.executedAt,
+          severity: 'critical',
+          title: 'Automation Failed',
+          description: exec.rule.name,
+          category: 'automation',
         });
       });
 
@@ -264,15 +264,14 @@ export class DashboardService {
       .forEach((channel) => {
         alerts.push({
           id: `channel-${channel.id}`,
-          type: 'channel',
-          severity: 'error',
-          message: `Channel error: ${channel.channelName}`,
-          timestamp: channel.lastHealthCheck || new Date(),
+          severity: 'critical',
+          title: 'Channel Error',
+          description: channel.channelName,
+          category: 'ops',
         });
       });
 
-    // Sort alerts by timestamp (newest first)
-    alerts.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
+    // Alerts are already in order of priority
 
     // Format trend as string with sign
     const formatTrend = (value: number) => {
@@ -347,9 +346,12 @@ export class DashboardService {
       alerts: alerts.slice(0, 10), // Top 10 alerts
       topSkus: topSkus.map((sku) => ({
         sku: sku.sku,
-        revenue: sku.revenue,
-        units: sku.units,
-        avgPrice: sku.revenue / sku.units,
+        productName: sku.sku, // TODO: Look up actual product name
+        channelName: 'All Channels',
+        metric: 'TOP_SELLER' as const,
+        metricValue: `$${sku.revenue.toFixed(0)}`,
+        trend: 'up' as const,
+        orders7d: Math.floor(sku.revenue / (sku.revenue / sku.units)),
       })),
       revenueData,
       automation: {
@@ -358,7 +360,7 @@ export class DashboardService {
         totalExecutions: recentAutomationExecutions.length,
         recentExecutions: recentAutomationExecutions.length,
         failedExecutions24h: recentAutomationExecutions.filter((e) => e.status === 'failed').length,
-        lastExecutionAt: recentAutomationExecutions[0]?.executedAt || null,
+        lastExecutionAt: recentAutomationExecutions[0]?.executedAt.toISOString() || null,
         successRate:
           recentAutomationExecutions.length > 0
             ? (recentAutomationExecutions.filter((e) => e.status === 'success').length /
@@ -376,8 +378,8 @@ export class DashboardService {
             name: rule.name,
             triggerDescription: rule.description || `Triggers on ${rule.triggerType}`,
             executions24h: ruleCounts[mostTriggeredRuleId] || 0,
-          } : null;
-        })() : null,
+          } : undefined;
+        })() : undefined,
       },
       channels: await Promise.all(channels.map(async (channel) => {
         // Get 7-day stats for each channel

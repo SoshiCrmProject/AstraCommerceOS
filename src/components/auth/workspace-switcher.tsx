@@ -26,8 +26,8 @@ export function WorkspaceSwitcher({ locale, userEmail }: WorkspaceSwitcherProps)
       } else {
         const mapped =
           data
-            ?.map((row: { workspaces: Workspace | null }) => row.workspaces)
-            .filter((ws): ws is Workspace => Boolean(ws)) || [];
+            ?.map((row: any) => row.workspaces)
+            .filter((ws: any): ws is Workspace => Boolean(ws)) || [];
         setWorkspaces(mapped || []);
       }
       setLoading(false);
