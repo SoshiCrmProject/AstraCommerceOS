@@ -77,8 +77,17 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
       };
     }
   } catch (err) {
-    // Supabase not configured or error - fall through to demo mode
-    console.log('Supabase auth error:', err);
+    // Log the actual error for debugging
+    console.error('Supabase auth error:', err);
+    
+    // In production, re-throw database errors to see what's wrong
+    if (process.env.NODE_ENV === 'production' && err instanceof Error) {
+      console.error('Full error details:', {
+        message: err.message,
+        stack: err.stack,
+        name: err.name,
+      });
+    }
   }
 
   // For development: Return demo user when Supabase auth is not available
