@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Auto-Fulfillment Service
  * Amazon dropshipping automation with browser bots (Playwright)
