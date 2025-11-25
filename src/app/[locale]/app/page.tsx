@@ -13,6 +13,7 @@ import { AutomationAiSummary } from "@/components/dashboard/automation-ai";
 import { ReviewsCard } from "@/components/dashboard/reviews-card";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 
 // Force dynamic rendering - this page requires authentication
@@ -32,10 +33,17 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
   const commonDict = await getAppDictionary(locale);
   const dashDict = await getDashboardDictionary(locale);
 
-  // Get current user and org
-  const user = await getUserWithOrg();
-  if (!user.currentOrgId) {
-    throw new Error('No organization selected');
+  // Get current user and org with error handling
+  let user;
+  try {
+    user = await getUserWithOrg();
+    if (!user || !user.currentOrgId) {
+      console.error('No user or organization found, redirecting to sign-in');
+      redirect(`/${locale}/sign-in`);
+    }
+  } catch (error) {
+    console.error('Authentication error in dashboard:', error);
+    redirect(`/${locale}/sign-in`);
   }
 
   // Get real dashboard data from database

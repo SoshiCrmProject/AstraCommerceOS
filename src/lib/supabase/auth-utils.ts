@@ -78,15 +78,21 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
     }
   } catch (err) {
     // Log the actual error for debugging
-    console.error('Supabase auth error:', err);
+    console.error('getUserWithOrg error:', err);
     
-    // In production, re-throw database errors to see what's wrong
-    if (process.env.NODE_ENV === 'production' && err instanceof Error) {
+    // In production, log detailed error information
+    if (err instanceof Error) {
       console.error('Full error details:', {
         message: err.message,
         stack: err.stack,
         name: err.name,
+        cause: err.cause,
       });
+    }
+    
+    // Check if it's a Prisma connection error
+    if (err instanceof Error && (err.message.includes('PrismaClient') || err.message.includes('database'))) {
+      console.error('Database connection error - check DATABASE_URL and DIRECT_URL environment variables');
     }
   }
 
