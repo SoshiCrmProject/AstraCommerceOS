@@ -1,6 +1,10 @@
 import { getReviewsDictionary } from '@/i18n/getReviewsDictionary';
 import { ReviewDetailView } from '@/components/reviews/review-detail-view';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: Promise<{ locale: string; reviewId: string }>;
 };

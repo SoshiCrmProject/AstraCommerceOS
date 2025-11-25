@@ -6,6 +6,10 @@ import { getChannelsDictionary } from "@/i18n/getChannelsDictionary";
 import { ChannelService } from "@/lib/services/channel-service";
 import { revalidatePath } from "next/cache";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type ChannelsPageProps = {
   params: Promise<{ locale: Locale }>;
 };

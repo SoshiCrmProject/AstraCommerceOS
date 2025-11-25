@@ -1,6 +1,10 @@
 import { PageHeader } from '@/components/app/page-header';
 import { ReplenishmentContent } from './replenishment-content';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export default async function ReplenishmentPage({
   params,
 }: {

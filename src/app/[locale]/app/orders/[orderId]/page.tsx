@@ -9,6 +9,10 @@ import { FulfillmentCard } from "@/components/orders/fulfillment-card";
 import type { OrderAddress } from "@/lib/services/order-types";
 import Link from "next/link";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type OrderDetailPageProps = {
   params: Promise<{ locale: Locale; orderId: string }>;
 };

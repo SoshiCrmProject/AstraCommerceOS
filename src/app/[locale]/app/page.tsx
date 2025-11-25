@@ -14,6 +14,10 @@ import { ReviewsCard } from "@/components/dashboard/reviews-card";
 import Link from "next/link";
 import { revalidatePath } from "next/cache";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type DashboardPageProps = {
   params: Promise<{ locale: Locale }>;
 };

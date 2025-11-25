@@ -4,6 +4,10 @@ import { PageHeader } from '@/components/app/page-header';
 import { AutomationContent } from './automation-content';
 import { getAutomationDictionary } from '@/i18n/getAutomationDictionary';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Automation & Workflow Engine',
 };

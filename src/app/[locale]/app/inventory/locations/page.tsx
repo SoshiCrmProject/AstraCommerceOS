@@ -1,6 +1,10 @@
 import { PageHeader } from '@/components/app/page-header';
 import { LocationsContent } from './locations-content';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export default async function LocationsPage({
   params,
 }: {

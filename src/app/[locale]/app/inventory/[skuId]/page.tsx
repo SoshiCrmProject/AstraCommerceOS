@@ -3,6 +3,10 @@ import { SkuDetailContent } from './sku-detail-content';
 import { InventoryService } from '@/lib/services/inventory-service';
 import { notFound } from 'next/navigation';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export default async function SkuDetailPage({
   params,
 }: {

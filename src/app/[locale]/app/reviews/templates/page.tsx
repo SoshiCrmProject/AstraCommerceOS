@@ -2,6 +2,10 @@ import { getReviewsDictionary } from '@/i18n/getReviewsDictionary';
 import { PageHeader } from '@/components/app/page-header';
 import { TemplatesView } from '@/components/reviews/templates-view';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: Promise<{ locale: string }>;
 };

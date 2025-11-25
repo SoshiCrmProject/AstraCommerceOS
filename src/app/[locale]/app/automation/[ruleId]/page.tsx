@@ -2,6 +2,10 @@ import { Suspense } from 'react';
 import { PageHeader } from '@/components/app/page-header';
 import { RuleBuilderContent } from './rule-builder-content';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export const metadata = {
   title: 'Automation Workflow Builder',
 };

@@ -7,6 +7,10 @@ import { getAppDictionary } from "@/i18n/getAppDictionary";
 import { getChannelsDictionary } from "@/i18n/getChannelsDictionary";
 import { ChannelDetailTabs } from "@/components/channels/channel-detail-tabs";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type ChannelDetailPageProps = {
   params: Promise<{ locale: Locale; channelId: string }>;
 };

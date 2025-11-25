@@ -7,6 +7,10 @@ import { getProductsDictionary } from "@/i18n/getProductsDictionary";
 import { ProductService } from "@/lib/services/product-service";
 import { ProductDetailView } from "@/components/products/product-detail-view";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type ProductDetailPageProps = {
   params: Promise<{ locale: Locale; productId: string }>;
 };

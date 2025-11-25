@@ -6,6 +6,10 @@ import { ProductService } from "@/lib/services/product-service";
 import { type ProductCopilotSuggestion } from "@/lib/services/product-types";
 import { ProductsCatalog } from "@/components/products/product-catalog";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type ProductsPageProps = {
   params: Promise<{ locale: Locale }>;
 };

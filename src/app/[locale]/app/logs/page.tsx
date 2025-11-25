@@ -1,4 +1,8 @@
 /**
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
  * Logs & Observability Page
  * Complete observability console for system logs
  */

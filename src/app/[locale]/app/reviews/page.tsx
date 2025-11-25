@@ -4,6 +4,10 @@ import { ReviewsOverview } from '@/components/reviews/reviews-overview';
 import { Sparkles, BarChart3, FileText } from 'lucide-react';
 import Link from 'next/link';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type Props = {
   params: Promise<{ locale: string }>;
 };

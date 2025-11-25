@@ -1,4 +1,8 @@
 /**
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
  * Auto-Fulfillment & Amazon Auto-Purchase Page
  * Complete multi-marketplace automated order fulfillment system with browser automation
  */

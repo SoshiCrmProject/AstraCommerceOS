@@ -5,6 +5,10 @@ import { AnalyticsOverviewClient } from "@/components/analytics/analytics-overvi
 import AnalyticsService from "@/lib/services/analytics-service";
 import { Download, Sparkles } from "lucide-react";
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 type AnalyticsPageProps = {
   params: Promise<{ locale: Locale }>;
 };

@@ -1,6 +1,10 @@
 import { getInventoryDictionary } from '@/i18n/getInventoryDictionary';
 import { AdjustmentsContent } from './adjustments-content';
 
+
+// Force dynamic rendering - this page requires authentication
+export const dynamic = 'force-dynamic';
+
 export default async function AdjustmentsPage({
   params
 }: {
