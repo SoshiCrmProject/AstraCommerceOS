@@ -20,19 +20,32 @@ export interface UserWithOrg {
  */
 export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
   try {
+    console.log('=== getUserWithOrg START ===');
+    console.log('Environment check:');
+    console.log('- NEXT_PUBLIC_SUPABASE_URL:', !!process.env.NEXT_PUBLIC_SUPABASE_URL);
+    console.log('- NEXT_PUBLIC_SUPABASE_ANON_KEY:', !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
+    console.log('- DATABASE_URL:', !!process.env.DATABASE_URL);
+    
     const supabase = await supabaseServer();
+    console.log('Supabase client created');
     
     const { data: { user }, error } = await supabase.auth.getUser();
+    console.log('Supabase auth.getUser() result:');
+    console.log('- User:', user ? `ID: ${user.id}, Email: ${user.email}` : 'null');
+    console.log('- Error:', error ? error.message : 'none');
     
     // If authenticated via Supabase, return user
     if (!error && user) {
+      console.log('User authenticated via Supabase, looking up in Prisma...');
       // Get or create user in Prisma database
       let dbUser = await prisma.user.findUnique({
         where: { email: user.email || '' },
       });
+      console.log('Prisma user lookup:', dbUser ? `Found: ${dbUser.id}` : 'Not found');
 
       // Auto-create user in database on first login
       if (!dbUser && user.email) {
+        console.log('Creating new user in Prisma database...');
         dbUser = await prisma.user.create({
           data: {
             email: user.email,
@@ -41,8 +54,10 @@ export const getUserWithOrg = cache(async (): Promise<UserWithOrg> => {
             emailVerified: true,
           },
         });
+        console.log('User created in Prisma:', dbUser.id);
 
         // Create default organization for new user
+        console.log('Creating default organization...');
         const org = await prisma.organization.create({
           data: {
             name: `${dbUser.name}'s Workspace`,
