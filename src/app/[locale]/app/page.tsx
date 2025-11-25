@@ -2,8 +2,8 @@ import { type Locale } from "@/i18n/config";
 import { getAppDictionary } from "@/i18n/getAppDictionary";
 import { getDashboardDictionary } from "@/i18n/getDashboardDictionary";
 import { PageHeader } from "@/components/app/page-header";
-import { mockUser } from "@/lib/mocks/mock-user";
-import { DashboardService } from "@/lib/services/dashboard-service";
+import { getUserWithOrg } from "@/lib/supabase/auth-utils";
+import { DashboardService } from "@/lib/services/dashboard.service";
 import { KpiStrip } from "@/components/dashboard/kpi-strip";
 import { RevenueChart } from "@/components/dashboard/revenue-chart";
 import { SystemHealth } from "@/components/dashboard/system-health";
@@ -28,47 +28,51 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
   const commonDict = await getAppDictionary(locale);
   const dashDict = await getDashboardDictionary(locale);
 
-  const snapshot = await DashboardService.getDashboardSnapshot({
-    orgId: "demo-org",
-    locale,
-  });
+  // Get current user and org
+  const user = await getUserWithOrg();
+  if (!user.currentOrgId) {
+    throw new Error('No organization selected');
+  }
+
+  // Get real dashboard data from database
+  const snapshot = await DashboardService.getDashboardSnapshot(user.currentOrgId);
 
   const kpiCards = [
     {
       label: dashDict.kpis.revenue24h,
       value: `$${(snapshot.kpis.revenue24h / 1000).toFixed(1)}k`,
-      change: "+6.1%",
-      direction: "up" as const,
+      change: snapshot.kpis.revenue24hChange,
+      direction: (snapshot.kpis.revenue24hChange?.startsWith('+') ? 'up' : 'down') as const,
     },
     {
       label: dashDict.kpis.netProfit7d,
       value: `$${(snapshot.kpis.netProfit7d / 1000).toFixed(1)}k`,
-      change: "+3.8%",
-      direction: "up" as const,
+      change: snapshot.kpis.netProfit7dChange,
+      direction: (snapshot.kpis.netProfit7dChange?.startsWith('+') ? 'up' : 'down') as const,
     },
     {
       label: dashDict.kpis.orders24h,
       value: snapshot.kpis.orders24h.toLocaleString(),
-      change: "+4.3%",
-      direction: "up" as const,
+      change: snapshot.kpis.orders24hChange,
+      direction: (snapshot.kpis.orders24hChange?.startsWith('+') ? 'up' : 'down') as const,
     },
     {
       label: dashDict.kpis.avgOrderValue,
       value: `$${snapshot.kpis.avgOrderValue.toFixed(2)}`,
-      change: "+1.1%",
-      direction: "up" as const,
+      change: snapshot.kpis.avgOrderValueChange,
+      direction: (snapshot.kpis.avgOrderValueChange?.startsWith('+') ? 'up' : 'down') as const,
     },
     {
       label: dashDict.kpis.buyBoxShare,
       value: `${snapshot.kpis.buyBoxShare}%`,
-      change: "+0.4%",
-      direction: "up" as const,
+      change: snapshot.kpis.buyBoxShareChange,
+      direction: (snapshot.kpis.buyBoxShareChange?.startsWith('+') ? 'up' : 'down') as const,
     },
     {
       label: dashDict.kpis.fulfillmentSla,
       value: `${snapshot.kpis.fulfillmentSla}%`,
-      change: "+0.5%",
-      direction: "up" as const,
+      change: snapshot.kpis.fulfillmentSlaChange,
+      direction: (snapshot.kpis.fulfillmentSlaChange?.startsWith('+') ? 'up' : 'down') as const,
     },
   ];
 
@@ -76,11 +80,11 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
     {
       label: dashDict.kpis.fulfillmentSla,
       value: `${snapshot.kpis.fulfillmentSla}%`,
-      change: "+0.5%",
+      change: snapshot.kpis.fulfillmentSlaChange || '+0.5%',
     },
     {
       label: "Incidents auto-resolved",
-      value: "842",
+      value: snapshot.automation.totalExecutions.toLocaleString(),
       change: "+18%",
     },
     {
@@ -90,12 +94,12 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
     },
   ];
 
-  const healthBadges = [
-    { label: "APIs connected", status: "HEALTHY" as const, description: "All channels authenticated" },
-    { label: "Automation engine", status: "WARNING" as const, description: "2 rules paused" },
-    { label: "Order sync", status: "HEALTHY" as const, description: "Last sync 4m ago" },
-    { label: "Fulfillment sync", status: "ERROR" as const, description: "Carrier latency detected" },
-  ];
+  // Map channel health
+  const healthBadges = snapshot.channels.map((ch) => ({
+    label: ch.name,
+    status: ch.health === 'healthy' ? 'HEALTHY' : ch.health === 'degraded' ? 'WARNING' : 'ERROR',
+    description: ch.status,
+  }));
 
   return (
     <div className="space-y-6 pb-12">
@@ -125,7 +129,7 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="space-y-1">
               <p className="text-sm font-semibold text-secondary">
-                {commonDict.common.welcome.replace("{{name}}", mockUser.name)}
+                {commonDict.common.welcome.replace("{{name}}", user.name || 'User')}
               </p>
               <p className="text-xs text-muted">{dashDict.subtitle}</p>
             </div>

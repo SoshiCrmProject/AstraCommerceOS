@@ -1,0 +1,1041 @@
+// AstraCommerce OS - Production Schema
+// Multi-tenant commerce operating system with full marketplace integrations
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// AUTH & MULTI-TENANCY
+// ============================================================================
+
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  passwordHash  String?
+  name          String?
+  avatarUrl     String?
+  
+  // Auth provider integration
+  authProviderId String? // Supabase user ID
+  emailVerified  Boolean @default(false)
+  twoFactorEnabled Boolean @default(false)
+  
+  // Metadata
+  locale        String  @default("en")
+  timezone      String  @default("UTC")
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  lastLoginAt   DateTime?
+  
+  // Relations
+  memberships   Membership[]
+  ownedOrgs     Organization[] @relation("OrganizationOwner")
+  copilotThreads CopilotThread[]
+  auditLogs     AuditLog[]
+  
+  @@index([email])
+  @@index([authProviderId])
+}
+
+model Organization {
+  id          String   @id @default(uuid())
+  name        String
+  slug        String   @unique
+  
+  // Owner relation
+  ownerId     String
+  owner       User     @relation("OrganizationOwner", fields: [ownerId], references: [id], onDelete: Cascade)
+  
+  // Metadata
+  logoUrl     String?
+  timezone    String   @default("UTC")
+  locale      String   @default("en")
+  
+  // Billing
+  plan        String   @default("trial") // trial, starter, professional, enterprise
+  planStatus  String   @default("active") // active, suspended, cancelled
+  billingEmail String?
+  mrr         Float    @default(0)
+  billingCycle String  @default("monthly")
+  nextBillingDate DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  memberships      Membership[]
+  products         Product[]
+  skus             Sku[]
+  listings         Listing[]
+  inventoryItems   InventoryItem[]
+  orders           Order[]
+  channels         ChannelConnection[]
+  channelSyncLogs  ChannelSyncLog[]
+  pricingRules     PricingRule[]
+  repricingRuns    RepricingRun[]
+  automationRules  AutomationRule[]
+  automationExecutions AutomationExecution[]
+  reviews          Review[]
+  analyticsSnapshots AnalyticsSnapshot[]
+  logEntries       LogEntry[]
+  orgSettings      OrgSettings?
+  brandingSettings BrandingSettings?
+  notificationSettings NotificationSettings?
+  integrationSettings IntegrationSettings?
+  copilotThreads   CopilotThread[]
+  auditLogs        AuditLog[]
+  autoFulfillmentConfigs AutoFulfillmentConfig[]
+  autoFulfillmentJobs AutoFulfillmentJob[]
+  jobQueueItems    JobQueueItem[]
+  
+  @@index([slug])
+  @@index([ownerId])
+  @@index([plan])
+}
+
+model Membership {
+  id        String   @id @default(uuid())
+  
+  orgId     String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  role      String   @default("member") // owner, admin, member, viewer
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@unique([orgId, userId])
+  @@index([userId])
+  @@index([orgId])
+}
+
+// ============================================================================
+// PRODUCTS, SKUS & LISTINGS
+// ============================================================================
+
+model Product {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  name        String
+  brand       String?
+  category    String?
+  description String?
+  
+  status      String   @default("active") // active, archived, draft
+  tags        Json?    // Array of strings stored as JSON
+  
+  imageUrls   Json?    // Array of image URLs stored as JSON
+  
+  // Metadata
+  attributes  Json?    // Flexible product attributes
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  skus        Sku[]
+  reviews     Review[]
+  
+  @@index([orgId])
+  @@index([orgId, status])
+  @@index([orgId, category])
+  @@index([orgId, brand])
+}
+
+model Sku {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  productId   String
+  product     Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  
+  sku         String   // Unique SKU code
+  name        String?
+  
+  // Variants
+  variant     Json?    // e.g., { size: "L", color: "Blue" }
+  
+  // Costing
+  costPrice   Float?
+  currency    String   @default("USD")
+  
+  // Physical
+  weight      Float?   // grams
+  dimensions  Json?    // { length, width, height } in cm
+  
+  barcode     String?
+  asin        String?  // Amazon ASIN
+  
+  status      String   @default("active")
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  listings    Listing[]
+  inventoryItems InventoryItem[]
+  orderLineItems OrderLineItem[]
+  
+  @@unique([orgId, sku])
+  @@index([orgId])
+  @@index([productId])
+  @@index([asin])
+}
+
+model Listing {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  skuId       String
+  sku         Sku      @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  
+  channelId   String
+  channel     ChannelConnection @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  
+  // Channel-specific IDs
+  externalId  String?  // Listing ID on the marketplace
+  
+  // Listing content
+  title       String
+  description String?
+  bullets     Json?    // Array of strings stored as JSON
+  imageUrls   Json?    // Array of image URLs stored as JSON
+  
+  // Pricing
+  price       Float
+  compareAtPrice Float?
+  currency    String   @default("USD")
+  
+  // Inventory
+  quantity    Int      @default(0)
+  
+  // Status
+  status      String   @default("draft") // draft, active, paused, error
+  publishedAt DateTime?
+  
+  // Metadata
+  metadata    Json?    // Channel-specific data
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  lastSyncedAt DateTime?
+  
+  @@unique([channelId, externalId])
+  @@index([orgId])
+  @@index([skuId])
+  @@index([channelId])
+  @@index([status])
+}
+
+// ============================================================================
+// INVENTORY
+// ============================================================================
+
+model InventoryItem {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  skuId       String
+  sku         Sku      @relation(fields: [skuId], references: [id], onDelete: Cascade)
+  
+  // Location (optional for multi-warehouse)
+  location    String   @default("default")
+  
+  // Stock levels
+  available   Int      @default(0)
+  reserved    Int      @default(0)
+  incoming    Int      @default(0)
+  
+  // Thresholds
+  safetyStock Int      @default(0)
+  reorderPoint Int     @default(0)
+  reorderQuantity Int  @default(0)
+  
+  // Metadata
+  lastCountDate DateTime?
+  notes       String?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@unique([orgId, skuId, location])
+  @@index([orgId])
+  @@index([skuId])
+}
+
+// ============================================================================
+// ORDERS & FULFILLMENT
+// ============================================================================
+
+model Order {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  channelId   String?
+  channel     ChannelConnection? @relation(fields: [channelId], references: [id], onDelete: SetNull)
+  
+  // Order identification
+  orderNumber String   // Internal order number
+  externalOrderId String? // Channel's order ID
+  
+  // Customer
+  customerName String?
+  customerEmail String?
+  
+  // Shipping
+  shippingAddress Json? // { line1, line2, city, state, zip, country }
+  billingAddress  Json?
+  
+  // Financials
+  subtotal    Float
+  shipping    Float    @default(0)
+  tax         Float    @default(0)
+  discount    Float    @default(0)
+  total       Float
+  currency    String   @default("USD")
+  
+  // Status
+  status      String   @default("pending") // pending, processing, shipped, delivered, cancelled, refunded
+  paymentStatus String @default("unpaid") // unpaid, paid, refunded
+  
+  // Fulfillment
+  fulfillmentStatus String @default("unfulfilled") // unfulfilled, partial, fulfilled
+  
+  // Dates
+  orderedAt   DateTime @default(now())
+  paidAt      DateTime?
+  shippedAt   DateTime?
+  deliveredAt DateTime?
+  cancelledAt DateTime?
+  
+  // Metadata
+  notes       String?
+  tags        Json?    // Array of strings stored as JSON
+  metadata    Json?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  lineItems   OrderLineItem[]
+  fulfillments Fulfillment[]
+  autoFulfillmentJobs AutoFulfillmentJob[]
+  
+  @@unique([orgId, orderNumber])
+  @@index([orgId])
+  @@index([channelId])
+  @@index([status])
+  @@index([orderedAt])
+  @@index([externalOrderId])
+}
+
+model OrderLineItem {
+  id        String   @id @default(uuid())
+  
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  skuId     String?
+  sku       Sku?     @relation(fields: [skuId], references: [id], onDelete: SetNull)
+  
+  // Product details (snapshot at order time)
+  productName String
+  variantName String?
+  productSku  String
+  
+  quantity  Int
+  unitPrice Float
+  subtotal  Float
+  tax       Float    @default(0)
+  discount  Float    @default(0)
+  total     Float
+  
+  // Metadata
+  imageUrl  String?
+  metadata  Json?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([orderId])
+  @@index([skuId])
+}
+
+model Fulfillment {
+  id        String   @id @default(uuid())
+  
+  orderId   String
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  // Fulfillment details
+  trackingNumber String?
+  trackingUrl    String?
+  carrier        String?
+  
+  method    String   @default("standard") // standard, express, amazon_auto_purchase
+  
+  status    String   @default("pending") // pending, in_transit, delivered, failed
+  
+  shippedAt DateTime?
+  deliveredAt DateTime?
+  
+  // Metadata
+  notes     String?
+  metadata  Json?
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([orderId])
+  @@index([trackingNumber])
+}
+
+// ============================================================================
+// CHANNELS & CONNECTORS
+// ============================================================================
+
+model ChannelConnection {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Channel identification
+  channelType String   // amazon, shopify, shopee, ebay, rakuten, walmart, yahoo, mercari, tiktok
+  channelName String   // User-friendly name
+  
+  // Credentials (encrypted in production)
+  credentials Json     // Marketplace-specific auth data
+  
+  // Configuration
+  config      Json?    // Channel-specific settings
+  
+  // Status
+  status      String   @default("active") // active, paused, error, disconnected
+  health      String   @default("unknown") // healthy, degraded, error, unknown
+  lastHealthCheck DateTime?
+  
+  // Sync settings
+  autoSync    Boolean  @default(true)
+  syncFrequency Int    @default(3600) // seconds
+  lastSyncedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  listings    Listing[]
+  syncLogs    ChannelSyncLog[]
+  orders      Order[]
+  
+  @@unique([orgId, channelType, channelName])
+  @@index([orgId])
+  @@index([channelType])
+  @@index([status])
+}
+
+model ChannelSyncLog {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  channelId   String
+  channel     ChannelConnection @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  
+  // Sync details
+  syncType    String   // orders, listings, inventory, pricing
+  status      String   // success, partial, failed
+  
+  // Results
+  itemsProcessed Int   @default(0)
+  itemsSucceeded Int   @default(0)
+  itemsFailed    Int   @default(0)
+  
+  // Errors
+  errors      Json?    // Array of error messages
+  
+  // Performance
+  startedAt   DateTime
+  completedAt DateTime?
+  duration    Int?     // milliseconds
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([orgId])
+  @@index([channelId])
+  @@index([syncType])
+  @@index([startedAt])
+}
+
+// ============================================================================
+// PRICING & REPRICING
+// ============================================================================
+
+model PricingRule {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  name        String
+  description String?
+  
+  // Rule criteria
+  skuPattern  String?  // e.g., "ELECTRONICS-*"
+  channel     String?  // Specific channel or null for all
+  
+  // Pricing strategy
+  strategy    String   // margin_target, competitive, min_max, dynamic
+  
+  // Parameters
+  targetMargin Float?   // percentage
+  minPrice    Float?
+  maxPrice    Float?
+  
+  // Competitive pricing
+  competitorOffset Float? // e.g., -0.05 for 5% below competitor
+  
+  // Schedule
+  schedule    Json?    // Cron-like schedule
+  
+  priority    Int      @default(0)
+  enabled     Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  repricingRuns RepricingRun[]
+  
+  @@index([orgId])
+  @@index([enabled])
+}
+
+model RepricingRun {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  ruleId      String?
+  rule        PricingRule? @relation(fields: [ruleId], references: [id], onDelete: SetNull)
+  
+  // Run details
+  status      String   // pending, running, completed, failed
+  
+  skusEvaluated Int    @default(0)
+  pricesChanged Int    @default(0)
+  
+  // Results
+  changes     Json?    // Array of { sku, oldPrice, newPrice, reason }
+  errors      Json?
+  
+  startedAt   DateTime @default(now())
+  completedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([orgId])
+  @@index([ruleId])
+  @@index([startedAt])
+}
+
+// ============================================================================
+// AUTOMATION
+// ============================================================================
+
+model AutomationRule {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  name        String
+  description String?
+  
+  // Trigger
+  triggerType String   // low_stock, failed_sync, negative_review, price_change, order_created, etc.
+  triggerConfig Json?  // Trigger-specific configuration
+  
+  // Conditions
+  conditions  Json?    // Array of conditions to evaluate
+  
+  // Actions
+  actions     Json     // Array of actions to execute
+  
+  enabled     Boolean  @default(true)
+  priority    Int      @default(0)
+  
+  // Stats
+  executionCount Int   @default(0)
+  lastExecutedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  executions  AutomationExecution[]
+  
+  @@index([orgId])
+  @@index([enabled])
+  @@index([triggerType])
+}
+
+model AutomationExecution {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  ruleId      String
+  rule        AutomationRule @relation(fields: [ruleId], references: [id], onDelete: Cascade)
+  
+  // Execution details
+  status      String   // success, partial, failed
+  
+  // Context
+  triggerData Json?    // What triggered this execution
+  
+  // Results
+  actionsExecuted Json? // Array of executed actions
+  errors      Json?
+  
+  executedAt  DateTime @default(now())
+  completedAt DateTime?
+  duration    Int?     // milliseconds
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([orgId])
+  @@index([ruleId])
+  @@index([executedAt])
+}
+
+// ============================================================================
+// REVIEWS
+// ============================================================================
+
+model Review {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  productId   String?
+  product     Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  
+  // Review details
+  externalId  String?  // Review ID from marketplace
+  channel     String?  // Which marketplace
+  
+  customerName String?
+  title       String?
+  body        String
+  rating      Int      // 1-5
+  
+  // Sentiment analysis
+  sentiment   String?  // positive, neutral, negative
+  sentimentScore Float?
+  
+  // Status
+  status      String   @default("pending") // pending, reviewed, resolved
+  priority    String   @default("normal") // low, normal, high, urgent
+  
+  // Response
+  reply       String?
+  repliedAt   DateTime?
+  repliedBy   String?
+  
+  // Internal notes
+  internalNotes String?
+  tags        Json?    // Array of strings stored as JSON
+  
+  // Dates
+  reviewedAt  DateTime // When customer wrote review
+  createdAt   DateTime @default(now()) // When we ingested it
+  updatedAt   DateTime @updatedAt
+  
+  @@index([orgId])
+  @@index([productId])
+  @@index([channel])
+  @@index([status])
+  @@index([rating])
+  @@index([reviewedAt])
+}
+
+// ============================================================================
+// ANALYTICS
+// ============================================================================
+
+model AnalyticsSnapshot {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Time period
+  date        DateTime // Start of period
+  period      String   // hourly, daily, weekly, monthly
+  
+  // Metrics
+  revenue     Float    @default(0)
+  orders      Int      @default(0)
+  units       Int      @default(0)
+  profit      Float    @default(0)
+  
+  // Channel breakdown
+  channelMetrics Json? // { amazon: {...}, shopify: {...} }
+  
+  // Product breakdown
+  topProducts Json?    // Top N products by revenue
+  
+  // Additional metrics
+  metrics     Json?    // Flexible additional metrics
+  
+  createdAt   DateTime @default(now())
+  
+  @@unique([orgId, date, period])
+  @@index([orgId, period, date])
+}
+
+// ============================================================================
+// LOGS
+// ============================================================================
+
+model LogEntry {
+  id          String   @id @default(uuid())
+  orgId       String?
+  organization Organization? @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Log details
+  level       String   // debug, info, warn, error, critical
+  source      String   // AUTOMATION, JOB_QUEUE, CONNECTOR, API, etc.
+  
+  message     String
+  
+  // Context
+  entityType  String?  // order, product, channel, etc.
+  entityId    String?
+  
+  userId      String?
+  
+  // Metadata
+  metadata    Json?
+  stack       String?  // Error stack trace if applicable
+  
+  timestamp   DateTime @default(now())
+  
+  @@index([orgId, timestamp])
+  @@index([level])
+  @@index([source])
+  @@index([entityType, entityId])
+}
+
+// ============================================================================
+// SETTINGS
+// ============================================================================
+
+model OrgSettings {
+  id          String   @id @default(uuid())
+  orgId       String   @unique
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // General
+  companyName String?
+  website     String?
+  industry    String?
+  
+  // Regional
+  currency    String   @default("USD")
+  timezone    String   @default("UTC")
+  locale      String   @default("en")
+  
+  // Features
+  features    Json?    // Feature flags
+  
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model BrandingSettings {
+  id          String   @id @default(uuid())
+  orgId       String   @unique
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Branding
+  logoUrl     String?
+  primaryColor String? @default("#3b82f6")
+  accentColor  String? @default("#8b5cf6")
+  
+  // Email branding
+  emailFrom   String?
+  emailReplyTo String?
+  emailFooter String?
+  
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model NotificationSettings {
+  id          String   @id @default(uuid())
+  orgId       String   @unique
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Email notifications
+  emailEnabled Boolean  @default(true)
+  emailAddress String?
+  
+  // Notification preferences
+  orderNotifications Boolean @default(true)
+  inventoryNotifications Boolean @default(true)
+  reviewNotifications Boolean @default(true)
+  systemNotifications Boolean @default(true)
+  
+  // Channels
+  slackWebhook String?
+  discordWebhook String?
+  
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+model IntegrationSettings {
+  id          String   @id @default(uuid())
+  orgId       String   @unique
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // API keys for external services
+  openaiApiKey String?
+  anthropicApiKey String?
+  
+  // Shipping integrations
+  shipstationApiKey String?
+  easypostApiKey String?
+  
+  // Other integrations
+  integrations Json?   // Flexible storage for other integration configs
+  
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+}
+
+// ============================================================================
+// AI COPILOT
+// ============================================================================
+
+model CopilotThread {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  title       String
+  
+  // Context
+  contextType String?  // dashboard, pricing, inventory, etc.
+  contextData Json?
+  
+  // Metadata
+  tags        Json?    // Array of strings stored as JSON
+  archived    Boolean  @default(false)
+  
+  lastMessageAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  messages    CopilotMessage[]
+  
+  @@index([orgId])
+  @@index([userId])
+  @@index([lastMessageAt])
+}
+
+model CopilotMessage {
+  id          String   @id @default(uuid())
+  
+  threadId    String
+  thread      CopilotThread @relation(fields: [threadId], references: [id], onDelete: Cascade)
+  
+  role        String   // user, assistant, system
+  content     String
+  
+  // AI metadata
+  model       String?
+  tokensUsed  Int?
+  
+  metadata    Json?
+  
+  createdAt   DateTime @default(now())
+  
+  @@index([threadId, createdAt])
+}
+
+// ============================================================================
+// AUTO-FULFILLMENT & AMAZON AUTO-PURCHASE
+// ============================================================================
+
+model AutoFulfillmentConfig {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Configuration
+  enabled     Boolean  @default(false)
+  
+  // Amazon settings
+  includeAmazonPoints Boolean @default(true)
+  includeDomesticShipping Boolean @default(true)
+  maxDeliveryDays Int  @default(7)
+  minExpectedProfit Float @default(0) // Can be negative
+  
+  // Eligible channels
+  eligibleChannels Json?    // Array of channel names stored as JSON
+  
+  // Amazon account credentials (encrypted)
+  amazonEmail String?
+  amazonCredentials Json? // Encrypted login data
+  amazonAddressId String? // Default shipping address
+  
+  // Risk settings
+  maxDailyOrders Int  @default(50)
+  requireManualApproval Boolean @default(false)
+  
+  updatedAt   DateTime @updatedAt
+  createdAt   DateTime @default(now())
+  
+  @@unique([orgId])
+}
+
+model AutoFulfillmentJob {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  orderId     String
+  order       Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  
+  // Product details
+  asin        String
+  quantity    Int
+  
+  // Evaluation
+  expectedProfit Float
+  amazonPrice Float
+  sourceCost  Float
+  estimatedShipping Float
+  estimatedFees Float
+  
+  // Status
+  status      String   @default("pending") // pending, evaluating, approved, purchasing, completed, failed, rejected
+  
+  // Purchase details
+  purchaseMethod String? // auto, manual
+  
+  // Headless browser job
+  browserJobId String?
+  purchaseAttempts Int @default(0)
+  maxAttempts Int     @default(3)
+  
+  // Results
+  amazonOrderId String?
+  purchasedAt DateTime?
+  actualCost  Float?
+  
+  // Errors
+  errorCode   String?  // 2FA_REQUIRED, CAPTCHA, DOM_CHANGED, OUT_OF_STOCK, etc.
+  errorMessage String?
+  errorDetails Json?
+  
+  // Metadata
+  metadata    Json?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([orgId])
+  @@index([orderId])
+  @@index([status])
+  @@index([createdAt])
+}
+
+// ============================================================================
+// JOB QUEUE (Generic background jobs)
+// ============================================================================
+
+model JobQueueItem {
+  id          String   @id @default(uuid())
+  orgId       String?
+  organization Organization? @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  // Job details
+  jobType     String   // channel_sync, auto_fulfillment, analytics_rollup, etc.
+  priority    Int      @default(0)
+  
+  // Payload
+  payload     Json
+  
+  // Status
+  status      String   @default("pending") // pending, processing, completed, failed
+  
+  // Execution
+  attempts    Int      @default(0)
+  maxAttempts Int      @default(3)
+  
+  // Results
+  result      Json?
+  error       String?
+  
+  // Scheduling
+  scheduledFor DateTime @default(now())
+  startedAt   DateTime?
+  completedAt DateTime?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  @@index([status, scheduledFor])
+  @@index([jobType])
+  @@index([orgId])
+}
+
+// ============================================================================
+// AUDIT LOG
+// ============================================================================
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  orgId       String
+  organization Organization @relation(fields: [orgId], references: [id], onDelete: Cascade)
+  
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id], onDelete: SetNull)
+  
+  action      String   // create_product, update_price, delete_listing, etc.
+  entityType  String?  // product, order, channel, etc.
+  entityId    String?
+  
+  changes     Json?    // Before/after snapshot
+  metadata    Json?
+  
+  ipAddress   String?
+  userAgent   String?
+  
+  timestamp   DateTime @default(now())
+  
+  @@index([orgId, timestamp])
+  @@index([userId])
+  @@index([action])
+}

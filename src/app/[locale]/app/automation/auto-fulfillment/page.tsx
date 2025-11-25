@@ -1,12 +1,14 @@
 /**
  * Auto-Fulfillment & Amazon Auto-Purchase Page
- * Complete multi-marketplace automated order fulfillment system
+ * Complete multi-marketplace automated order fulfillment system with browser automation
  */
 
 import { type Locale } from '@/i18n/config';
-import { getAutoFulfillmentDictionary } from '@/i18n/getAutoFulfillmentDictionary';
+import { getAppDictionary } from '@/i18n/getAppDictionary';
 import { PageHeader } from '@/components/app/page-header';
-import AutoFulfillmentService from '@/lib/services/auto-fulfillment-service';
+import { getUserWithOrg } from '@/lib/supabase/auth-utils';
+import { AutoFulfillmentService } from '@/lib/services/auto-fulfillment.service';
+import { ChannelService } from '@/lib/services/channel.service';
 import { RiskWarning } from '@/components/auto-fulfillment/risk-warning';
 import { SummaryCards } from '@/components/auto-fulfillment/summary-cards';
 import { ConfigPanel } from '@/components/auto-fulfillment/config-panel';
@@ -21,15 +23,20 @@ type AutoFulfillmentPageProps = {
 export default async function AutoFulfillmentPage(props: AutoFulfillmentPageProps) {
   const params = await props.params;
   const searchParams = await props.searchParams;
-  const dict = await getAutoFulfillmentDictionary(params.locale);
+  const commonDict = await getAppDictionary(params.locale);
 
-  const orgId = 'org-001'; // In production: get from auth session
+  // Get authenticated user and org
+  const user = await getUserWithOrg();
+  if (!user.currentOrgId) {
+    throw new Error('No organization selected');
+  }
 
-  // Fetch data in parallel
-  const [config, candidates, summary] = await Promise.all([
-    AutoFulfillmentService.getAutoFulfillmentConfig(orgId),
-    AutoFulfillmentService.fetchAutoFulfillmentCandidates(orgId),
-    AutoFulfillmentService.getAutoFulfillmentSummary(orgId),
+  // Fetch real data from database
+  const [config, stats, jobs, channels] = await Promise.all([
+    AutoFulfillmentService.getConfig(user.currentOrgId),
+    AutoFulfillmentService.getStats(user.currentOrgId),
+    AutoFulfillmentService.getJobs(user.currentOrgId, { take: 20 }),
+    ChannelService.getChannels(user.currentOrgId),
   ]);
 
   return (

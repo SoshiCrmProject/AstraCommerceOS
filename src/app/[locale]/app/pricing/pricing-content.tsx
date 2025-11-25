@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PricingService } from '@/lib/services/pricing-service';
 import { PricingKpiBar } from '@/components/pricing/pricing-kpi-bar';
 import { PricingFilters } from '@/components/pricing/pricing-filters';
@@ -21,9 +21,9 @@ export function PricingContent({ locale }: Props) {
     setLoading(false);
   };
 
-  useState(() => {
+  useEffect(() => {
     loadData(filter);
-  });
+  }, []);
 
   const handleFilterChange = (newFilter: PricingFilter) => {
     setFilter(newFilter);
