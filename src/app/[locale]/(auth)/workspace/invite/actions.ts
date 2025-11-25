@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { supabaseServer } from "@/lib/supabase/server";
 import { v4 as uuid } from "uuid";
@@ -51,5 +52,5 @@ export async function inviteMemberAction(formData: FormData) {
   });
 
   revalidatePath("/");
-  return token;
+  redirect("/en/app/settings/team");
 }
