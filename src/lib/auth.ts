@@ -54,7 +54,7 @@ export async function getCurrentUser(): Promise<User | null> {
 
     // Find or create user in our database
     let user = await prisma.user.findUnique({
-      where: { authProviderId: supabaseUser.id },
+      where: { email: supabaseUser.email! },
     });
 
     if (!user) {

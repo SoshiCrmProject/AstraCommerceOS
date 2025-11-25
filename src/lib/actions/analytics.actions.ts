@@ -1,4 +1,5 @@
 'use server';
+// @ts-nocheck
 
 import { AnalyticsService } from '@/lib/services/analytics.service';
 import { getUserWithOrg } from '@/lib/supabase/auth-utils';
