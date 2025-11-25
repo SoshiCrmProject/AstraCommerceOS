@@ -4,6 +4,8 @@ import { ChannelBoard } from "@/components/channels/channel-board";
 import { getAppDictionary } from "@/i18n/getAppDictionary";
 import { getChannelsDictionary } from "@/i18n/getChannelsDictionary";
 import { ChannelService } from "@/lib/services/channel-service";
+import { getUserWithOrg } from "@/lib/supabase/auth-utils";
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
 
@@ -14,17 +16,24 @@ type ChannelsPageProps = {
   params: Promise<{ locale: Locale }>;
 };
 
-async function healthCheckAction(locale: Locale) {
+async function healthCheckAction(locale: Locale, orgId: string) {
   "use server";
-  await ChannelService.runOrgHealthCheck("demo-org");
+  await ChannelService.runOrgHealthCheck(orgId);
   revalidatePath(`/${locale}/app/channels`);
 }
 
 export default async function ChannelsPage({ params }: ChannelsPageProps) {
   const { locale } = await params;
+  
+  // Get current user and org
+  const user = await getUserWithOrg();
+  if (!user || !user.currentOrgId) {
+    redirect(`/${locale}/sign-in`);
+  }
+  
   const commonDict = await getAppDictionary(locale);
   const dict = await getChannelsDictionary(locale);
-  const channels = await ChannelService.getChannelList("demo-org");
+  const channels = await ChannelService.getChannelList(user.currentOrgId);
   const totalRevenue = channels.reduce((acc, c) => acc + c.revenue7d, 0);
   const totalOrders = channels.reduce((acc, c) => acc + c.orders7d, 0);
   const currencyFormatter = new Intl.NumberFormat(locale, {
@@ -43,7 +52,7 @@ export default async function ChannelsPage({ params }: ChannelsPageProps) {
             <p className="text-xs text-secondary">{dict.subtitle}</p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <form action={healthCheckAction.bind(null, locale)}>
+            <form action={healthCheckAction.bind(null, locale, user.currentOrgId)}>
               <button className="btn btn-secondary text-xs sm:text-sm" type="submit">
                 <span className="hidden sm:inline">{dict.actions.healthCheck}</span>
                 <span className="sm:hidden">Health Check</span>
