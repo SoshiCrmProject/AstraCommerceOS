@@ -1,5 +1,5 @@
-'use server';
 // @ts-nocheck
+'use server';
 
 import { InventoryService } from '@/lib/services/inventory.service';
 import { getUserWithOrg } from '@/lib/supabase/auth-utils';
