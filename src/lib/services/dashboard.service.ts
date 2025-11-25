@@ -439,7 +439,7 @@ export class DashboardService {
           orders7d: orders7d || 0,
           margin7d: margin7d,
           buyBoxShare: 94, // Mock - would come from channel API
-          lastSyncAt: channel.lastSyncedAt || null,
+          lastSyncAt: channel.lastSyncedAt ? channel.lastSyncedAt.toISOString() : null,
           lastSync: channel.lastSyncedAt || null,
           listingsCount: channel._count.listings || 0,
           ordersCount: channel._count.orders || 0,
