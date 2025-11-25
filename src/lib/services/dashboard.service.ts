@@ -386,19 +386,43 @@ export class DashboardService {
             channelId: channel.id,
             orderedAt: { gte: last7Days },
           },
+          include: {
+            lineItems: true,
+          },
         });
         
         const revenue7d = channelOrders7d.reduce((sum, order) => sum + order.total, 0);
         const orders7d = channelOrders7d.length;
         
+        // Calculate margin (profit / revenue * 100)
+        const cost7d = channelOrders7d.reduce((sum, order) => {
+          return sum + order.lineItems.reduce((costSum, item) => {
+            return costSum + item.unitPrice * item.quantity * 0.4; // 40% cost estimate
+          }, 0);
+        }, 0);
+        const profit7d = revenue7d - cost7d;
+        const margin7d = revenue7d > 0 ? (profit7d / revenue7d) * 100 : 0;
+        
+        // Extract region from config or channel name
+        const config = channel.config as any;
+        let region = config?.region || config?.marketplace || 'US';
+        
+        // If region not in config, try to extract from channel name (e.g., "Amazon US", "Shopee SG")
+        if (!config?.region && !config?.marketplace) {
+          const nameMatch = channel.channelName.match(/\b([A-Z]{2})\b/);
+          region = nameMatch ? nameMatch[1] : 'US';
+        }
+        
         return {
           id: channel.id,
           name: channel.channelName,
           type: channel.channelType,
+          region: region,
           status: (channel.health === 'healthy' ? 'HEALTHY' : channel.health === 'degraded' ? 'WARNING' : 'ERROR') as 'HEALTHY' | 'WARNING' | 'ERROR',
           health: channel.health || 'unknown',
           revenue7d: revenue7d || 0,
           orders7d: orders7d || 0,
+          margin7d: margin7d,
           buyBoxShare: 94, // Mock - would come from channel API
           lastSyncAt: channel.lastSyncedAt || null,
           lastSync: channel.lastSyncedAt || null,
