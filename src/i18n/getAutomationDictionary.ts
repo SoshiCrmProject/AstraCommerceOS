@@ -1,6 +1,11 @@
+import 'server-only';
 import type { Locale } from './config';
 
-export async function getAutomationDictionary(locale: Locale) {
-  const dict = await import(`./locales/${locale}/app.automation.json`);
-  return dict.default;
-}
+const dictionaries = {
+  en: () => import('./locales/en/automation').then((module) => module.default),
+  ja: () => import('./locales/ja/automation').then((module) => module.default),
+};
+
+export const getAutomationDictionary = async (locale: Locale) => {
+  return dictionaries[locale]();
+};
