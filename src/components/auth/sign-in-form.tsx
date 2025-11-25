@@ -23,7 +23,8 @@ export function SignInForm({ locale }: SignInFormProps) {
       return;
     }
     setMessage(locale === "ja" ? "ログインしました" : "Signed in");
-    router.push(`/${locale}/app`);
+    // Force a full page reload to ensure cookies are set
+    window.location.href = `/${locale}/app`;
   };
 
   const sendMagicLink = async () => {
