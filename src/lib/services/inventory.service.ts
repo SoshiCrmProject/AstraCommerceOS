@@ -47,9 +47,9 @@ export class InventoryService {
       where.sku = {};
       if (filters.search) {
         where.sku.OR = [
-          { sku: { contains: filters.search, mode: 'insensitive' } },
-          { name: { contains: filters.search, mode: 'insensitive' } },
-          { product: { name: { contains: filters.search, mode: 'insensitive' } } },
+          { sku: { contains: filters.search } },
+          { name: { contains: filters.search } },
+          { product: { name: { contains: filters.search } } },
         ];
       }
       if (filters.category) {

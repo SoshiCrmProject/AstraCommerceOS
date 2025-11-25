@@ -30,9 +30,9 @@ export class ListingsService {
 
     if (filters.search) {
       where.OR = [
-        { title: { contains: filters.search, mode: 'insensitive' } },
-        { externalId: { contains: filters.search, mode: 'insensitive' } },
-        { sku: { sku: { contains: filters.search, mode: 'insensitive' } } },
+        { title: { contains: filters.search } },
+        { externalId: { contains: filters.search } },
+        { sku: { sku: { contains: filters.search } } },
       ];
     }
 

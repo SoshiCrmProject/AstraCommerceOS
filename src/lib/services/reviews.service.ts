@@ -32,9 +32,9 @@ export class ReviewsService {
 
     if (filters.search) {
       where.OR = [
-        { title: { contains: filters.search, mode: 'insensitive' } },
-        { body: { contains: filters.search, mode: 'insensitive' } },
-        { customerName: { contains: filters.search, mode: 'insensitive' } },
+        { title: { contains: filters.search } },
+        { body: { contains: filters.search } },
+        { customerName: { contains: filters.search } },
       ];
     }
 

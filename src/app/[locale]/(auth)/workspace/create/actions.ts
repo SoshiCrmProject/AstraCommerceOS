@@ -1,5 +1,6 @@
 "use server";
 
+import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { supabaseServer } from "@/lib/supabase/server";
 import { v4 as uuid } from "uuid";
@@ -38,5 +39,5 @@ export async function createWorkspaceAction(formData: FormData) {
   });
 
   revalidatePath("/");
-  return workspace.id as string;
+  redirect("/en/app");
 }
